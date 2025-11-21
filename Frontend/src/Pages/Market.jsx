@@ -7,7 +7,7 @@ const MainProduct = () => {
   const productData = {
     logo,
     title: "Market Metrics",
-    tagline: "“Smarter Billing. Smarter Decisions.”",
+    tagline: "Smarter Billing. Smarter Decisions",
     description:
       "The all-in-one billing, inventory, and analytics platform designed for growing businesses.",
     overviewImage,

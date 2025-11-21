@@ -272,4 +272,4 @@ const Careers = () => {
 };
 
 export default Careers;
-// ungaloda image path
+

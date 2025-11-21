@@ -861,10 +861,13 @@ const Contact = () => {
       if (resume) formDataToSend.append("resume", resume);
 
       const response = await fetch("http://localhost:5000/api/contact", {
+        
         method: "POST",
+       
         body: formDataToSend,
+        
       });
-
+ console.log("Frontend Response:", response);
       const data = await response.json();
 
       if (data.success) {

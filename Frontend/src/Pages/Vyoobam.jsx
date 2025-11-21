@@ -7,7 +7,7 @@ const Vyoobam = () => {
   const productData = {
     logo,
     title: "Vyoobam Nudge",
-    tagline: "“Never Miss a Task. Never Miss a Customer.”",
+    tagline: "Never Miss a Task. Never Miss a Customer",
     description:
       "Vyoobam Nudge is a smart reminder & notification platform that helps businesses and individuals stay on top of schedules, appointments, and recurring tasks.",
     overviewImage,

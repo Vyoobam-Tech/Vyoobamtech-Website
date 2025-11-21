@@ -10,12 +10,13 @@ import hari2 from "../assets/hari2.png";
 import kt from "../assets/kt.jpg";
 import lakshu from "../assets/lakshu.png";
 import cheliyan from "../assets/cheliyan.png";
+import janu from "../assets/janu.png";
 import seva from "../assets/seva.jpg"
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { AnimatedBox } from "./AnimatedBox";
 
-const brandLogos = [hari, lakshu, cheliyan, hari2, kt,seva];
+const brandLogos = [hari, lakshu, cheliyan, hari2, kt,seva, janu];
 
 const testimonials = [
   {

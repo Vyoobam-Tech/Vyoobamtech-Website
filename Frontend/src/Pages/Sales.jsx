@@ -7,7 +7,7 @@ const Sales = () => {
   const productData = {
     logo,
     title: "Sales Sage",
-    tagline: "“Turn Leads into Customers. Faster.”",
+    tagline: "Turn Leads into Customers Faster",
     description:
       "Sales teams struggle with scattered leads and missed opportunities. Sales Sage is a CRM-powered sales management tool designed to organize pipelines, boost productivity, and improve win rates.",
     overviewImage,

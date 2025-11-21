@@ -24,6 +24,8 @@ import AllProduct from "./Components/AllProduct.jsx";
 import JobOpenings from "./Components/JobOpenings.jsx";
 import Scroll from "./Components/Scroll.jsx";
 import AllServices from "./Components/AllServices.jsx";
+import AdminLogin from "./Pages/AdminLogin.jsx";
+import AdminCareers from "./Pages/AdminCareers.jsx";        
 
 function App() {
   useEffect(() => {
@@ -66,6 +68,9 @@ function App() {
               <Route path="/Sales" element={<Sales/>}/>
                    <Route path="/Egrocery" element={<Egrocery/>}/>
                     <Route path="/Vyoobam" element={<Vyoobam/>}/>
+
+                     <Route path="/admin-login" element={<AdminLogin />} />
+                  <Route path="/vyoobam-dev-career" element={<AdminCareers/>} />
           </Routes>
         </Router>
       </ThemeProvider>

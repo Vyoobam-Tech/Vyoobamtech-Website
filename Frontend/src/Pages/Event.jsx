@@ -7,7 +7,7 @@ const Event = () => {
   const productData = {
     logo,
     title: "Event Ease",
-    tagline: "“Plan, Manage, and Track Events—Effortlessly”",
+    tagline: "Plan Manage and Track Events—Effortlessly",
     description:
       "An end-to-end event management platform that simplifies registration, ticketing, communication, and analytics so you can focus on delivering great experiences.",
     overviewImage,
