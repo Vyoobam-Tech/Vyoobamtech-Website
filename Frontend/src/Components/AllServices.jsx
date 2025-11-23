@@ -1,11 +1,11 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import moblie from "../assets/mobileservice.jpg";
-import web from "../assets/webservice.jpg";
-import ui from "../assets/uiservice.jpg";
-import data from "../assets/dataservice.jpg";
-import it from "../assets/consultingservice.jpg";
+import moblie from "../assets/finalmoblie.jpg";
+import web from "../assets/finalweb.jpg";
+import ui from "../assets/finalui.jpg";
+import data from "../assets/finaldata.jpg";
+import it from "../assets/finalit.jpg";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";

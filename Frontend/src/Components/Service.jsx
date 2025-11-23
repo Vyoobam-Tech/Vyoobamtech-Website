@@ -1,5 +1,5 @@
 import { Box, Typography, Card, CardContent, Button } from "@mui/material";
-import careers from "../assets/webservice.jpg";
+import careers from "../assets/finalweb.jpg";
 import impactImg from "../assets/web2.jpg";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
@@ -103,8 +103,10 @@ export default function WebDevelopment() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0% 100%)",
+            
           }}
         />
+        
 
         {/* 🔥 TRANSFORM SECTION (Right side animation) */}
         <Box

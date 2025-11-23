@@ -11,13 +11,9 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-
-// MONGO CONNECT
-// -----------------------------
 mongoose
   .connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/vyoobam-careers", {
     useNewUrlParser: true,
@@ -26,9 +22,7 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log("MongoDB Error:", err));
 
-// -----------------------------
 
-// ✅ Multer setup (file upload limit: 5MB, only PDF/DOC/DOCX)
 const storage = multer.memoryStorage();
 
 const upload = multer({
@@ -48,84 +42,6 @@ const upload = multer({
   },
 });
 
-// ✅ Contact Form Route (with optional resume)
-// app.post("/api/contact", upload.single("resume"), async (req, res) => {
-//      console.log("Backend Route Hit:", req.body); 
-//   try {
-//     const { firstName, lastName, email, purpose, message } = req.body;
- 
-//     // ✅ Transporter setup (Hostinger SMTP)
-//     const transporter = nodemailer.createTransport({
-//       host: "smtp.hostinger.com",
-//       port: 465,
-//       secure: true,
-//       auth: {
-//         user: "helpdesk@vyoobam.com",
-//         pass: "Help@vyoobam123",
-//       },
-//       tls: {
-//         rejectUnauthorized: false,
-//       },
-//     });
-//       let hrEmail =
-//       purpose.toLowerCase().includes("internship") || purpose.toLowerCase().includes("job")
-//         ? "manishaselvakumar03@gmail.com"
-//         : "keerthivashiniganesan@gmail.com";
-
-//     // ✅ Email details
-//     const mailOptions = {
-//       from: "helpdesk@vyoobam.com",
-//       to: hrEmail, // HR email
-//       replyTo: email,
-//       subject: `New Contact Form Submission - ${purpose}`,
-//       text: `
-// New contact form submission:
-
-// Name: ${firstName} ${lastName}
-// Email: ${email}
-// Purpose: ${purpose}
-// Message: ${message}
-//       `,
-//       attachments: req.file
-//         ? [
-//             {
-//               filename: req.file.originalname,
-//               content: req.file.buffer,
-//             },
-//           ]
-//         : [],
-//     };
-
-//     // ✅ Send the email
-//     await transporter.sendMail(mailOptions);
-//      await transporter.sendMail({
-//       from: "helpdesk@vyoobam.com",
-//       to: email,
-//       subject: `Your ${purpose} submission is received`,
-//       text: `Hi ${firstName},
-
-// Thank you for your submission. Our team will contact you soon.
-
-// Best regards,
-// Vyoobam Team`,
-//     });
-//        console.log("Backend Route Hit:", req.body); 
-//     console.log("Email sent successfully");
-
-//     res.json({ success: true, message: "Email sent successfully!" });
-//   } catch (error) {
-//     console.error("Error sending email:", error.message);
-//     res.status(500).json({
-//       success: false,
-//       message:
-//         error.message === "File too large"
-//           ? "File size should not exceed 5MB"
-//           : error.message,
-//     });
-//   }
-// });
-
-// CONTACT ROUTE FIXED
 app.post("/api/contact", upload.single("resume"), async (req, res) => {
   console.log("Backend Route Hit:", req.body);
 
@@ -137,7 +53,7 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
       return res.status(400).json({ success: false, message: "Purpose required" });
     }
 
-    // FIX: Two separate transporters
+    
     const hrTransporter = nodemailer.createTransport({
       host: "smtp.hostinger.com",
       port: 465,
@@ -146,6 +62,9 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
         user: "helpdesk@vyoobam.com",
         pass: "Help@vyoobam123",
       },
+       tls: {
+        rejectUnauthorized: false,
+             },
     });
 
     const userTransporter = nodemailer.createTransport({
@@ -156,14 +75,16 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
         user: "helpdesk@vyoobam.com",
         pass: "Help@vyoobam123",
       },
+       tls: {
+         rejectUnauthorized: false,
+       },
     });
 
-    // FIX: HR Email Selection
     let hrEmail =
       purpose.toLowerCase().includes("internship") ||
       purpose.toLowerCase().includes("job")
-        ? "manishaselvakumar03@gmail.com"
-        : "keerthivashini5@gmail.com";
+        ?"keerthivashini5@gmail.com"
+        : "manishaselvakumar03@gmail.com";
 
     console.log("Sending HR mail to:", hrEmail);
 
@@ -218,10 +139,6 @@ Vyoobam Team`,
     });
   }
 });
-
-
-
-// ✅ Global error handler (for file errors)
 app.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {
     // File too large or other Multer errors
@@ -232,18 +149,12 @@ app.use((err, req, res, next) => {
   next();
 });
 
-// -----------------------------
-// ADMIN AUTH MIDDLEWARE (reads ADMIN_KEY from .env)
 const adminAuth = require("./middleware/adminAuth");
 
-// -----------------------------
-// CAREERS ROUTES (mount)
 const jobsRouter = require("./routes/jobs");
 app.use("/api/careers", jobsRouter);
 
-// -----------------------------
 
-// Start server
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );
