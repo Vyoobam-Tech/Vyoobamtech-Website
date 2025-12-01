@@ -1,822 +1,3 @@
-// import React from "react";
-// import { Box, Container, Typography, Button, useTheme } from "@mui/material";
-// import adminImg from "../assets/admin.jpg";
-// import fullstackImg from "../assets/fullstack.jpg";
-// import softwareImg from "../assets/software.jpg";
-// import wordpressImg from "../assets/wordpress.jpg";
-// import reactnativeImg from "../assets/react.jpg";
-// import heroImg from "../assets/vyoobamrep.png";
-// import Header from "./Header";
-// import Footer from "./Footer";
-
-// import image from "../assets/CTA.jpg"; // your CTA illustration
-// import { useNavigate } from "react-router-dom";
-
-// import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-// import CodeIcon from "@mui/icons-material/Code";
-// import StorageIcon from "@mui/icons-material/Storage";
-// import LanguageIcon from "@mui/icons-material/Language"; // used instead of Html
-// import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
-
-// const jobOpenings = [
-//   {
-//     title: "Admin",
-//     location: "Kumbakonam / Remote",
-//     overview:
-//       "Manage day-to-day office operations, documentation, and team coordination. Ensure smooth workflow and support management in decision-making.",
-//     requirements: [
-//       "Graduate in Business Administration / Commerce",
-//       "Strong communication & organizational skills",
-//       "Knowledge of MS Office / Google Workspace",
-//     ],
-//     image: adminImg,
-//     icon: AdminPanelSettingsIcon,
-//   },
-//   {
-//     title: "Full Stack Developer",
-//     location: "Hybrid (Kumbakonam + Remote)",
-//     overview:
-//       "Work on both front-end and back-end systems to build scalable applications.",
-//     requirements: [
-//       "Proficiency in JavaScript, React.js, Node.js, Express.js",
-//       "Experience with databases (MySQL/MongoDB)",
-//       "REST API integration, Git, CI/CD knowledge",
-//     ],
-//     image: fullstackImg,
-//     icon: CodeIcon,
-//   },
-//   {
-//     title: "Software Engineer",
-//     location: "Flexible (Remote option available)",
-//     overview:
-//       "Design, develop, and test software applications with focus on performance and scalability.",
-//     requirements: [
-//       "Knowledge of Python, Java, or .NET",
-//       "Strong problem-solving skills",
-//       "Exposure to SDLC & Agile methodology",
-//     ],
-//     image: softwareImg,
-//     icon: StorageIcon,
-//   },
-//   {
-//     title: "WordPress Developer",
-//     location: "Kumbakonam / Remote",
-//     overview:
-//       "Develop, customize, and maintain WordPress websites and plugins.",
-//     requirements: [
-//       "Experience with WordPress themes & plugins",
-//       "Strong skills in PHP, HTML, CSS, JavaScript",
-//       "Knowledge of SEO best practices",
-//     ],
-//     image: wordpressImg,
-//     icon: LanguageIcon,
-//   },
-//   {
-//     title: "React Native Developer",
-//     location: "Remote / Hybrid",
-//     overview:
-//       "Build high-performance cross-platform mobile apps using React Native.",
-//     requirements: [
-//       "Proficiency in React Native, Redux, REST APIs",
-//       "Experience in publishing apps to Play Store / App Store",
-//       "Good knowledge of mobile UI/UX standards",
-//     ],
-//     image: reactnativeImg,
-//     icon: PhoneIphoneIcon,
-//   },
-// ];
-
-// const JobSection = ({ job, reverse }) => {
-//   const theme = useTheme();
-//   const IconComp = job.icon;
-
-//   return (
-//     <Box
-//       sx={{
-//         bgcolor: "#fff",
-//         color: "#000",
-//         py: { xs: 6, md: 10 },
-//         borderBottom: "1px solid #eee",
-//       }}
-//     >
-//       <Container>
-//         <Box
-//           sx={{
-//             display: "flex",
-//             flexDirection: {
-//               xs: "column",
-//               md: reverse ? "row-reverse" : "row",
-//             },
-//             alignItems: "center",
-//             gap: 6,
-//           }}
-//         >
-//           {/* Image with hover */}
-//           <Box
-//             sx={{
-//               flex: 1,
-//               display: "flex",
-//               justifyContent: "center",
-//               mb: { xs: 3, md: 0 },
-//             }}
-//           >
-//             <Box
-//               component="img"
-//               src={job.image}
-//               alt={job.title}
-//               sx={{
-//                 maxWidth: 500,
-//                 width: "150%",
-//                 height: 300,
-//                 borderRadius: 4,
-//                 boxShadow: 3,
-//                 objectFit: "cover",
-//                 transition: "0.4s",
-//                 "&:hover": {
-//                   transform: "scale(1.05)",
-//                   boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
-//                 },
-//               }}
-//             />
-//           </Box>
-
-//           {/* Job Details */}
-//           <Box sx={{ flex: 1 }}>
-//             <Typography
-//               variant="h4"
-//               fontWeight="bold"
-//               mb={2}
-//               color="#000"
-//               sx={{ display: "flex", alignItems: "center", gap: 1 }}
-//             >
-//               <IconComp sx={{ fontSize: 34, color: "#183278" }} />
-//               {job.title}
-//             </Typography>
-//             <Typography
-//               variant="subtitle1"
-//               fontWeight="medium"
-//               mb={1}
-//               color="#333"
-//             >
-//               Location: {job.location}
-//             </Typography>
-//             <Typography variant="body1" mb={2} fontWeight="medium" color="#222">
-//               <strong>Role Overview:</strong> {job.overview}
-//             </Typography>
-//             <Typography variant="body1" mb={1} fontWeight="medium" color="#222">
-//               <strong>Requirements:</strong>
-//             </Typography>
-//             <Box component="ul" sx={{ pl: 3, color: "#222" }}>
-//               {job.requirements.map((req, idx) => (
-//                 <Typography
-//                   key={idx}
-//                   component="li"
-//                   sx={{ mb: 1, fontSize: 16 }}
-//                 >
-//                   {req}
-//                 </Typography>
-//               ))}
-//             </Box>
-
-//             {/* Apply Now Button */}
-//             <Button
-//               variant="outlined"
-//               sx={{
-//                 mt: 2,
-//                 borderRadius: 2,
-//                 textTransform: "none",
-//                 fontWeight: 500,
-//                 borderColor: "#183278",
-//                 color: "#183278",
-//                 "&:hover": { background: "#183278", color: "#fff" },
-//               }}
-//             >
-//               Apply Now
-//             </Button>
-//           </Box>
-//         </Box>
-//       </Container>
-//     </Box>
-//   );
-// };
-
-// const HeroZigzagPage = () => {
-//   return (
-//     <>
-//       <Header />
-//       {/* Hero Section */}
-//       <Box
-//         sx={{
-//           minHeight: { xs: "75vh", md: "66vh" },
-//           display: "flex",
-//           alignItems: "center",
-//           justifyContent: "center",
-//           background: "linear-gradient(90deg, #020f35ff 60%, #fff 100%)",
-//           pb: { xs: 4, md: 8 },
-//           mt: 12,
-//         }}
-//       >
-//         <Container>
-//           <Box
-//             sx={{
-//               display: "flex",
-//               alignItems: "center",
-//               flexDirection: { xs: "column", md: "row" },
-//               gap: 4,
-//               ml: 6,
-//             }}
-//           >
-//             <Box sx={{ flex: 1 }}>
-//               <Typography
-//                 variant="h2"
-//                 fontWeight="400"
-//                 color="white"
-//                 sx={{ mb: 3 }}
-//               >
-//                 Your Future Begins Here
-//               </Typography>
-//               <Typography
-//                 variant="h6"
-//                 sx={{ color: "#e5eefd", maxWidth: 420, mb: 4 }}
-//               >
-//                 Empower your career—Join our team of innovators and shape
-//                 tomorrow.
-//               </Typography>
-//               <Button
-//                 variant="contained"
-//                 sx={{
-//                   background: "linear-gradient(90deg, #3f5eec, #00e4c9)",
-//                   borderRadius: 3,
-//                   minWidth: 140,
-//                   textTransform: "none",
-//                   fontSize: 18,
-//                   py: 1.7,
-//                   px: 4,
-//                   fontWeight: 500,
-//                   boxShadow: "0 8px 24px 0 #1e88e540",
-//                   "&:hover": {
-//                     background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
-//                   },
-//                 }}
-//               >
-//                 Apply Now
-//               </Button>
-//             </Box>
-//             <Box
-//               sx={{
-//                 flex: 1,
-//                 display: "flex",
-//                 justifyContent: "center",
-//                 alignItems: "center",
-//                 mt: { xs: 4, md: 0 },
-//               }}
-//             >
-//               <Box
-//                 component="img"
-//                 src={heroImg}
-//                 alt="hero"
-//                 sx={{
-//                   width: "100%",
-//                   maxWidth: 360,
-//                   borderRadius: 7,
-//                   boxShadow: 6,
-//                   objectFit: "cover",
-//                   border: "5px solid #f4f9ff",
-//                   mt: 7,
-//                 }}
-//               />
-//             </Box>
-//           </Box>
-//         </Container>
-//       </Box>
-
-//       {/* Job Sections */}
-//       {jobOpenings.map((job, idx) => (
-//         <JobSection key={job.title} job={job} reverse={idx % 2 !== 0} />
-//       ))}
-//       {/* Call to Action Section */}
-//       <Box sx={{ backgroundColor: "white", py: 6 }}>
-//         <section
-//           style={{
-//             background: "linear-gradient(90deg, #f6e7ff 0%, #e3eaff 100%)",
-//             borderRadius: "24px",
-//             display: "flex",
-//             flexDirection: "row",
-//             alignItems: "center",
-//             justifyContent: "space-between",
-//             padding: "3rem 2.5rem",
-//             margin: "0 auto",
-//             maxWidth: "1100px",
-//             width: "100%",
-//             boxShadow: "0 8px 32px rgba(80, 80, 120, 0.14)",
-//             gap: "2rem",
-//           }}
-//         >
-//           {/* Left: Text Content */}
-//           <div style={{ maxWidth: "480px" }}>
-//             <Typography
-//               variant="h3"
-//               sx={{
-//                 fontWeight: 700,
-//                 mb: 2,
-//                 color: "#22223b",
-//                 lineHeight: 1.2,
-//                 letterSpacing: "-0.5px",
-//               }}
-//             >
-//               Didn’t Find Your Role?
-//             </Typography>
-//             <Typography
-//               variant="body1"
-//               sx={{ fontSize: "1.05rem", color: "#37385b", mb: 3 }}
-//             >
-//               Great transformation begins with people who are passionate and
-//               creative. Even if you don’t see a role that fits today, share your
-//               profile with us. We’ll reach out when the right opportunity opens.
-//             </Typography>
-
-//             <Button
-//               variant="contained"
-//               sx={{
-//                 px: 4,
-//                 py: 1.5,
-//                 borderRadius: "30px",
-//                 fontSize: "1rem",
-//                 fontWeight: 500,
-//                 background: "linear-gradient(90deg, #3f5eec, #00e4c9)",
-//                 textTransform: "none",
-//                 "&:hover": {
-//                   background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
-//                 },
-//               }}
-//               href="https://forms.gle/your-general-application-form" // 🔹 Replace with your Google Form link
-//               target="_blank"
-//               rel="noopener noreferrer"
-//             >
-//               Apply Anyway →
-//             </Button>
-//           </div>
-
-//           {/* Right: Image */}
-//           <div>
-//             <img
-//               src={image}
-//               alt="Join Our Team"
-//               style={{
-//                 borderRadius: "18px",
-//                 boxShadow: "0 6px 24px rgba(0,0,0,0.12)",
-//                 maxWidth: "360px",
-//                 width: "100%",
-//                 height: "auto",
-//               }}
-//             />
-//           </div>
-//         </section>
-//       </Box>
-
-//       <Footer />
-//     </>
-//   );
-// };
-
-// export default HeroZigzagPage;
-
-
-
-
-// import React from 'react';
-// import { Box, Card, CardContent, Button, Typography } from '@mui/material';
-// import HomeIcon from '@mui/icons-material/Home';
-// import WorkIcon from '@mui/icons-material/Work';
-
-// const jobs = [
-//   {
-//     category: 'IT',
-//     title: 'FAI reviewer',
-//     skills: 'manufacturing processes',
-//     experience: '5 - 10 Years',
-//     location: 'WICHITA',
-//   },
-//   // Add more jobs as needed...
-// ];
-
-// function Sidebar() {
-//   return (
-//     <Box sx={{
-//       width: 220,
-//       backgroundColor: '#0A1B3B',
-//       height: '100vh',
-//       color: '#e0e0e0',
-//       padding: 2,
-//       display: 'flex',
-//       flexDirection: 'column',
-//       alignItems: 'start',
-//     }}>
-//       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, mt: 2 }}>
-//         <HomeIcon sx={{ fontSize: 35, mr: 1 }} />
-//         <Typography variant="h6">HOME</Typography>
-//       </Box>
-//       <Box sx={{ borderBottom: '1px solid #8190A5', width: '100%', mb: 2 }} />
-//       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-//         <WorkIcon sx={{ fontSize: 30, mr: 1 }} />
-//         <Typography variant="h6" sx={{ color: '#8190A5' }}>JOBS</Typography>
-//       </Box>
-//     </Box>
-//   );
-// }
-
-// function JobCard({ job }) {
-//   return (
-//     <Card sx={{ minWidth: 280, margin: 2, boxShadow: 2 }}>
-//       <CardContent>
-//         <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 1 }}>
-//           <Box sx={{
-//             backgroundColor: '#B1B1B1',
-//             color: '#fff',
-//             borderRadius: 1,
-//             paddingX: 2,
-//             paddingY: 0.5,
-//             marginRight: 2,
-//             fontWeight: 'bold',
-//             fontSize: 16,
-//             letterSpacing: 1,
-//           }}>
-//             {job.category}
-//           </Box>
-//         </Box>
-//         <Typography variant="h6" component="div" sx={{ fontWeight: 700 }}>
-//           {job.title}
-//         </Typography>
-//         <Typography sx={{ mb: 0.5 }}>Skills: {job.skills}</Typography>
-//         <Typography sx={{ mb: 0.5 }}>Experience: {job.experience}</Typography>
-//         <Typography sx={{ mb: 2 }}>Location: {job.location}</Typography>
-//         <Button
-//           variant="outlined"
-//           sx={{
-//             fontWeight: 'bold',
-//             width: '100%',
-//             border: '2px solid',
-//             borderColor: '#222',
-//             color: '#222',
-//             paddingY: 1,
-//           }}
-//         >
-//           APPLY/SHORTLIST
-//         </Button>
-//       </CardContent>
-//     </Card>
-//   );
-// }
-
-// export default function JobsLayout() {
-//   return (
-//     <Box sx={{ display: 'flex', height: '100vh' }}>
-//       <Sidebar />
-//       <Box sx={{
-//         flex: 1,
-//         backgroundColor: '#fff',
-//         display: 'flex',
-//         flexWrap: 'wrap',
-//         alignItems: 'flex-start',
-//         padding: 3,
-//       }}>
-//         {jobs.map((job, idx) => (
-//           <JobCard key={idx} job={job} />
-//         ))}
-//       </Box>
-//     </Box>
-//   );
-// import React, { useState } from "react";
-// import {
-//   Box,
-//   Card,
-//   CardContent,
-//   Button,
-//   Typography,
-//   Tabs,
-//   Tab,
-//   TextField,
-// } from "@mui/material";
-// import HomeIcon from "@mui/icons-material/Home";
-// import WorkIcon from "@mui/icons-material/Work";
-// import SchoolIcon from "@mui/icons-material/School";
-// import logo from "../assets/logo.jpg"
-// import { useNavigate } from "react-router-dom";
-// // Jobs Data
-//  const [jobs, setJobs] = useState([]);
-
-//   useEffect(() => {
-//     fetchJobs();
-//     // eslint-disable-next-line
-//   }, []);
-
-//   const fetchJobs = async () => {
-//     try {
-//       const res = await axios.get("/api/careers");
-//       setJobs(res.data);
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
-// // Internship Data
-// const internship = [
-//   {
-//     category: "Internship",
-//     title: "Full Stack Internship",
-//     skills: "HTML, CSS, JavaScript, React.js, Node.js, MongoDB",
-//     duration: "6 Months",
-//     location: "Kumbakonam / Remote",
-//   },
-// ];
-
-// // Sidebar
-// function Sidebar({ currentPage, setCurrentPage }) {
-//    const navigate = useNavigate();
-//   return (
-//     <Box
-//       sx={{
-//         width: 220,
-//         backgroundColor: "#0A1B3B",
-//         color: "#e0e0e0",
-//         padding: 2,
-//         display: "flex",
-//         flexDirection: "column",
-//       }}
-//     >
-//       {/* HOME */}
-//       <Box
-//         sx={{
-//           display: "flex",
-//           alignItems: "center",
-//           mb: 2,
-//           mt: 2,
-//           cursor: "pointer",
-//           color: currentPage === "home" ? "#00e4c9" : "#e0e0e0",
-//         }}
-//         onClick={() => navigate("/")}
-//       >
-//         <HomeIcon sx={{ fontSize: 35, mr: 1 }} />
-//         <Typography variant="h6">HOME</Typography>
-//       </Box>
-
-//       <Box sx={{ borderBottom: "1px solid #8190A5", width: "100%", mb: 2 }} />
-
-//       {/* JOBS */}
-//       <Box
-//         sx={{
-//           display: "flex",
-//           alignItems: "center",
-//           mb: 2,
-//           cursor: "pointer",
-//           color: currentPage === "jobs" ? "#00e4c9" : "#8190A5",
-//         }}
-//         onClick={() => setCurrentPage("jobs")}
-//       >
-//         <WorkIcon sx={{ fontSize: 30, mr: 1 }} />
-//         <Typography variant="h6">JOBS</Typography>
-//       </Box>
-
-//       {/* INTERNSHIP */}
-//       <Box
-//         sx={{
-//           display: "flex",
-//           alignItems: "center",
-//           cursor: "pointer",
-//           color: currentPage === "internship" ? "#00e4c9" : "#8190A5",
-//         }}
-//         onClick={() => setCurrentPage("internship")}
-//       >
-//         <SchoolIcon sx={{ fontSize: 30, mr: 1 }} />
-//         <Typography variant="h6">INTERNSHIP</Typography>
-//       </Box>
-//     </Box>
-//   );
-// }
-
-// // Reusable Card Component
-// function InfoCard({ data }) {
-//   const navigate = useNavigate();
-//   return (
-//     <Card
-//       sx={{
-//         width: 300,
-//         height: 320,
-//         margin: 2,
-//         boxShadow: 2,
-//         display: "flex",
-//         flexDirection: "column",
-//         justifyContent: "space-between",
-//       }}
-//     >
-//       <CardContent sx={{ flexGrow: 1 }}>
-//         <Box sx={{ display: "flex", alignItems: "center", marginBottom: 1 }}>
-//           <Box
-//             sx={{
-//               backgroundColor: "#B1B1B1",
-//               color: "#fff",
-//               borderRadius: 1,
-//               px: 2,
-//               py: 0.5,
-//               mr: 2,
-//               fontWeight: "bold",
-//               fontSize: 16,
-//               letterSpacing: 1,
-//             }}
-//           >
-//             {data.category}
-//           </Box>
-//         </Box>
-
-//         <Typography
-//           variant="h6"
-//           sx={{ fontWeight: 700, fontSize: "1.1rem", mb: 0.5 }}
-//         >
-//           {data.title}
-//         </Typography>
-
-//         {data.skills && (
-//           <Typography sx={{ fontSize: 14, mb: 0.5 }}>
-//             Skills: {data.skills}
-//           </Typography>
-//         )}
-//         {data.experience && (
-//           <Typography sx={{ fontSize: 14, mb: 0.5 }}>
-//             Experience: {data.experience}
-//           </Typography>
-//         )}
-//         {data.duration && (
-//           <Typography sx={{ fontSize: 14, mb: 0.5 }}>
-//             Duration: {data.duration}
-//           </Typography>
-//         )}
-//         <Typography sx={{ fontSize: 14, mb: 2 }}>
-//           Location: {data.location}
-//         </Typography>
-//       </CardContent>
-
-//       <Box sx={{ p: 2, pt: 0 }}>
-//         <Button
-//           variant="outlined"
-//           fullWidth
-//           sx={{
-//             fontWeight: "bold",
-//             border: "2px solid #222",
-//             color: "#222",
-//             py: 1,
-//             textTransform: "none",
-//             "&:hover": {
-//               backgroundColor: "#222",
-//               color: "#fff",
-//             },
-//           }}
-//           onClick={() => navigate("/contact")}
-//         >
-//           APPLY
-//         </Button>
-//       </Box>
-//     </Card>
-//   );
-// }
-
-// // Home Page
-// function HomePage() {
-//   return (
-//     <Box sx={{ p: 3 }}>
-//       <Typography variant="h4" sx={{ fontWeight: 700 }}>
-//         Welcome to Vyoobam Careers
-//       </Typography>
-//       <Typography sx={{ mt: 2 }}>
-//         Explore job and internship opportunities to start or advance your
-//         career with us.
-//       </Typography>
-//     </Box>
-//   );
-// }
-
-// // Jobs Page
-// function JobsPage() {
-//   const [category, setCategory] = useState("IT");
-//   const [search, setSearch] = useState("");
-
-//   const filteredJobs = jobs.filter(
-//     (job) =>
-//       job.category === category &&
-//       `${job.title} ${job.skills} ${job.location}`
-//         .toLowerCase()
-//         .includes(search.toLowerCase())
-//   );
-
-//   return (
-//     <Box sx={{ p: 3 }}>
-//       {/* Header */}
-//       <Box
-//         sx={{
-//           display: "flex",
-//           alignItems: "center",
-//           mb: 3,
-//           justifyContent: "space-between",
-//           flexWrap: "wrap",
-//           gap: 2,
-//         }}
-//       >
-//         <Typography variant="h4" sx={{ fontWeight: 700 }}>
-//           Recent Openings
-//         </Typography>
-
-//         <Tabs
-//           value={category}
-//           onChange={(_, v) => setCategory(v)}
-//           sx={{ minHeight: 40 }}
-//         >
-//           <Tab label="IT" value="IT" sx={{ fontWeight: "bold" }} />
-//           <Tab label="BPM" value="BPM" sx={{ fontWeight: "bold" }} />
-//         </Tabs>
-
-//         <TextField
-//           placeholder="Search by role, skills, location..."
-//           variant="outlined"
-//           size="small"
-//           sx={{ width: 300, backgroundColor: "#fafafa" }}
-//           value={search}
-//           onChange={(e) => setSearch(e.target.value)}
-//         />
-//       </Box>
-
-//       {/* Job List */}
-//       <Box
-//         sx={{
-//           display: "flex",
-//           flexWrap: "wrap",
-//           alignItems: "flex-start",
-//         }}
-//       >
-//         {filteredJobs.length > 0 ? (
-//           filteredJobs.map((job) => <InfoCard key={job.title} data={job} />)
-//         ) : (
-//           <Typography sx={{ mt: 5 }}>No jobs found.</Typography>
-//         )}
-//       </Box>
-//     </Box>
-//   );
-// }
-
-// // Internship Page
-// function InternshipPage() {
-//   return (
-//     <Box sx={{ p: 3 }}>
-//       <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>
-//         Internship Opportunities
-//       </Typography>
-
-//       <Box sx={{ display: "flex", flexWrap: "wrap" }}>
-//         {internship.map((item) => (
-//           <InfoCard key={item.title} data={item} />
-//         ))}
-//       </Box>
-//     </Box>
-//   );
-// }
-
-// // Main Layout
-// export default function JobsLayout() {
-//   const [currentPage, setCurrentPage] = useState("home");
-
-//   return (
-//     <Box sx={{ display: "flex", height: "100vh" }}>
-//   <Sidebar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-
-//   {/* Right Side Content */}
-//   <Box sx={{ flex: 1, position: "relative", backgroundColor: "#fff" }}>
-//     {/* Watermark */}
-//     <Box
-//       component="img"
-//       src={logo}
-//       alt="logo watermark"
-//       sx={{
-//         position: "absolute",
-//         top: "50%",
-//         left: "50%",
-//         width: "800px",       // adjust size
-//         height: "400px",
-//         objectFit: "contain",
-//         opacity: 0.07,        // light watermark
-//         transform: "translate(-50%, -50%)",
-//         pointerEvents: "none",
-//         zIndex: 0,
-//       }}
-//     />
-
-//     {/* Scrollable content */}
-//     <Box sx={{ position: "relative", zIndex: 1, overflowY: "auto", height: "100%" }}>
-//       {currentPage === "home" && <HomePage />}
-//       {currentPage === "jobs" && <JobsPage />}
-//       {currentPage === "internship" && <InternshipPage />}
-//     </Box>
-//   </Box>
-// </Box>
-
-//   );
-// }
 import React, { useEffect, useState } from "react";
 import {
   Box,
@@ -827,61 +8,104 @@ import {
   Tabs,
   Tab,
   TextField,
+  Dialog,
+  DialogContent,
+  FormControlLabel,
+  Checkbox,
+  CircularProgress,
+  Alert,
+  MenuItem,
 } from "@mui/material";
+import back from "../assets/laptop3.jpg";
 import HomeIcon from "@mui/icons-material/Home";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import { useNavigate } from "react-router-dom";
-import axios from "../api/axiosConfig"; // if you don't have this, replace with `import axios from "axios";`
+import axios from "../api/axiosConfig";
 import logo from "../assets/logo.jpg";
 
-/**
- * Single-file Careers UI component
- * - Sidebar (Home / Jobs / Internship)
- * - Jobs fetch from GET /api/careers
- * - Tabs (IT / BPM) + search
- * - Internship static list (you can fetch too if stored in DB)
- * - Watermark logo
- *
- * Usage: put this file in src/pages and add a route to it:
- *   <Route path="/jobs" element={<JobsSingleComponent />} />
- */
-
-export default function JobsSingleComponent() {
+export default function JobsMultiStepComponent() {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState("home"); // home | jobs | internship
   const [jobs, setJobs] = useState([]);
   const [category, setCategory] = useState("IT");
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
+  const [openForm, setOpenForm] = useState(false);
+  const [applyType, setApplyType] = useState(null); // 'job' | 'internship' | 'general'
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [step, setStep] = useState(1); // 1..5
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [jobType, setJobType] = useState(""); 
+  const [personal, setPersonal] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    city: "",
+    pincode: "",
+  });
+const [education, setEducation] = useState({
+    highestQualification: "",
+    college: "",
+    cgpa: "",
+    passoutYear: "",
+    skills: [],
+  });
+const [roleSpecific, setRoleSpecific] = useState({
+  // job - experienced
+  experienceYears: "",
+  prevCompany: "",
+  expertise: "",
+  changeReason: "",
+  fresherInterest: "",
+  fresherWhyHire: "",
+  prevField: "",
+  changeReasonCareer: "",
+  newSkills: "",
+  internshipDomain: "",
+  whyIntern: "",
+  availabilityHours: "",
+});
 
-  // fetch jobs from backend
+  const [resumeFile, setResumeFile] = useState(null);
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validatePhone = (phone) => /^[6-9]\d{9}$/.test(phone);
+  const validatePincode = (pin) => /^\d{6}$/.test(pin);
+  const toggleSkill = (s) => {
+    setEducation((prev) => {
+      const exists = prev.skills.includes(s);
+      return {
+        ...prev,
+        skills: exists ? prev.skills.filter((i) => i !== s) : [...prev.skills, s],
+      };
+    });
+  };
   useEffect(() => {
     fetchJobs();
-    // eslint-disable-next-line
+    
   }, []);
 
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("/api/careers"); // backend route
+      const res = await axios.get("/api/careers");
       setJobs(res.data || []);
     } catch (err) {
-      console.error("Failed to fetch jobs:", err);
+      console.error(err);
       setJobs([]);
     } finally {
       setLoading(false);
     }
   };
-
-  // client-side filtering
   const filteredJobs = jobs.filter((job) => {
     if (currentPage === "jobs" && job.category !== category) return false;
     const q = `${job.title} ${job.skills || ""} ${job.location || ""}`.toLowerCase();
     return q.includes(search.toLowerCase());
   });
 
-  // internship fallback (if you don't store in DB)
   const internship = [
     {
       category: "Internship",
@@ -891,9 +115,207 @@ export default function JobsSingleComponent() {
       location: "Kumbakonam / Remote",
     },
   ];
+  const openApplyForm = (type = "general", job = null) => {
+    setApplyType(type); // 'job' or 'internship' or 'general'
+    setSelectedJob(job);
+    setOpenForm(true);
+    setStep(1);
+    setSubmitError("");
+    setSubmitSuccess(false);
+  };
+const closeApplyForm = () => {
+    setOpenForm(false);
+    setStep(1);
+    setSelectedJob(null);
+    setApplyType(null);
+    setSubmitError("");
+    setSubmitSuccess(false);
+    // reset form
+    setPersonal({ firstName: "", lastName: "", email: "", phone: "", city: "", pincode: "" });
+    setEducation({ highestQualification: "", college: "", cgpa: "", passoutYear: "", skills: [] });
+    setRoleSpecific({
+      experienceYears: "",
+      prevCompany: "",
+      expertise: "",
+      changeReason: "",
+      internshipDomain: "",
+      whyIntern: "",
+      availabilityHours: "",
+    });
+    setResumeFile(null);
+  };
 
-  // small reusable card
-  const InfoCard = ({ data }) => (
+  const canProceed = (s) => {
+    if (s === 1) {
+      if (!personal.firstName.trim() || !personal.lastName.trim()) return false;
+      if (!validateEmail(personal.email)) return false;
+      if (!validatePhone(personal.phone)) return false;
+      if (!validatePincode(personal.pincode)) return false;
+      return true;
+    }
+
+    if (s === 2) {
+      // basic education checks
+      if (!education.highestQualification.trim()) return false;
+      if (!education.college.trim()) return false;
+      return true;
+    }
+
+    if (s === 3) {
+      // role-specific: depends on applyType
+      if (applyType === "job") {
+  if (!jobType) return false;
+
+  if (jobType === "fresher") {
+    if (!roleSpecific.fresherInterest.trim()) return false;
+    if (!roleSpecific.fresherWhyHire.trim()) return false;
+    return true;
+  }
+
+  if (jobType === "experienced") {
+  if (!roleSpecific.expertise.trim()) return false;
+
+  if (
+    roleSpecific.experienceYears === undefined ||
+    roleSpecific.experienceYears === null ||
+    roleSpecific.experienceYears === "" ||
+    Number(roleSpecific.experienceYears) <= 0
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
+
+  if (jobType === "career-changer") {
+    if (!roleSpecific.prevField.trim()) return false;
+    if (!roleSpecific.changeReasonCareer.trim()) return false;
+    if (!roleSpecific.newSkills.trim()) return false;
+    return true;
+  }
+
+  return false;
+}
+
+      if (applyType === "internship") {
+        if (!education.college?.trim()) return false; // ensure college present
+        if (!roleSpecific.internshipDomain?.trim()) return false;
+        return true;
+      }
+      // general application: optional
+      return true;
+    }
+
+    if (s === 4) {
+      // resume upload required
+      return !!resumeFile;
+    }
+
+    // s === 5 confirmation
+    return true;
+  };
+
+  const handleNext = () => {
+    setSubmitError("");
+    if (!canProceed(step)) {
+      // build contextual message
+      let msg = "Please complete required fields for this step.";
+      if (step === 1) msg = "Enter valid personal information (name, email, phone, pincode).";
+      if (step === 2) msg = "Enter education details (qualification & college).";
+      if (step === 3) {
+  if (applyType === "job") {
+    if (!jobType) return setSubmitError("Please select a job category.");
+
+    if (jobType === "fresher") {
+      if (!roleSpecific.fresherInterest.trim())
+        return setSubmitError("Please enter your area of interest.");
+      if (!roleSpecific.fresherWhyHire.trim())
+        return setSubmitError("Please explain why we should hire you.");
+    }
+
+    if (jobType === "experienced") {
+      if (!roleSpecific.expertise.trim())
+        return setSubmitError("Enter your Area of Expertise.");
+
+      if (
+        roleSpecific.experienceYears === undefined ||
+        roleSpecific.experienceYears === null ||
+        roleSpecific.experienceYears === "" ||
+        Number(roleSpecific.experienceYears) <= 0
+      ) {
+        return setSubmitError("Enter valid years of experience.");
+      }
+    }
+
+    if (jobType === "career-changer") {
+      if (!roleSpecific.prevField.trim())
+        return setSubmitError("Enter your previous field.");
+      if (!roleSpecific.changeReasonCareer.trim())
+        return setSubmitError("Explain why you want to change your career.");
+      if (!roleSpecific.newSkills.trim())
+        return setSubmitError("Mention the new skills you are learning.");
+    }
+  }
+}
+
+
+      if (step === 4) msg = "Please upload your resume (pdf/doc).";
+      return setSubmitError(msg);
+    }
+    setStep((s) => Math.min(5, s + 1));
+  };
+
+  const handlePrev = () => {
+    setSubmitError("");
+    setStep((s) => Math.max(1, s - 1));
+  };
+
+  // final submit
+  const handleSubmit = async () => {
+    // final validation before send
+    if (!canProceed(1)) return setSubmitError("Personal info incomplete or invalid.");
+    if (!canProceed(2)) return setSubmitError("Education info incomplete.");
+    if (!canProceed(3)) return setSubmitError("Role-specific info incomplete.");
+    if (!canProceed(4)) return setSubmitError("Resume missing.");
+
+    setSubmitError("");
+    setSubmitting(true);
+
+    try {
+      const fd = new FormData();
+      // grouped payload
+      const payload = {
+        personal,
+        education,
+        roleSpecific,
+        applyType,
+        appliedFor: selectedJob?.title || (applyType === "internship" ? "Internship" : "General"),
+      };
+
+      fd.append("payload", JSON.stringify(payload));
+      fd.append("resume", resumeFile);
+
+      const res = await axios.post("/api/apply", fd, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      if (res.data?.success) {
+        setSubmitSuccess(true);
+        setStep(5);
+      } else {
+        setSubmitError(res.data?.message || "Submission failed");
+      }
+    } catch (err) {
+      console.error(err);
+      setSubmitError(err?.response?.data?.message || err.message || "Submit failed");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // --- UI pieces ---
+  const InfoCard = ({ data, type = "job" }) => (
     <Card
       sx={{
         width: 300,
@@ -907,27 +329,12 @@ export default function JobsSingleComponent() {
     >
       <CardContent sx={{ flexGrow: 1 }}>
         <Box sx={{ display: "flex", alignItems: "center", marginBottom: 1 }}>
-          <Box
-            sx={{
-              backgroundColor: "#B1B1B1",
-              color: "#fff",
-              borderRadius: 1,
-              px: 2,
-              py: 0.5,
-              mr: 2,
-              fontWeight: "bold",
-              fontSize: 16,
-              letterSpacing: 1,
-            }}
-          >
+          <Box sx={{ backgroundColor: "#B1B1B1", color: "#fff", borderRadius: 1, px: 2, py: 0.5, mr: 2, fontWeight: "bold", fontSize: 16, letterSpacing: 1 }}>
             {data.category}
           </Box>
         </Box>
 
-        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1.1rem", mb: 0.5 }}>
-          {data.title}
-        </Typography>
-
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1.1rem", mb: 0.5 }}>{data.title}</Typography>
         {data.skills && <Typography sx={{ fontSize: 14, mb: 0.5 }}>Skills: {data.skills}</Typography>}
         {data.experience && <Typography sx={{ fontSize: 14, mb: 0.5 }}>Experience: {data.experience}</Typography>}
         {data.duration && <Typography sx={{ fontSize: 14, mb: 0.5 }}>Duration: {data.duration}</Typography>}
@@ -938,18 +345,8 @@ export default function JobsSingleComponent() {
         <Button
           variant="outlined"
           fullWidth
-          sx={{
-            fontWeight: "bold",
-            border: "2px solid #222",
-            color: "#222",
-            py: 1,
-            textTransform: "none",
-            "&:hover": {
-              backgroundColor: "#222",
-              color: "#fff",
-            },
-          }}
-          onClick={() => navigate("/contact")}
+          sx={{ fontWeight: "bold", border: "2px solid #222", color: "#222", py: 1, textTransform: "none", "&:hover": { backgroundColor: "#222", color: "#fff" } }}
+          onClick={() => openApplyForm(type === "internship" ? "internship" : "job", data)}
         >
           APPLY
         </Button>
@@ -957,88 +354,35 @@ export default function JobsSingleComponent() {
     </Card>
   );
 
-  // layout
   return (
     <Box sx={{ display: "flex", minHeight: "100vh" }}>
       {/* Sidebar */}
       <Box sx={{ width: 220, backgroundColor: "#0A1B3B", color: "#e0e0e0", p: 2, display: "flex", flexDirection: "column" }}>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            mb: 2,
-            mt: 2,
-            cursor: "pointer",
-            color: currentPage === "home" ? "#00e4c9" : "#e0e0e0",
-          }}
-          onClick={() => setCurrentPage("home")}
-        >
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2, mt: 2, cursor: "pointer", color: currentPage === "home" ? "#00e4c9" : "#e0e0e0" }} onClick={() => setCurrentPage("home")}>
           <HomeIcon sx={{ fontSize: 35, mr: 1 }} />
           <Typography variant="h6">HOME</Typography>
         </Box>
 
         <Box sx={{ borderBottom: "1px solid #8190A5", width: "100%", mb: 2 }} />
 
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            mb: 2,
-            cursor: "pointer",
-            color: currentPage === "jobs" ? "#00e4c9" : "#8190A5",
-          }}
-          onClick={() => setCurrentPage("jobs")}
-        >
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2, cursor: "pointer", color: currentPage === "jobs" ? "#00e4c9" : "#8190A5" }} onClick={() => setCurrentPage("jobs")}>
           <WorkIcon sx={{ fontSize: 30, mr: 1 }} />
           <Typography variant="h6">JOBS</Typography>
         </Box>
 
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            cursor: "pointer",
-            color: currentPage === "internship" ? "#00e4c9" : "#8190A5",
-          }}
-          onClick={() => setCurrentPage("internship")}
-        >
+        <Box sx={{ display: "flex", alignItems: "center", cursor: "pointer", color: currentPage === "internship" ? "#00e4c9" : "#8190A5" }} onClick={() => setCurrentPage("internship")}>
           <SchoolIcon sx={{ fontSize: 30, mr: 1 }} />
           <Typography variant="h6">INTERNSHIP</Typography>
         </Box>
 
-        <Button
-          variant="text"
-          sx={{ mt: 3, color: "#c7d7ff", textTransform: "none" }}
-          onClick={fetchJobs}
-        >
-          Refresh Jobs
-        </Button>
+        <Button variant="text" sx={{ mt: 3, color: "#c7d7ff", textTransform: "none" }} onClick={fetchJobs}>Refresh Jobs</Button>
       </Box>
 
       {/* Main area */}
       <Box sx={{ flex: 1, position: "relative", backgroundColor: "#fff" }}>
-        {/* Watermark */}
-        <Box
-          component="img"
-          src={logo}
-          alt="logo watermark"
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            width: "800px",
-            height: "400px",
-            objectFit: "contain",
-            opacity: 0.07,
-            transform: "translate(-50%, -50%)",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-        />
+        <Box component="img" src={logo} alt="logo watermark" sx={{ position: "absolute", top: "50%", left: "50%", width: "800px", height: "400px", objectFit: "contain", opacity: 0.07, transform: "translate(-50%, -50%)", pointerEvents: "none", zIndex: 0 }} />
 
-        {/* Content */}
         <Box sx={{ position: "relative", zIndex: 1, p: 3, overflowY: "auto", minHeight: "100vh" }}>
-          {/* Home */}
           {currentPage === "home" && (
             <Box sx={{ p: 3 }}>
               <Typography variant="h4" sx={{ fontWeight: 700 }}>Welcome to Vyoobam Careers</Typography>
@@ -1047,52 +391,309 @@ export default function JobsSingleComponent() {
             </Box>
           )}
 
-          {/* Jobs */}
           {currentPage === "jobs" && (
             <Box sx={{ p: 3 }}>
               <Box sx={{ display: "flex", alignItems: "center", mb: 3, justifyContent: "space-between", flexWrap: "wrap", gap: 2 }}>
                 <Typography variant="h4" sx={{ fontWeight: 700 }}>Recent Openings</Typography>
-
                 <Tabs value={category} onChange={(_, v) => setCategory(v)} sx={{ minHeight: 40 }}>
                   <Tab label="IT" value="IT" sx={{ fontWeight: "bold" }} />
                   <Tab label="BPM" value="BPM" sx={{ fontWeight: "bold" }} />
                 </Tabs>
-
-                <TextField
-                  placeholder="Search by role, skills, location..."
-                  variant="outlined"
-                  size="small"
-                  sx={{ width: 300, backgroundColor: "#fafafa" }}
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
+                <TextField placeholder="Search by role, skills, location..." variant="outlined" size="small" sx={{ width: 300, backgroundColor: "#fafafa" }} value={search} onChange={(e) => setSearch(e.target.value)} />
               </Box>
 
               {loading ? (
                 <Typography>Loading jobs...</Typography>
               ) : (
-                <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start" }}>
-                  {filteredJobs.length > 0 ? (
-                    filteredJobs.map((job) => <InfoCard key={job._id} data={job} />)
-                  ) : (
-                    <Typography sx={{ mt: 5 }}>No jobs found.</Typography>
-                  )}
+                <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }, gap: 1 }}>
+                  {filteredJobs.length > 0 ? filteredJobs.map((job) => <InfoCard key={job._id || job.title} data={job} />) : <Typography sx={{ mt: 5 }}>No jobs found.</Typography>}
                 </Box>
               )}
             </Box>
           )}
 
-          {/* Internship */}
           {currentPage === "internship" && (
             <Box sx={{ p: 3 }}>
               <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>Internship Opportunities</Typography>
-              <Box sx={{ display: "flex", flexWrap: "wrap" }}>
-                {internship.map((item, i) => <InfoCard key={i} data={item} />)}
-              </Box>
+              <Box sx={{ display: "flex", flexWrap: "wrap" }}>{internship.map((item, i) => <InfoCard key={i} data={item} type="internship" />)}</Box>
             </Box>
           )}
         </Box>
       </Box>
+
+      {/* Multi-step Apply Dialog (grouped steps) */}
+      <Dialog open={openForm} onClose={closeApplyForm} maxWidth="md" fullWidth>
+        <DialogContent dividers sx={{ backgroundImage: `url(${back})`, backgroundSize: "cover", backgroundPosition: "center", p: 4, minHeight: 520 }}>
+          <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+
+          <Box sx={{ background: "white", p: 6, borderRadius: 3, boxShadow: 5, maxWidth: "720px", width: "100%", zIndex: 2, position: "relative", mt: 2, ml: 8 }}>
+            {/* Header */}
+            <Box textAlign="center" mb={3}>
+              <Typography variant="h5" fontWeight={700}>Apply — {selectedJob?.title || (applyType === "internship" ? "Internship" : "General")}</Typography>
+              <Typography sx={{ color: "#4a4c5a" }}>Follow the steps (1 → 5) to complete your application.</Typography>
+            </Box>
+
+            {/* Stepper content */}
+            {step === 1 && (
+              <Box>
+                <Typography variant="h6" fontWeight={600} mb={2}>Personal Information *</Typography>
+                <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+                  <TextField fullWidth label="First name" value={personal.firstName} onChange={(e) => setPersonal((p) => ({ ...p, firstName: e.target.value }))} />
+                  <TextField fullWidth label="Last name" value={personal.lastName} onChange={(e) => setPersonal((p) => ({ ...p, lastName: e.target.value }))} />
+                </Box>
+                <TextField fullWidth label="Email" value={personal.email} onChange={(e) => setPersonal((p) => ({ ...p, email: e.target.value }))} sx={{ mb: 2 }} />
+                <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+                  <TextField fullWidth label="Phone" value={personal.phone} onChange={(e) => setPersonal((p) => ({ ...p, phone: e.target.value }))} />
+                  <TextField fullWidth label="Pincode" value={personal.pincode} onChange={(e) => setPersonal((p) => ({ ...p, pincode: e.target.value }))} />
+                </Box>
+                <TextField fullWidth label="City" value={personal.city} onChange={(e) => setPersonal((p) => ({ ...p, city: e.target.value }))} />
+
+                {/* inline validation hints */}
+                <Box mt={1}>
+                  {(!personal.firstName || !personal.lastName) && <Typography color="error">First & last name required</Typography>}
+                  {personal.email && !validateEmail(personal.email) && <Typography color="error">Invalid email</Typography>}
+                  {personal.phone && !validatePhone(personal.phone) && <Typography color="error">Invalid phone</Typography>}
+                  {personal.pincode && !validatePincode(personal.pincode) && <Typography color="error">Invalid pincode</Typography>}
+                </Box>
+              </Box>
+            )}
+
+            {step === 2 && (
+              <Box>
+                <Typography variant="h6" fontWeight={600} mb={2}>Education Information *</Typography>
+                <TextField select fullWidth label="Highest Qualification" value={education.highestQualification} onChange={(e) => setEducation((ed) => ({ ...ed, highestQualification: e.target.value }))} sx={{ mb: 2 }}>
+                  <MenuItem value="">Select</MenuItem>
+                  <MenuItem value="B.Tech">B.Tech</MenuItem>
+                  <MenuItem value="M.Tech">M.Tech</MenuItem>
+                  <MenuItem value="BSc">BSc</MenuItem>
+                  <MenuItem value="Diploma">Diploma</MenuItem>
+                  <MenuItem value="Other">Other</MenuItem>
+                </TextField>
+                <TextField fullWidth label="College" value={education.college} onChange={(e) => setEducation((ed) => ({ ...ed, college: e.target.value }))} sx={{ mb: 2 }} />
+                <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+                  <TextField fullWidth label="CGPA / %" value={education.cgpa} onChange={(e) => setEducation((ed) => ({ ...ed, cgpa: e.target.value }))} />
+                  <TextField fullWidth label="Passout Year" value={education.passoutYear} onChange={(e) => setEducation((ed) => ({ ...ed, passoutYear: e.target.value }))} />
+                </Box>
+
+                <Typography mb={1}>Skills</Typography>
+                {["Frontend Developer", "Backend Developer", "Fullstack Developer", "UI/UX", "QA"].map((s) => (
+                  <FormControlLabel key={s} control={<Checkbox checked={education.skills.includes(s)} onChange={() => toggleSkill(s)} />} label={s} />
+                ))}
+
+              </Box>
+            )}
+
+            {step === 3 && (
+              <Box>
+                <Typography variant="h6" fontWeight={600} mb={2}>Role-specific Questions *</Typography>
+
+                {applyType === "job" && (
+  <>
+    {/* Job Type Dropdown */}
+    <TextField
+      select
+      label="Job Type"
+      fullWidth
+      value={jobType}
+      onChange={(e) => setJobType(e.target.value)}
+      sx={{ mb: 3 }}
+    >
+      <MenuItem value="fresher">Fresher</MenuItem>
+      <MenuItem value="experienced">Experienced</MenuItem>
+      <MenuItem value="career-changer">Career Changer</MenuItem>
+    </TextField>
+
+    {/* -------------------- Fresher UI -------------------- */}
+    {jobType === "fresher" && (
+  <>
+    <TextField
+      fullWidth
+      label="What field are you most interested in?"
+      value={roleSpecific.fresherInterest}
+      onChange={(e) =>
+        setRoleSpecific((r) => ({ ...r, fresherInterest: e.target.value }))
+      }
+      sx={{ mb: 2 }}
+    />
+    <TextField
+      fullWidth
+      multiline
+      rows={3}
+      label="Tell us why you would be a good fit for this role"
+      value={roleSpecific.fresherWhyHire}
+      onChange={(e) =>
+        setRoleSpecific((r) => ({ ...r, fresherWhyHire: e.target.value }))
+      }
+    />
+  </>
+)}
+
+
+    {/* -------------------- Experienced UI -------------------- */}
+    {jobType === "experienced" && (
+      <>
+        <TextField
+          fullWidth
+          type="number"
+          label="Total Experience (years)"
+          value={roleSpecific.experienceYears}
+          onChange={(e) =>
+            setRoleSpecific((r) => ({ ...r, experienceYears: e.target.value }))
+          }
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          fullWidth
+          label="Area of Expertise"
+          value={roleSpecific.expertise}
+          onChange={(e) =>
+            setRoleSpecific((r) => ({ ...r, expertise: e.target.value }))
+          }
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          fullWidth
+          label="Previous Company"
+          value={roleSpecific.prevCompany}
+          onChange={(e) =>
+            setRoleSpecific((r) => ({ ...r, prevCompany: e.target.value }))
+          }
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          fullWidth
+          multiline
+          rows={2}
+          label="Reason for change (optional)"
+          value={roleSpecific.changeReason}
+          onChange={(e) =>
+            setRoleSpecific((r) => ({ ...r, changeReason: e.target.value }))
+          }
+        />
+      </>
+    )}
+
+    {/* -------------------- Career Changer UI -------------------- */}
+    {jobType === "career-changer" && (
+      <>
+        <TextField
+          fullWidth
+          label="Previous Field"
+          value={roleSpecific.prevField}
+          onChange={(e) =>
+            setRoleSpecific((r) => ({ ...r, prevField: e.target.value }))
+          }
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          fullWidth
+          multiline
+          rows={2}
+          label="Why do you want to change field?"
+          value={roleSpecific.changeReasonCareer}
+          onChange={(e) =>
+            setRoleSpecific((r) => ({ ...r, changeReasonCareer: e.target.value }))
+          }
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          fullWidth
+          label="Skills learned for new field"
+          value={roleSpecific.newSkills}
+          onChange={(e) =>
+            setRoleSpecific((r) => ({ ...r, newSkills: e.target.value }))
+          }
+        />
+      </>
+    )}
+  </>
+)}
+
+
+                {applyType === "internship" && (
+                  <>
+                    <TextField fullWidth label="Internship Domain" value={roleSpecific.internshipDomain} onChange={(e) => setRoleSpecific((r) => ({ ...r, internshipDomain: e.target.value }))} sx={{ mb: 2 }} />
+                    <TextField fullWidth label="Why do you want this internship?" multiline rows={3} value={roleSpecific.whyIntern} onChange={(e) => setRoleSpecific((r) => ({ ...r, whyIntern: e.target.value }))} sx={{ mb: 2 }} />
+                    <TextField fullWidth label="Availability (hours/week)" value={roleSpecific.availabilityHours} onChange={(e) => setRoleSpecific((r) => ({ ...r, availabilityHours: e.target.value }))} />
+                  </>
+                )}
+
+                {!applyType && (
+                  <Typography color="textSecondary">No role-specific questions for general applications.</Typography>
+                )}
+
+              </Box>
+            )}
+
+            {step === 4 && (
+              <Box>
+                <Typography variant="h6" fontWeight={600} mb={2}>Upload Resume *</Typography>
+                <Button variant="contained" component="label">
+                  Upload Resume
+                  <input hidden type="file" accept=".pdf,.doc,.docx" onChange={(e) => setResumeFile(e.target.files && e.target.files[0])} />
+                </Button>
+                <Box mt={2}>{resumeFile ? <Typography>Selected: {resumeFile.name}</Typography> : <Typography color="error">No resume selected</Typography>}</Box>
+              </Box>
+            )}
+
+            {step === 5 && (
+              <Box textAlign="center" py={4}>
+                {submitSuccess ? (
+                  <>
+                    <Typography variant="h5" fontWeight={700} color="green">Submitted successfully!</Typography>
+                    <Typography mt={2}>Thank you. We'll contact you soon.</Typography>
+                  </>
+                ) : (
+                  <>
+                    <Typography variant="h6" mb={2}>Review & Submit</Typography>
+                    <Box textAlign="left" sx={{ maxHeight: 240, overflowY: "auto", textAlign: "left" }}>
+                      <Typography><strong>Name:</strong> {personal.firstName} {personal.lastName}</Typography>
+                      <Typography><strong>Email:</strong> {personal.email}</Typography>
+                      <Typography><strong>Phone:</strong> {personal.phone}</Typography>
+                      <Typography><strong>College:</strong> {education.college} ({education.highestQualification})</Typography>
+                      <Typography><strong>Applied For:</strong> {selectedJob?.title || (applyType === "internship" ? "Internship" : "General")}</Typography>
+                      <Typography><strong>Role Info:</strong> {applyType === "job" ? `${roleSpecific.experienceYears} yrs — ${roleSpecific.expertise}` : applyType === "internship" ? `${roleSpecific.internshipDomain}` : "-"}</Typography>
+                    </Box>
+                  </>
+                )}
+              </Box>
+            )}
+
+            {/* feedback */}
+            {submitError && (
+              <Box mt={2}><Alert severity="error">{submitError}</Alert></Box>
+            )}
+
+            {/* Navigation Buttons */}
+            <Box mt={3} display="flex" justifyContent={step === 1 ? "center" : "space-between"} alignItems="center">
+              {step > 1 ? (
+                <Button variant="outlined" onClick={handlePrev} sx={{ borderRadius: 3, textTransform: "none" }}>← Previous</Button>
+              ) : <span />}
+
+              <Box>
+                {step < 4 && (
+                  <Button variant="outlined" onClick={handleNext} sx={{ textTransform: "none" }}>Next →</Button>
+                )}
+
+                {step === 4 && (
+                  <Button variant="contained" onClick={() => setStep(5)} sx={{ ml: 2, textTransform: "none" }}>Proceed to Review</Button>
+                )}
+
+                {step === 5 && !submitSuccess && (
+                  <Button variant="contained" onClick={handleSubmit} disabled={submitting} sx={{ ml: 2, textTransform: "none" }}>
+                    {submitting ? <CircularProgress size={18} color="inherit" /> : "Submit"}
+                  </Button>
+                )}
+
+                {step === 5 && submitSuccess && (
+                  <Button variant="outlined" onClick={closeApplyForm} sx={{ ml: 2, textTransform: "none" }}>Close</Button>
+                )}
+              </Box>
+            </Box>
+
+          </Box>
+        </DialogContent>
+      </Dialog>
     </Box>
   );
 }

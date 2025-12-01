@@ -1,6 +1,6 @@
 import { Box, Typography, Card, CardContent, Button } from "@mui/material";
 import careers from "../assets/finalit.jpg";
-import impactImg from "../assets/software.jpg";
+import impactImg from "../assets/f5.jpg";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
@@ -282,8 +282,7 @@ export default function Consulting() {
               mb: 3,
             }}
           >
-            Helps organizations optimize operations, reduce costs, and build
-            resilience in an evolving digital economy.
+           IT consulting helps organizations optimize operations, reduce costs, and strengthen their overall digital strategy. By aligning technology with business goals, it enables companies to modernize systems, streamline workflows, and improve efficiency. With expert guidance, businesses can adopt scalable solutions, enhance resilience, and stay competitive in an evolving digital economy.
           </Typography>
 
           {/* Optional CTA */}
@@ -315,10 +314,8 @@ export default function Consulting() {
           src={impactImg}
           alt="Business Impact"
           sx={{
-            width: "30%",
-            borderRadius: "16px",
-            boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-            objectFit: "cover",
+            width: "10%",
+            
           }}
         />
       </Box>

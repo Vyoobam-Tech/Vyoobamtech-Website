@@ -1,7 +1,9 @@
 import React from "react";
 import image from "../assets/CTA.jpg";
 import { Box, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 export default function CTA() {
+  const navigate=useNavigate()
   return (
     <Box sx={{ backgroundColor: "white", py: 6 }}>
       <section

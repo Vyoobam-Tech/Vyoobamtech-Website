@@ -1,6 +1,6 @@
 import { Box, Typography, Card, CardContent,Button } from "@mui/material";
-import careers from "../assets/finalui.jpg";
-import impactImg from "../assets/software.jpg"
+import careers from "../assets/uiservice.jpg";
+import impactImg from "../assets/f4.jpg"
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
@@ -283,7 +283,7 @@ export default function UiUxDesign() {
             mb: 3,
           }}
         >
-         Improves customer satisfaction, product adoption, and business conversions.
+         UI/UX design improves customer satisfaction by creating intuitive, engaging, and easy-to-use digital experiences. Thoughtful design increases product adoption, reduces user frustration, and drives higher business conversions by guiding users smoothly toward their goals.
         </Typography>
 
         {/* Optional CTA */}
@@ -317,9 +317,9 @@ export default function UiUxDesign() {
         alt="Business Impact"
         sx={{
           width: "30%",
-          borderRadius: "16px",
-          boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-          objectFit: "cover",
+          // borderRadius: "16px",
+          // boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
+          // objectFit: "cover",
         }}
       />
     </Box>

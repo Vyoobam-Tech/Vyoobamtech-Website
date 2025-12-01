@@ -1,15 +1,10 @@
 import { Typography, Button, Container, Box } from "@mui/material";
-//import logoImg from "../assets/logo.jpg";
-import laptop from "../assets/laptop.jpg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-// import bgVideo from "../assets/video.mp4"
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-// import ServiceSlider from "../Components/ServiceSlider";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Tilt from "react-parallax-tilt";
 import { useInView } from "react-intersection-observer";
 import Choose from "../Components/Choose";
 import TestimonialSlider from "../Components/TestimonialSlider";
@@ -22,7 +17,6 @@ import MobileFriendlyIcon from "@mui/icons-material/Smartphone";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { AnimatedBox } from "./AnimatedBox";
 
 const Home = () => {

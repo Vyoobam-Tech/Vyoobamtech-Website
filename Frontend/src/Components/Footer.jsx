@@ -14,12 +14,13 @@ const Footer = () => {
 const navigate = useNavigate();
   const linkStyle = {
     display: "block",
-    color: "white",
+    color: "#e8e7e7c1",
     textDecoration: "none",        // default: no underline
     marginBottom: "0.5rem",
     position: "relative",
     "&:hover": {
-      textDecoration: "underline", // underline on hover
+      // textDecoration: "underline",
+      color: "#ffffffff", // underline on hover
     },
   };
 
@@ -33,18 +34,7 @@ const navigate = useNavigate();
         py:7,
       }}
     >
-      {/* Logo */}
-
-      
-
-      {/* Copyright */}
-      
-
-      {/* Expanded Content on Hover */}
-      
-        
-          
-            {/* Columns Section */}
+     
             <Box
               sx={{
                 display: "flex",
@@ -55,27 +45,47 @@ const navigate = useNavigate();
               }}
             >
               <Box sx={{ minWidth: 200 }}>
-                <Typography variant="h6" gutterBottom color="white" sx={{mb:3}}>
-                  FOOTER CONTENT
+                
+                <Typography variant="h6" gutterBottom color="white" sx={{mb:3,ml:-3}} fontWeight={500} fontSize={24}>
+                  Together for the journey ahead.<br />
+                  
                 </Typography>
-                <Typography variant="body1" color="white" >
-                   Vyoobam Tech is a leading technology solutions company providing innovative<br /> software, mobile, and web solutions to businesses globally.
+                <Typography variant="body2" color="#e8e7e7c1" sx={{maxWidth:300, ml:-3}} fontSize={18}>
+                At Vyoobam,
+                  we believe in long-lasting relationships built on trust, innovation, and shared success
+
                 </Typography>
               </Box>
 
-              <Box sx={{ minWidth: 120, borderRight: "1px solid white", pr: 2 }}>
-                <Typography variant="h6" gutterBottom color="white">
-                  Company
+              <Box sx={{ minWidth: 100,  }}>
+                <Typography variant="h6" gutterBottom color="white" fontWeight={500} fontSize={23}>
+                  Explore
                 </Typography>
                 <Link component={RouterLink} to="/about" sx={linkStyle}>Overview</Link>
                 <Link component={RouterLink} to="/about"sx={linkStyle}>Vision/Mission</Link>
                 <Link component={RouterLink} to="/about" sx={linkStyle}>Timeline</Link>
                 <Link component={RouterLink} to="/about" sx={linkStyle}>Core Values</Link>
               </Box>
-
-              <Box sx={{ minWidth: 120, borderRight: "1px solid white", px: 2 }}>
-                <Typography variant="h6" gutterBottom color="white">
-                  PRODUCTS
+              <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              px: 2,
+            }}
+          >
+            <Box
+              sx={{
+                width: "1px",
+                height: "70%", // or use 150px or any fixed height
+                backgroundColor: "rgba(252, 251, 251, 1)", // soft grey line
+                mx: -5,
+              }}
+            />
+          </Box>
+              
+              <Box sx={{ minWidth: 50,  }}>
+                <Typography variant="h6" gutterBottom color="white" fontWeight={500} fontSize={23}>
+                  Products
                 </Typography>
                 <Link component={RouterLink} to="/Market" sx={linkStyle}>Market Metrics</Link>
                 <Link component={RouterLink} to="/Event" sx={linkStyle}>Events</Link>
@@ -83,10 +93,26 @@ const navigate = useNavigate();
                 <Link component={RouterLink} to="/Egrocery" sx={linkStyle}>E-Grocery</Link>
        <Link component={RouterLink} to="/Vyoobam" sx={linkStyle}>Vyoobam Nudge</Link>
               </Box>
+              <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              px: 2,
+            }}
+          >
+            <Box
+              sx={{
+                width: "1px",
+                height: "70%", // or use 150px or any fixed height
+                backgroundColor: "rgba(255, 255, 255, 1)", // soft grey line
+                mx: -5
+              }}
+            />
+          </Box>
 
-              <Box sx={{ minWidth: 120, pl: 2 }}>
-                <Typography variant="h6" gutterBottom color="white">
-                  SERVICES
+              <Box sx={{ minWidth: 50,  }}>
+                <Typography variant="h6" gutterBottom color="white" fontWeight={500} fontSize={23}>
+                  Services
                 </Typography>
                 <Link component={RouterLink} to="/service/web-development" sx={linkStyle}>Web Development</Link>
                 <Link component={RouterLink} to="/services/Mobile-development" sx={linkStyle}>Mobile Development</Link>
@@ -98,12 +124,28 @@ const navigate = useNavigate();
 
             {/* Connect Section */}
             <Box sx={{ mb: 3 }}>
-              <Button variant="contained" color="error" onClick={() => navigate("/Contact")}>
-                CONNECT WITH US
-              </Button>
+               <Button
+                          variant="contained"
+                          sx={{
+                            mt: 3,
+                            px: 4,
+                            py: 1.5,
+                            borderRadius: "20px",
+                            fontSize: "1rem",
+                            fontWeight: 400,
+                            background: "linear-gradient(90deg, #3f5eec, #00e4c9)", // your logo theme color
+                            textTransform: "none",
+                            "&:hover": {
+                              background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
+                            },
+                          }}
+                          onClick={() => navigate("/Contact")}
+                        >
+                        Contact Us →
+                        </Button>
             </Box>
 <Typography variant="body2">© 2025 Vyoobam Tech. All Rights Reserved.</Typography>
-            {/* Social Icons */}
+         
            <Box>
   <IconButton
     color="primary"
@@ -126,7 +168,7 @@ const navigate = useNavigate();
   </IconButton>
 
   <IconButton
-    color="secondary"
+    color="primary"
     component="a"
     href="https://www.instagram.com/vyoobamtech/"
     target="_blank"

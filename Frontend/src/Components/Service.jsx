@@ -1,6 +1,6 @@
 import { Box, Typography, Card, CardContent, Button } from "@mui/material";
-import careers from "../assets/finalweb.jpg";
-import impactImg from "../assets/web2.jpg";
+import careers from "../assets/webservice.jpg";
+import impactImg from "../assets/f1.jpg";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { motion, useInView } from "framer-motion";
@@ -103,7 +103,7 @@ export default function WebDevelopment() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0% 100%)",
-            
+           
           }}
         />
         
@@ -304,8 +304,20 @@ export default function WebDevelopment() {
               mb: 3,
             }}
           >
-            Empowers organizations to connect with customers globally,
-            streamline online operations, and achieve measurable growth.
+            Web development helps businesses build a strong online presence, connect with customers globally, and deliver smooth, user-friendly experiences. A well-designed 
+            website boosts brand credibility and makes it easier for users to explore products and services.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "text.secondary",
+              fontSize: "1.05rem",
+              lineHeight: 1.7,
+              mb: 3,
+            }}
+          >
+            Modern web solutions streamline operations with automation, secure integrations, and real-time insights. They also improve conversions, expand market reach, 
+            and support measurable business growth through smart design and optimized performance.
           </Typography>
 
           <Button
@@ -337,10 +349,10 @@ export default function WebDevelopment() {
           animate={isImpactInView ? { scale: [1, 1.05, 1] } : {}}
           transition={{ duration: 3, ease: "easeInOut" }}
           style={{
-            width: "40%",
-            borderRadius: "16px",
-            boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-            objectFit: "cover",
+            width: "35%",
+            // borderRadius: "16px",
+            // boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
+            // objectFit: "cover",
           }}
         />
       </Box>

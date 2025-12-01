@@ -62,6 +62,7 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
         user: "helpdesk@vyoobam.com",
         pass: "Help@vyoobam123",
       },
+       family: 4,
        tls: {
         rejectUnauthorized: false,
              },
@@ -75,6 +76,7 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
         user: "helpdesk@vyoobam.com",
         pass: "Help@vyoobam123",
       },
+       family: 4,
        tls: {
          rejectUnauthorized: false,
        },
@@ -153,7 +155,9 @@ const adminAuth = require("./middleware/adminAuth");
 
 const jobsRouter = require("./routes/jobs");
 app.use("/api/careers", jobsRouter);
-
+const applyRouter = require("./routes/apply");
+app.use("/api/apply", applyRouter);
+          
 
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)

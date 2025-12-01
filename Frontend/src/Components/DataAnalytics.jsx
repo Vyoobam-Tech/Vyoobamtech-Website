@@ -1,6 +1,6 @@
 import { Box, Typography, Card, CardContent,Button } from "@mui/material";
-import careers from "../assets/finaldata.jpg";
-import impactImg from "../assets/software.jpg"
+import careers from "../assets/dataservice.jpg";
+import impactImg from "../assets/f3.jpg";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
@@ -282,7 +282,7 @@ export default function DataAnalytics() {
             mb: 3,
           }}
         >
-         Transforms decision-making from guesswork to data-backed precision.
+        Data analytics transforms decision-making from guesswork to data-backed precision. By uncovering patterns, trends, and actionable insights, it helps businesses understand customer behavior, optimize operations, and predict future outcomes. With accurate, real-time data, organizations can make smarter strategic choices, reduce risks, and drive consistent growth.
         </Typography>
 
         {/* Optional CTA */}
@@ -316,9 +316,7 @@ export default function DataAnalytics() {
         alt="Business Impact"
         sx={{
           width: "30%",
-          borderRadius: "16px",
-          boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-          objectFit: "cover",
+         
         }}
       />
     </Box>

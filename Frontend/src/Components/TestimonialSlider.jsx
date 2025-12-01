@@ -15,6 +15,8 @@ import seva from "../assets/seva.jpg"
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { AnimatedBox } from "./AnimatedBox";
+import woman from "../assets/w2.jpg";
+import man from "../assets/m1.jpg"
 
 const brandLogos = [hari, lakshu, cheliyan, hari2, kt,seva, janu];
 
@@ -22,13 +24,13 @@ const testimonials = [
   {
     name: "Samuel Schick",
     role: "Client",
-    image: "",
+    image: woman,
     text: "Vyoobam Tech is a top-tier software development company that excels in delivering innovative and reliable tech solutions.",
   },
   {
     name: "Vigneshwaran Sivaprakasam",
     role: "Client",
-    image: "",
+    image: man,
     text: "Vyoobam Tech has been an incredible partner. Very professional, knowledgeable, and responsive to project needs.",
   },
 ];
@@ -120,28 +122,14 @@ const TestimonialSlider = () => {
                 py: 6,
               }}
             >
-              <Box
-                sx={{
-                  width: 130,
-                  height: 130,
-                  borderRadius: "50%",
-                  background:
-                    "linear-gradient(to right, #00e4c9, #00b2ff, #ff267e)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  mx: "auto",
-                  mb: 3,
-                  p: "3px",
-                }}
-              >
+              
                 <Avatar
                   src={testimonial.image}
                   alt={testimonial.name}
-                  sx={{ width: 120, height: 120 }}
+                  sx={{ width: 150, height: 150,  mx: "auto",
+    mb: 3, }}
                 />
-              </Box>
-
+              
               <Typography
                 variant="body1"
                 sx={{
