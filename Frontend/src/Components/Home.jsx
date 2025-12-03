@@ -12,6 +12,9 @@ import ProductSection from "./ProductSection";
 import CTA from "./CTA";
 import AboutUs from "./AboutUs";
 import infinity from "../assets/infinity1.jpg";
+// import image2 from "../assets/hero1.jpg";
+import image3 from "../assets/hero2.png";
+import { AnimatePresence } from "framer-motion";
 import WebIcon from "@mui/icons-material/Public";
 import MobileFriendlyIcon from "@mui/icons-material/Smartphone";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
@@ -85,10 +88,37 @@ const Home = () => {
       transition: { duration: 1, ease: "easeOut" },
     },
   };
+const slides = [
+    {
+      img: infinity,
+      title: "Empowering Businesses with Digital Innovation",
+      desc: "At Vyoobam Tech, we deliver next-gen IT solutions that help businesses scale faster, operate smarter, and adapt better in the digital-first world. From web and mobile applications to analytics and enterprise platforms, we are the technology partner that drives your success...",
+    },
+    
+    {
+      img: image3,
+      title: "Your Trusted Technology Partner for Growth",
+      desc: "From web to enterprise platforms, we engineer solutions that help businesses grow...",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+
+ 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 5000); // 4 seconds per slide
+
+    return () => clearInterval(interval);
+  }, []);
+  const images = [infinity, image3];
+
 
   return (
     <div>
-      <Box sx={{ backgroundColor: "#d7e5f7ff", py: 0 }}>
+      <Box sx={{ backgroundColor: "#d7e5f7ff", py: 0 ,minHeight: "100vh",   // 👈 FIXED
+    height: "100vh",  overflow: "hidden",}}>
         <Box
           sx={{
             position: "fixed",
@@ -96,7 +126,7 @@ const Home = () => {
             left: 0,
             width: "100vw",
             height: "100vh",
-            backgroundColor: "#000002ff", // Dark blue background
+            backgroundColor: "#000002ff", 
             zIndex: 0,
             overflow: "hidden",
           }}
@@ -107,7 +137,7 @@ const Home = () => {
               top: 0,
               right: 0,
               height: "100vh",
-              width: { xs: "100vw", md: "45vw" }, // Responsive wid
+              width: { xs: "100vw", md: "45vw" }, 
               display: "flex",
               alignItems: "flex-end",
               pr: { xs: 0, md: 2 },
@@ -116,19 +146,29 @@ const Home = () => {
               justifyContent: "flex-end",
             }}
           >
-            <img
-              src={infinity}
-              alt="Right Side"
-              style={{
-                height: "80%",
-                objectFit: "cover",
-                borderRadius: "16px",
-              }}
-            />
+           
+            <AnimatePresence mode="wait">
+  <motion.img
+    key={index}
+    src={images[index]}
+    alt="slide"
+    initial={{ opacity: 0, x: 50 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -50 }}
+    transition={{ duration: 1 }}
+    style={{
+      height: "80%",
+      objectFit: "cover",
+      borderRadius: "16px",
+      width: "100%",
+    }}
+  />
+</AnimatePresence>
+
           </Box>
         </Box>
 
-        {/* Main Section */}
+       
 
         <Header />
         <Box
@@ -139,12 +179,12 @@ const Home = () => {
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",
-            backgroundColor: "transparent", // ✅ allow video to be seen
+            backgroundColor: "transparent", 
             zIndex: 1,
             px: 2,
           }}
         >
-          {/* Center Content */}
+         
           <Container
             sx={{
               py: { xs: 12, md: 20 },
@@ -158,25 +198,31 @@ const Home = () => {
               zIndex: 1,
             }}
           >
+          <AnimatePresence mode="wait">
+ 
             <motion.div
               ref={ref}
               variants={slideInLeft}
-              initial="hidden"
-              animate={inView2 ? "visible" : "hidden"}
-              style={{ maxWidth: "800px" }}
+              
+               key={index}
+               initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -20 }}
+    transition={{ duration: 0.8 }}
+    style={{ maxWidth: "800px" }}
             >
               <Typography
                 variant="h1"
                 gutterBottom
                 sx={{
-                  mt: 5,
+                  mt: 7,
                   color: "#fff",
 
                   fontSize: { xs: "1.6rem", md: "2.90rem" },
                   lineHeight: "3rem",
                 }}
               >
-                Empowering Businesses with Digital Innovation
+                 {slides[index].title}
               </Typography>
               <Typography
                 variant="h3"
@@ -188,13 +234,10 @@ const Home = () => {
                   lineHeight: "1.8rem",
                 }}
               >
-                At Vyoobam Tech, we deliver next-gen IT solutions that help
-                businesses scale faster, operate smarter, and adapt better in
-                the digital-first world. From web and mobile applications to
-                analytics and enterprise platforms, we are the technology
-                partner that drives your success.
+               
+                 {slides[index].desc}
               </Typography>
-              {/* <Box sx={{mt:3}}> <BlobButton >GET IN TOUCH </BlobButton></Box> */}
+              
               <Button
                 variant="contained"
                 sx={{
@@ -215,6 +258,7 @@ const Home = () => {
                 See More →
               </Button>
             </motion.div>
+            </AnimatePresence>
           </Container>
         </Box>
       </Box>

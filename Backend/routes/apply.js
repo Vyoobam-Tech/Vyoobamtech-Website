@@ -19,7 +19,7 @@ const upload = multer({
 });
 
 router.post("/", upload.single("resume"), async (req, res) => {
-  console.log("Job Application API Hit");
+
 
   try {
     if (!req.body.payload) {

@@ -19,7 +19,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-
+import VyoobamNudge from "../assets/VN.png";
 import logoImg from "../assets/logo.jpg";
 import marketproduct from "../assets/marketproduct1.png";
 import eventproduct from "../assets/eventproduct.png";
@@ -43,7 +43,7 @@ const Header = () => {
     { text: "About", path: "/about" },
     { text: "Products", mega: "products" },
     { text: "Services", mega: "services" },
-    { text: "Careers", path: "/careers" },
+    // { text: "Careers", path: "/careers" },
     { text: "Contact", path: "/contact" },
     
   ];
@@ -61,17 +61,17 @@ const Header = () => {
           />
         ),
       },
-      {
-        category: "Event Ease",
-        description: "Event management platform",
-        icon: (
-          <img
-            src={eventproduct}
-            alt="Event Ease"
-            style={{ width: 80, height: 100, borderRadius: 10 }}
-          />
-        ),
-      },
+      // {
+      //   category: "Event Ease",
+      //   description: "Event management platform",
+      //   icon: (
+      //     <img
+      //       src={eventproduct}
+      //       alt="Event Ease"
+      //       style={{ width: 80, height: 100, borderRadius: 10 }}
+      //     />
+      //   ),
+      // },
       {
         category: "Sales Sage",
         description: "CRM-powered sales management tool",
@@ -87,7 +87,11 @@ const Header = () => {
         category: "Vyoobam Nudge",
         description: "Smart reminder & notification platform",
         icon: (
-          <NotificationsActiveIcon sx={{ color: "#294225", fontSize: 60 }} />
+          <img
+            src={VyoobamNudge}
+            alt="Vyoobam Nudge"
+            style={{ width: 100, height: 100, borderRadius: 10 }}
+          />
         ),
       },
       {
@@ -97,7 +101,7 @@ const Header = () => {
           <img
             src={eproduct}
             alt="E-GroceryMart"
-            style={{ width: 80, height: 80, borderRadius: 100 }}
+            style={{ width: 80, height: 100, borderRadius: 10 }}
           />
         ),
       },

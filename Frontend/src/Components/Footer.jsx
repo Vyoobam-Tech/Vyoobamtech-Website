@@ -51,8 +51,7 @@ const navigate = useNavigate();
                   
                 </Typography>
                 <Typography variant="body2" color="#e8e7e7c1" sx={{maxWidth:300, ml:-3}} fontSize={18}>
-                At Vyoobam,
-                  we believe in long-lasting relationships built on trust, innovation, and shared success
+                At Vyoobam, we believe in long-lasting relationships built on trust, innovation, and shared success.
 
                 </Typography>
               </Box>

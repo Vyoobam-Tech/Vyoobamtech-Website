@@ -89,7 +89,7 @@ export default function DataAnalytics() {
           </motion.div>
 
           <Typography variant="h6" mt={1} fontSize={30}>
-            From Information to Intelligence..
+            From Information to Intelligence.
           </Typography>
         </Box>
 

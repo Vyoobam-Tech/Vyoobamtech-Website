@@ -19,7 +19,7 @@ const features = [
   {
     title: "Flexible Plans",
     description:
-      "Choose plans that adapt to your business needs, offering scalability and cost-effectiveness.",
+      "Choose plans that adapt to your business needs, delivering both scalability and cost-efficiency",
     icon: <SettingsIcon />,
   },
   {

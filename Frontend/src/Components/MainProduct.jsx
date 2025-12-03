@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import CTA from "./CTA";
 
 const MainProduct = () => {
+   const navigate = useNavigate();
   return (
     <>
       <Header />
@@ -57,7 +58,7 @@ const MainProduct = () => {
             }}
             gutterBottom
           >
-            “Smarter Billing. Smarter Decisions.”
+            Smarter Billing. Smarter Decisions.
           </Typography>
 
           <Typography
@@ -87,7 +88,7 @@ const MainProduct = () => {
             }}
             onClick={() => navigate("/services")}
           >
-            Explore US →
+            Explore Us →
           </Button>
         </motion.div>
       </Box>
@@ -145,7 +146,7 @@ const MainProduct = () => {
             }}
             onClick={() => navigate("/services")}
           >
-            Explore US →
+            Explore Us →
           </Button>
         </motion.div>
 

@@ -140,7 +140,7 @@ export default function AboutUs() {
               </Typography>
               <Box sx={{ mt: 1 }}>
                 <Typography variant="h3" sx={{ fontSize: 14, color: "black" }}>
-                  2+ year
+                 2+ Years
                 </Typography>
                 <Stack direction="row" spacing={1} sx={{ mt: 0.5 }}>
                   <Avatar sx={{ width: 24, height: 24 }} />
@@ -195,11 +195,10 @@ export default function AboutUs() {
             variant="body1"
             sx={{ color: "#6b7280", mb: 3, maxWidth: 400 }}
           >
-            Founded in 2015, Vyoobam Tech has grown from a web solutions
+            Founded in 2022, Vyoobam Tech has grown from a web solutions
             provider into a full-scale digital transformation company. With
             expertise across Web Development, Mobile Applications, Data
-            Analytics, UI/UX Design, and Consulting, we help businesses of all
-            sizes navigate their digital journey.
+            Analytics, UI/UX Design, and Consulting, help businesses of all sizes navigate their digital journey with confidence..
           </Typography>
 
           <Button
@@ -219,7 +218,7 @@ export default function AboutUs() {
             }}
             onClick={() => navigate("/about")}
           >
-            Explore US →
+            Explore Us →
           </Button>
         </motion.div>
       </Box>

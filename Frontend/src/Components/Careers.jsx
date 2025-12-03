@@ -119,24 +119,7 @@ const Careers = () => {
     Together, we aim to create solutions that inspire change, empower businesses, 
     and build a smarter digital world. Your journey to innovation begins here.
   </Typography>
-          {/* <Button
-            variant="contained"
-            sx={{
-              px: 4,
-              py: 1.5,
-              borderRadius: "30px",
-              fontSize: "1rem",
-              fontWeight: 400,
-              background: "linear-gradient(90deg, #3f5eec, #00e4c9)", // your logo theme color
-              textTransform: "none",
-              "&:hover": {
-                background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
-              },
-            }}
-            onClick={() => navigate("/services")}
-          >
-            Apply Now →
-          </Button> */}
+          
         </Box>
 
         {/* Right Side Image */}
@@ -170,26 +153,7 @@ const Careers = () => {
             mentorship sessions, our culture inspires creativity, collaboration,
             and continuous growth.
           </Typography>
-          {/* <Button
-              variant="contained"
-              sx={{
-               
-                px: 4,
-                py: 1.5,
-                borderRadius: "30px",
-                fontSize: "1rem",
-                fontWeight: 400,
-                background: "linear-gradient(90deg, #3f5eec, #00e4c9)", // your logo theme color
-                textTransform: "none",
-                "&:hover": {
-                  background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
-                },
-              }}
-              onClick={() => navigate("/services")}
-            >
-             Apply Now   →
-            </Button>
-         */}
+         
         </Box>
 
         {/* Right Side Image */}
@@ -237,12 +201,7 @@ const Careers = () => {
         <Container
           sx={{ position: "relative", zIndex: 2, textAlign: "center" }}
         >
-          {/* <Typography variant="h6" sx={{ mb: 1, mt: -8 }}>
-            Join Us →
-          </Typography> */}
-          {/* <Typography variant="h2" fontWeight="bold" gutterBottom>
-            Current Openings
-          </Typography> */}
+          
 
           <Button
             variant="contained"

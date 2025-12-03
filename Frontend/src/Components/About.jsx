@@ -96,8 +96,8 @@ const About = () => {
           gridTemplateColumns: { xs: "1fr", md: "6fr 4fr" }, // slightly reduced right
           columnGap: { xs: 3, md: 6 }, // ✅ gap between left & right
           alignItems: "center",
-background: "linear-gradient(-90deg, #fafafbff 0%, #c2d0eec5 150%)",
-
+// background: "linear-gradient(-90deg, #fafafbff 0%, #c2d0eec5 150%)",
+background: "#fff",
  // ✅ dark transparent bg
  
           color: "#fff", // ✅ text white
@@ -142,12 +142,8 @@ background: "linear-gradient(-90deg, #fafafbff 0%, #c2d0eec5 150%)",
               color="black" fontWeight={400}
               sx={{ mb: 8, ml: 5 ,gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },}}
             >
-              At Vyoobam Tech, innovation meets impact. Since our founding in
-              2015, we have been committed to helping businesses embrace digital
-              transformation and thrive in an ever-changing world. From startups
-              to enterprises, we deliver scalable, secure, and future-ready
-              technology solutions that empower organizations to stay ahead of
-              the competition
+              Over the years, we have expanded our expertise to deliver high-performance applications, intelligent platforms, and end-to-end digital ecosystems. Our mission is to empower teams, streamline operations, and enable growth through reliable and strategic technology solutions.
+
             </Typography>
           </motion.div>
         </Box>
@@ -250,8 +246,8 @@ background: "linear-gradient(-90deg, #fafafbff 0%, #c2d0eec5 150%)",
               p: { xs: 4, md: 6 },
               textAlign: "center",
 
-              display: "flex", // ✅ New
-              flexDirection: "column", // ✅ New
+              display: "flex", 
+              flexDirection: "column", 
               justifyContent: "center",
               alignItems: "center",
             }}
@@ -267,8 +263,6 @@ background: "linear-gradient(-90deg, #fafafbff 0%, #c2d0eec5 150%)",
             </Typography>
           </Box>
 
-          {/* Divider */}
-          {/* Vertical Divider */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -279,14 +273,14 @@ background: "linear-gradient(-90deg, #fafafbff 0%, #c2d0eec5 150%)",
             <Box
               sx={{
                 width: "1px",
-                height: "70%", // or use 150px or any fixed height
-                backgroundColor: "rgba(252, 240, 240, 0.3)", // soft grey line
+                height: "70%", 
+                backgroundColor: "rgba(252, 240, 240, 0.3)", 
                 mx: 2,
               }}
             />
           </Box>
 
-          {/* Mission Section */}
+        
           <Box
             sx={{
               flex: 1,

@@ -42,15 +42,15 @@ const products = [
       },
       {
         icon: <Inventory2Icon />,
-        title: "Inventory Management – Track stock and alerts",
+        title: "Inventory Management – Tracks stock and sends alerts",
       },
       {
         icon: <DashboardIcon />,
-        title: "Analytics Dashboard – Visualize sales and performance",
+        title: "Analytics Dashboard – Visualizes sales and performance",
       },
       {
         icon: <ShowChartIcon />,
-        title: "Reports – Export detailed business reports",
+        title: "Reports – Exports detailed business insights",
       },
       {
         icon: <GroupIcon />,
@@ -65,19 +65,19 @@ const products = [
     features: [
       {
         icon: <AssignmentIcon />,
-        title: "Event Registration – Easy attendee sign-up",
+        title: "Event Registration –  Allows easy attendee signup",
       },
       {
         icon: <ConfirmationNumberIcon />,
-        title: "Ticketing – Generate and manage tickets",
+        title: "Ticketing – Generates and manages tickets",
       },
       {
         icon: <AssessmentIcon />,
-        title: "Analytics & Reports – Track event performance",
+        title: "Analytics & Reports – Tracks event performance",
       },
       {
         icon: <NotificationsActiveIcon />,
-        title: "Notifications – Alerts for attendees and organizers",
+        title: "Notifications – Sends alerts to attendees and organizers",
       },
       {
         icon: <PublicIcon />,
@@ -92,23 +92,23 @@ const products = [
     features: [
       {
         icon: <GroupIcon />,
-        title: "Lead Management – Capture and track leads",
+        title: "Lead Management – Captures and tracks leads",
       },
       {
         icon: <LoopIcon />,
-        title: "Pipeline Tracking – Monitor deal progress",
+        title: "Pipeline Tracking – Monitors deal progress",
       },
       {
         icon: <AssessmentIcon />,
-        title: "Sales Reports – Analyze performance metrics",
+        title: "Sales Reports – Analyzes performance metrics",
       },
       {
         icon: <HandshakeIcon />,
-        title: "Team Collaboration – Assign tasks and share updates",
+        title: "Team Collaboration – Assigns tasks and shares updates",
       },
       {
         icon: <InsightsIcon />,
-        title: "Customer Insights – Understand client behavior",
+        title: "Customer Insights – Understands client behavior",
       },
     ],path:"/Sales"
   },
@@ -117,7 +117,7 @@ const products = [
     name: "E-Grocery Mart",
     category: "E-Commerce / Grocery",
     features: [
-      { icon: <BsSearch />, title: "Smart Search – Quickly find products" },
+      { icon: <BsSearch />, title: "Smart Search – Quickly finds products" },
       {
         icon: <CreditCardIcon />,
         title: "Easy Checkout – Seamless purchase experience",
@@ -128,7 +128,7 @@ const products = [
       },
       {
         icon: <LoopIcon />,
-        title: "Inventory Sync – Auto-update stock levels",
+        title: "Inventory Sync – Auto-updates stock levels",
       },
       {
         icon: <LocalShippingIcon />,
@@ -224,7 +224,7 @@ export default function AllProduct() {
             mb: 3,
           }}
         >
-          Empowering businesses with integrated software
+         Empowering Businesses with Integrated Software Solutions
         </Typography>
       </Box>
 
@@ -266,7 +266,7 @@ export default function AllProduct() {
             <BsSearch />
           </Box>
           <InputBase
-            placeholder="I'm looking for..."
+            placeholder="Search for a product..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             sx={{ flex: 1, fontSize: "1.1rem" }}
@@ -327,7 +327,8 @@ export default function AllProduct() {
                   }}
                   onClick={() => navigate(path)}
                 >
-                  Explore Us →
+                  Explore More →
+ 
                 </Button>
               </Box>
 

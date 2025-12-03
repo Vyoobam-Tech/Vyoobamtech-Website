@@ -38,7 +38,7 @@ const milestones = [
     year: 2025,
     date: "2025",
     description:
-      "Delivered AI, analytics, and mobile app projects; trained 30+ interns through our learning ecosystem.",
+      "We are developing web and mobile applications while mentoring 30+ interns through our learning ecosystem.",
     image: level2025e,
   },
 ];
@@ -47,16 +47,19 @@ const Timeline = () => {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Reverse the milestones for display
+  const reversedMilestones = [...milestones].reverse();
+
   const handleScroll = () => {
     const container = containerRef.current;
     if (!container) return;
 
     const scrollTop = window.scrollY - container.offsetTop;
-    const sectionHeight = container.offsetHeight / milestones.length;
+    const sectionHeight = container.offsetHeight / reversedMilestones.length;
 
     let index = Math.floor(scrollTop / sectionHeight);
     if (index < 0) index = 0;
-    if (index >= milestones.length) index = milestones.length - 1;
+    if (index >= reversedMilestones.length) index = reversedMilestones.length - 1;
 
     setActiveIndex(index);
   };
@@ -66,7 +69,7 @@ const Timeline = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const progress = ((activeIndex + 1) / milestones.length) * 180;
+  const progress = ((activeIndex + 1) / reversedMilestones.length) * 180;
 
   return (
     <>
@@ -78,14 +81,15 @@ const Timeline = () => {
           fontSize: "55px",
           letterSpacing: "1px",
           color: "#060606ff",
-          mt: 15, // spacing below heading
+          mt: 15,
         }}
       >
         Our Journey
       </Typography>
+
       {/* Scroll Container */}
       <div
-        style={{ height: `${milestones.length * 100}vh`, position: "relative" }}
+        style={{ height: `${reversedMilestones.length * 100}vh`, position: "relative" }}
         ref={containerRef}
       >
         {/* Pinned Content */}
@@ -119,12 +123,12 @@ const Timeline = () => {
                 background: "#000",
               }}
             >
-              {milestones.map((_, i) => (
+              {reversedMilestones.map((_, i) => (
                 <div
                   key={i}
                   style={{
                     position: "absolute",
-                    top: `${(i / (milestones.length - 1)) * 100}%`,
+                    top: `${(i / (reversedMilestones.length - 1)) * 100}%`,
                     left: "-4px",
                     width: "10px",
                     height: "2px",
@@ -135,9 +139,7 @@ const Timeline = () => {
             </div>
           </div>
 
-          {/* Center Year + Circle */}
-
-          {/* Center - Year with Infinity behind it */}
+          
           <div
             style={{
               position: "relative",
@@ -148,7 +150,6 @@ const Timeline = () => {
               justifyContent: "center",
             }}
           >
-            {/* Large Infinity in background behind the year */}
             <div
               style={{
                 position: "absolute",
@@ -161,13 +162,7 @@ const Timeline = () => {
                 pointerEvents: "none",
               }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 256 120"
-                width="100%"
-                height="100%"
-              >
-                {/* Base path - light grey infinity */}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 120" width="100%" height="100%">
                 <path
                   d="M106.6,60l-20,25a47.9,47.9,0,1,1,0-70l80,70a47.9,47.9,0,1,0,0-70l-20,25"
                   fill="none"
@@ -176,7 +171,6 @@ const Timeline = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                {/* Red progress path */}
                 <path
                   d="M106.6,60l-20,25a47.9,47.9,0,1,1,0-70l80,70a47.9,47.9,0,1,0,0-70l-20,25"
                   fill="none"
@@ -191,7 +185,7 @@ const Timeline = () => {
               </svg>
             </div>
 
-            {/* Stacked Years in front of infinity */}
+            {/* Stacked Years */}
             <div
               style={{
                 display: "flex",
@@ -203,13 +197,13 @@ const Timeline = () => {
               }}
             >
               {[activeIndex - 1, activeIndex, activeIndex + 1].map((i) => {
-                if (i < 0 || i >= milestones.length) return null;
+                if (i < 0 || i >= reversedMilestones.length) return null;
 
                 const isActive = i === activeIndex;
 
                 return (
                   <div
-                    key={milestones[i].year}
+                    key={reversedMilestones[i].year}
                     style={{
                       fontSize: isActive ? "80px" : "40px",
                       fontWeight: isActive ? "700" : "400",
@@ -219,14 +213,14 @@ const Timeline = () => {
                       transform: "translateX(-80px)",
                     }}
                   >
-                    {milestones[i].year}
+                    {reversedMilestones[i].year}
                   </div>
                 );
               })}
             </div>
           </div>
 
-          {/* Right Description */}
+       
           <div style={{ width: "40%" }}>
             <div
               style={{
@@ -236,20 +230,20 @@ const Timeline = () => {
                 marginBottom: "10px",
               }}
             >
-              {milestones[activeIndex].date}
+              {reversedMilestones[activeIndex].date}
             </div>
             <div style={{ fontSize: "18px", lineHeight: "1.5" }}>
               <img
-                src={milestones[activeIndex].image}
-                alt={milestones[activeIndex].year}
+                src={reversedMilestones[activeIndex].image}
+                alt={reversedMilestones[activeIndex].year}
                 style={{
-                  width: "200px", // 🔹 adjust kutty/perusa
+                  width: "200px",
                   height: "auto",
                   marginBottom: "20px",
                 }}
               />
               <br />
-              {milestones[activeIndex].description}
+              {reversedMilestones[activeIndex].description}
             </div>
           </div>
         </div>

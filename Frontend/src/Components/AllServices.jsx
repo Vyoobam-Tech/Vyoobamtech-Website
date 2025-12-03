@@ -14,9 +14,9 @@ import { useNavigate } from "react-router-dom";
 // Services data
 const services = [
   { title: "Web Development", image: web,path: "/service/web-development" },
-  { title: "Moblie App Development", image: moblie,path: "/services/Mobile-development" },
-  { title: "Ui/Ux Design", image: ui,path: "/services/Ui-development" },
-  { title: "DataAnalytics", image: data,path: "/services/Data-development" },
+  { title: "Mobile App Development", image: moblie,path: "/services/Mobile-development" },
+  { title: "UI/UX Design", image: ui,path: "/services/Ui-development" },
+  { title: "Data Analytics", image: data,path: "/services/Data-development" },
     { title: "IT Consulting", image: it,path: "/services/it-consulting" },
 ];
 
@@ -32,7 +32,7 @@ const AllServices = () => {
           variant="h2" 
           sx={{ textAlign: "left", mb: 10,mt:5, fontWeight: "400",fontSize:"50px" }}
         >
-          All Service
+          All Services
         </Typography>
 
         {/* Services row */}

@@ -293,7 +293,7 @@ export default function MobileDevelopment() {
               lineHeight: 1.7,
               mb: 3,
             }}
-          >Through secure transactions, in-app analytics, geolocation capabilities, and targeted push notifications, businesses gain new monetization opportunities and expanded market reach. Ultimately, mobile apps act as a strategic asset that supports scalability, increases revenue, and builds long-term customer relationship
+          >Through secure transactions, in-app analytics, geolocation capabilities, and targeted push notifications, businesses gain new monetization opportunities and expanded market reach. Ultimately, mobile apps act as a strategic asset that supports scalability, increases revenue, and builds long-term customer relationships
           </Typography>
 
           {/* Optional CTA */}

@@ -32,14 +32,16 @@ export default function CTA() {
               letterSpacing: "-1px",
             }}
           >
-            From The Spark Of An Idea To Mesurable Results
+            From the Spark of an Idea to Measurable Results
+
           </h2>
           <p
             style={{ fontSize: "1rem", color: "#37385b", marginBottom: "2rem" }}
           >
-            Event great transformation begins with an idea.we bring that idea to
-            life with cutting edge technology,seamless execution,and mesurable
-            outcomes that help your business thrive
+            Every great transformation begins with an idea. 
+We bring that idea to life with cutting-edge technology, seamless execution, 
+and measurable outcomes that help your business thrive.
+
           </p>
           <Button
             variant="contained"

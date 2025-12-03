@@ -85,8 +85,8 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
     let hrEmail =
       purpose.toLowerCase().includes("internship") ||
       purpose.toLowerCase().includes("job")
-        ?"keerthivashini5@gmail.com"
-        : "manishaselvakumar03@gmail.com";
+        ?"hr@vyoobam.com"
+        : "info@vyoobam.com";
 
     console.log("Sending HR mail to:", hrEmail);
 

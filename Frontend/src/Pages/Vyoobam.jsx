@@ -1,7 +1,7 @@
 import React from "react";
 import ReuseableComponent from "../Components/ReuseableComponent";
 import overviewImage from "../assets/emart.jpg"; // replace with your image
-import logo from "../assets/lakshu.png"; // replace with your logo
+import logo from "../assets/VN.png"; // replace with your logo
 
 const Vyoobam = () => {
   const productData = {

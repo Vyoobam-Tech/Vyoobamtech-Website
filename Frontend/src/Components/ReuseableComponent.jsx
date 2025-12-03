@@ -47,7 +47,7 @@ const ReusableComponent = ({
               <img
                 src={logo}
                 alt={`${title} Logo`}
-                style={{ width: "120px", height: "auto", margin: "0 auto" }}
+                style={{ width: "180px", height: "auto", margin: "0 auto" }}
               />
             </Box>
           )}

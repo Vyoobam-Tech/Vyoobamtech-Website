@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./Components/About";
 import Service from "./Components/Service";
 import Contact from "./Components/Contact";
-import Careers from "./Components/Careers";
+// import Careers from "./Components/Careers";
 import Mobile from "./Components/Mobile.jsx";
 import Ui from "./Components/Ui.jsx"
 import DataAnalytics from "./Components/DataAnalytics.jsx"
@@ -50,7 +50,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
            
-            <Route path="/careers" element={<Careers />} />
+            {/* <Route path="/careers" element={<Careers />} /> */}
 
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Allproduct" element={<AllProduct />} />
