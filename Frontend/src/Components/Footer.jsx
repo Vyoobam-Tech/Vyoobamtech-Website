@@ -159,7 +159,7 @@ const navigate = useNavigate();
   <IconButton
     color="info"
     component="a"
-    href="https://twitter.com/"
+    href="https://twitter.com/vyoobamtech"
     target="_blank"
     rel="noopener noreferrer"
   >

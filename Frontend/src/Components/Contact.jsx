@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import {
   Box,
@@ -28,12 +26,23 @@ const Contact = () => {
 
   const [resume, setResume] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState(""); // generated captcha
+const [captchaInput, setCaptchaInput] = useState(""); // user input
+
 
   const purposes = ["For Product Demo", "For Internship", "For Job", "Others"];
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+const generateCaptcha = () => {
+  const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  let captcha = "";
+  for (let i = 0; i < 6; i++) {
+    captcha += chars[Math.floor(Math.random() * chars.length)];
+  }
+  setCaptchaValue(captcha);
+};
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -55,68 +64,157 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (loading) return;
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     if (loading) return;
 
-    setLoading(true);
+//     setLoading(true);
 
-    try {
-      const formDataToSend = new FormData();
-      Object.keys(formData).forEach((key) => {
-        formDataToSend.append(key, formData[key]);
-      });
-      if (resume) formDataToSend.append("resume", resume);
+//     try {
+//       const formDataToSend = new FormData();
+//       Object.keys(formData).forEach((key) => {
+//         formDataToSend.append(key, formData[key]);
+//       });
+//       if (resume) formDataToSend.append("resume", resume);
 
-      const response = await fetch("http://localhost:5000/api/contact", {
+//       const response = await fetch("http://localhost:5000/api/contact", {
         
-        method: "POST",
+//         method: "POST",
        
-        body: formDataToSend,
+//         body: formDataToSend,
         
-      });
- console.log("Frontend Response:", response);
-      const data = await response.json();
+//       });
+//  console.log("Frontend Response:", response);
+//       const data = await response.json();
 
-      if (data.success) {
-        MySwal.fire({
-          icon: "success",
-          title: "✅ Success",
-          text: "Your message has been sent successfully!",
-          timer: 3000,
-          showConfirmButton: false,
-        });
+//       if (data.success) {
+//         MySwal.fire({
+//           icon: "success",
+//           title: "✅ Success",
+//           text: "Your message has been sent successfully!",
+//           timer: 3000,
+//           showConfirmButton: false,
+//         });
 
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          purpose: "",
-          message: "",
-        });
-        setResume(null);
-      } else {
-        MySwal.fire({
-          icon: "error",
-          title: "❌ Failed",
-          text: "Failed to send message. Please try again.",
-          timer: 3000,
-          showConfirmButton: false,
-        });
-      }
-    } catch (err) {
-      console.error(err);
+//         setFormData({
+//           firstName: "",
+//           lastName: "",
+//           email: "",
+//           purpose: "",
+//           message: "",
+//         });
+//         setResume(null);
+//       } else {
+//         MySwal.fire({
+//           icon: "error",
+//           title: "❌ Failed",
+//           text: "Failed to send message. Please try again.",
+//           timer: 3000,
+//           showConfirmButton: false,
+//         });
+//       }
+//     } catch (err) {
+//       console.error(err);
+//       MySwal.fire({
+//         icon: "error",
+//         title: "❌ Error",
+//         text: "Something went wrong. Please try again later.",
+//         timer: 3000,
+//         showConfirmButton: false,
+//       });
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (loading) return;
+
+  // Generate random captcha
+  const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  let captcha = "";
+  for (let i = 0; i < 6; i++) {
+    captcha += chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  // Show SweetAlert2 popup for captcha
+  const { value: userCaptcha } = await MySwal.fire({
+    title: "Enter Captcha",
+    html: `<p style="font-size:20px;font-weight:bold;">${captcha}</p>`,
+    input: "text",
+    inputPlaceholder: "Type the captcha here",
+    showCancelButton: true,
+    confirmButtonText: "Submit",
+    cancelButtonText: "Cancel",
+    allowOutsideClick: false,
+    inputValidator: (value) => {
+      if (!value) return "Please enter the captcha!";
+    },
+  });
+
+  // User pressed cancel
+  if (!userCaptcha) {
+    return;
+  }
+
+  // Check captcha match
+  if (userCaptcha !== captcha) {
+    MySwal.fire({
+      icon: "error",
+      title: "⚠️ Captcha Mismatch",
+      text: "Captcha did not match. Try again!",
+      timer: 2500,
+      showConfirmButton: false,
+    });
+    return; // do not submit, user has to click submit again
+  }
+
+  // Proceed with form submission
+  setLoading(true);
+  try {
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach((key) => formDataToSend.append(key, formData[key]));
+    if (resume) formDataToSend.append("resume", resume);
+
+    const response = await fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      body: formDataToSend,
+    });
+
+    const data = await response.json();
+    if (data.success) {
       MySwal.fire({
-        icon: "error",
-        title: "❌ Error",
-        text: "Something went wrong. Please try again later.",
+        icon: "success",
+        title: "✅ Success",
+        text: "Your message has been sent successfully!",
         timer: 3000,
         showConfirmButton: false,
       });
-    } finally {
-      setLoading(false);
+      setFormData({ firstName: "", lastName: "", email: "", purpose: "", message: "" });
+      setResume(null);
+    } else {
+      MySwal.fire({
+        icon: "error",
+        title: "❌ Failed",
+        text: "Failed to send message. Please try again.",
+        timer: 3000,
+        showConfirmButton: false,
+      });
     }
-  };
+  } catch (err) {
+    console.error(err);
+    MySwal.fire({
+      icon: "error",
+      title: "❌ Error",
+      text: "Something went wrong. Please try again later.",
+      timer: 3000,
+      showConfirmButton: false,
+    });
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <>
@@ -242,7 +340,7 @@ const Contact = () => {
         <Typography variant="h6" fontWeight="bold"  sx={{ color: "#253168ff"}}>
           Email:
         </Typography>
-        <Typography>admin@vyoobam.com</Typography>
+        <Typography>hr@vyoobam.com</Typography>
       </Box>
     </Box>
 
@@ -366,6 +464,7 @@ const Contact = () => {
                 >
                   {loading ? "Sending..." : "Submit"} {/* Show loading */}
                 </Button>
+                
               </form>
             </Box>
             

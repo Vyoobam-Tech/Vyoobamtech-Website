@@ -20,7 +20,7 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import VyoobamNudge from "../assets/VN.png";
-import logoImg from "../assets/logo.jpg";
+import logoImg from "../assets/ulogo.png";
 import marketproduct from "../assets/marketproduct1.png";
 import eventproduct from "../assets/eventproduct.png";
 import salesproduct from "../assets/salesproduct.png";
@@ -196,9 +196,9 @@ const Header = () => {
             <img
               src={logoImg}
               alt="Logo"
-              style={{ height: 45, marginRight: 8, mixBlendMode: "multiply" }}
+              style={{ height: 120, marginRight: 8, mixBlendMode: "multiply" }}
             />
-            Vyoobam Tech
+            
           </Typography>
 
           {/* Desktop Menu */}

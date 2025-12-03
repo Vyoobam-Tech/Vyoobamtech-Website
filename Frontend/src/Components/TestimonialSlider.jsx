@@ -15,23 +15,23 @@ import seva from "../assets/seva.jpg"
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { AnimatedBox } from "./AnimatedBox";
-import woman from "../assets/w2.jpg";
-import man from "../assets/m1.jpg"
+import woman from "../assets/client1.jpeg";
+import man from "../assets/client2.jpeg"
 
 const brandLogos = [hari, lakshu, cheliyan, hari2, kt,seva, janu];
 
 const testimonials = [
   {
-    name: "Samuel Schick",
+    name: "	Azharuddin",
     role: "Client",
     image: woman,
-    text: "Vyoobam Tech is a top-tier software development company that excels in delivering innovative and reliable tech solutions.",
+    text: "Vyoobam Tech delivers innovative, reliable, and customized software solutions with a strong focus on quality and client satisfaction — the ideal partner for elevating your digital presence.",
   },
   {
     name: "Vigneshwaran Sivaprakasam",
     role: "Client",
     image: man,
-    text: "Vyoobam Tech has been an incredible partner. Very professional, knowledgeable, and responsive to project needs.",
+    text: "Vyoobam Tech has been an exceptional partner for our business projects. Their team is highly professional, knowledgeable, and consistently responsive to our project needs. Great work — keep growing!",
   },
 ];
 
