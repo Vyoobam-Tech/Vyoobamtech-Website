@@ -446,24 +446,27 @@ const slides = [
         pb: { xs: 2, md: 3 },
         pt: { xs: 2, md: 4 },
         justifyContent: "flex-end",
+         pt: { xs: 2, md: 4 }, 
       }}
     >
       <AnimatePresence mode="wait">
         <motion.img
-          key={index}
-          src={images[index]}
-          alt={`Slide ${index + 1}`}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 1 }}
-          style={{
-            height: "80%",
-            objectFit: "cover",
-            borderRadius: "16px",
-            width: "100%",
-          }}
-        />
+  key={index}
+  src={images[index]}
+  alt={`Slide ${index + 1}`}
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  exit={{ opacity: 0, x: -50 }}
+  transition={{ duration: 1 }}
+  style={{
+    width: "100%",
+    height: "auto",   // responsive height
+    maxHeight: "80vh", // prevents overflow
+    objectFit: "cover",
+    borderRadius: "16px",
+  }}
+/>
+
       </AnimatePresence>
     </Box>
   </Box>
@@ -488,7 +491,7 @@ const slides = [
         flexDirection: "column",
         alignItems: { xs: "center", md: "flex-start" },
         justifyContent: "center",
-        position: "relative",ml:5,mt:8
+        position: "relative",ml:5,mt:4
       }}
     >
       <AnimatePresence mode="wait">
