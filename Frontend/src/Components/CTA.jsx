@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function CTA() {
   const navigate=useNavigate()
   return (
-    <Box sx={{ backgroundColor: "white", py: 6 }}>
+    <Box sx={{ backgroundColor: "white", py: 13 }}>
       <section
         style={{
           background: "linear-gradient(90deg, #f6e7ff 0%, #e3eaff 100%)",

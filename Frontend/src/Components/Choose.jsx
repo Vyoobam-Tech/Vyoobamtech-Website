@@ -89,12 +89,12 @@ const Choose = () => {
       >
         {/* Left: Animated Image Transition */}
         <Box>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h2" gutterBottom fontWeight={500} fontSize={40}>
             Why Choose Us?
           </Typography>
           <Typography
             variant="body1"
-            fontSize={16}
+            fontSize={20}
             fontWeight={500}
             sx={{ mb: 4, color: "white" }}
           >
@@ -103,7 +103,7 @@ const Choose = () => {
           </Typography>
 
           {/* Animated Image Wrapper */}
-          <img src={meeting} alt="meeting" className="single-effect" />
+          <img src={meeting} alt="meeting" className="single-effect" style={{ marginLeft: 24 }} />
           <Box></Box>
         </Box>
         {/* Right Section - Features */}
@@ -158,13 +158,13 @@ const Choose = () => {
 
                 {/* Text */}
                 <Box>
-                  <Typography variant="h6" fontWeight={500} fontSize={18}>
+                  <Typography variant="h6" fontWeight={500} fontSize={20}>
                     {feature.title}
                   </Typography>
                   <Typography
                     variant="body"
                     fontWeight={300}
-                    fontSize={14}
+                    fontSize={18}
                     sx={{ color: "white" }}
                   >
                     {feature.description}
