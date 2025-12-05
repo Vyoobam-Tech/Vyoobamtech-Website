@@ -13,6 +13,8 @@ const MainProduct = () => {
     overviewImage,
     overviewText:
       "Managing inventory, billing, and reports separately is time-consuming and error-prone. Market Metrics brings it all together in one seamless platform. Designed for retailers,wholesalers, and SMEs, it simplifies daily operations while providing powerful insights for better decision-making.",
+      overviewText2:
+  "With intelligent automation, Market Metrics reduces manual work and helps teams focus on growth. From real-time tracking to business analytics, it brings clarity and speed to your everyday operations.",
       featuresTitle:"Key Features",
       featuresDescription:" Everything your growing business needs to streamline operations save time, and make smarter decisions.",
     features:[
@@ -49,6 +51,8 @@ const MainProduct = () => {
             ],
             benefiteSubtitle:"Reliable, Efficient, Scalable \n Built For Business Automation.",
             benefitedes:" With Market Metrics, Businesses Can Streamline Billing, Track Inventory Live, And Scale Operations Effortlessly. Our tools empower your team to make faster, smarter decisions.",
+            benefitedes2: "With Market Metrics, teams can collaborate seamlessly across multiple branches, generate insightful reports instantly, and focus on strategic growth instead of mundane tasks. Experience smarter business management like never before.",
+
     benefits: [
       {
         title: "Minimize Errors",

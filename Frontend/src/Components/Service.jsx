@@ -48,16 +48,16 @@ export default function WebDevelopment() {
       <Header />
       <Box width="100%" minHeight="100vh">
         {/* 🔥 HERO SECTION */}
-        <Box
+        {/* <Box
           sx={{
             position: "relative",
             bgcolor: "white",
             clipPath: "polygon(0 ,0, 100% 0, 100% 80%, 0 100%)",
             zIndex: 2,
             py: { xs: 6, md: 14 },
-            px: { xs: 2, md: 10 },
+            px: { xs: 2, md: 10 },backgroundColor:"#2b2b36ff",
           }}
-        >
+        > */}
           {/* <Typography variant="subtitle1">
             <span
               onClick={() => navigate("/")}
@@ -76,7 +76,7 @@ export default function WebDevelopment() {
             <Typography
               variant="h2"
               fontWeight={700}
-              mt={3}
+              mt={18} ml={8}
               fontSize={90}
               sx={{
                 background: "black",
@@ -89,10 +89,12 @@ export default function WebDevelopment() {
             </Typography>
           </motion.div>
 
-          <Typography variant="h6" mt={1} fontSize={30}>
-            Building the Digital Face of Your Business...
+          <Typography variant="h6" mt={1} fontSize={30} ml={8}>
+            Building the Digital Face of Your Business...........
           </Typography>
-        </Box>
+          
+       
+        {/* </Box> */}
 
         {/* BACKGROUND IMAGE */}
         <Box
@@ -119,9 +121,10 @@ export default function WebDevelopment() {
             px: { xs: 3, md: 8 },
             py: { xs: 6, md: 10 },
             gap: 4,
+            
           }}
         >
-          <Box sx={{ flex: 1 }}>
+          {/* <Box sx={{ flex: 1 }}>
             <Typography
               variant="h2"
               fontWeight={800}
@@ -132,7 +135,25 @@ export default function WebDevelopment() {
             >
               Transform Your <br /> Digital Journey
             </Typography>
-          </Box>
+          </Box> */}
+          
+ < Typography
+    variant="h2"
+    fontWeight={800} 
+    sx={{
+      fontSize: {
+        xs: "2rem",        // mobile
+        sm: "2.5rem",      // small tablets
+        md: "3rem",        // desktop
+        lg: "3.5rem",     // large screens
+      },
+      lineHeight: 1.2,
+    }}
+  >
+    Transform Your <br /> Digital Journey
+  </Typography>
+
+
 
           {/* 🔥 Right content animation */}
           <motion.div
@@ -148,7 +169,7 @@ export default function WebDevelopment() {
               sx={{
                 fontSize: { xs: "1rem", md: "1.2rem" },
                 color: "text.secondary",
-                lineHeight: 1.6,
+                lineHeight: 1.6,ml:10
               }}
             >
               We combine innovation, design thinking, and advanced technology to
@@ -213,7 +234,7 @@ export default function WebDevelopment() {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 style={{ flex: "1 1 22%" }}
               >
-                <Card
+                {/* <Card
                   sx={{
                     borderRadius: "16px",
                     boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
@@ -229,6 +250,43 @@ export default function WebDevelopment() {
                       variant="h6"
                       fontWeight={700}
                       sx={{ mb: 1, fontSize: "1.1rem" }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "text.secondary",
+                        fontSize: "0.9rem",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {item.desc}
+                    </Typography>
+                  </CardContent>
+                </Card> */}
+                <Card
+                  sx={{
+                    flex: 1,
+                    borderRadius: "16px",
+                    boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
+                    flexDirection: "column", // make content vertical
+    height: "100%",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                      boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: 4 }}>
+                    <Typography
+                      variant="h6"
+                      fontWeight={700}
+                      sx={{
+                        fontSize: "1.1rem",
+                        mb: 1,
+                      }}
                     >
                       {item.title}
                     </Typography>

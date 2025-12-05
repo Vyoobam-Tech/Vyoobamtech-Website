@@ -1,6 +1,6 @@
 import React from "react";
 import ReuseableComponent from "../Components/ReuseableComponent";
-import overviewImage from "../assets/emart.jpg"; // replace with your image
+import overviewImage from "../assets/vyoobam.png"; // replace with your image
 import logo from "../assets/VN.png"; // replace with your logo
 
 const Vyoobam = () => {
@@ -13,6 +13,9 @@ const Vyoobam = () => {
     overviewImage,
     overviewText:
       "With Vyoobam Nudge, businesses can automate reminders, manage recurring tasks, and collaborate with teams efficiently. The analytics dashboard provides insights to improve engagement and reduce missed appointments.",
+      overviewText2:
+  "Vyoobam Nudge ensures your team stays on top of important tasks, enhances customer communication, and optimizes operational workflows, helping businesses save time and boost overall productivity.",
+
     featuresTitle: "Key Features",
     featuresDescription:
       "Everything you need to automate reminders, track tasks, and ensure timely communication with customers.",
@@ -37,10 +40,18 @@ const Vyoobam = () => {
         title: "Analytics Dashboard",
         description: "Track reminders sent, responses, and success rates.",
       },
+      {
+  title: "Smart Prioritization",
+  description: "Automatically prioritize tasks and reminders based on urgency and deadlines.",
+}
+
     ],
     benefiteSubtitle: "Stay Organized \n Save Time \n Build Customer Trust",
     benefitedes:
       "Vyoobam Nudge helps businesses automate reminders, reduce missed appointments, save time, and build stronger relationships with proactive communication.",
+      benefitedes2:
+  "By streamlining task management and providing actionable insights, Vyoobam Nudge empowers teams to work smarter, enhance customer engagement, and improve overall operational efficiency.",
+
     benefits: [
       {
         title: "Improve Customer Engagement",

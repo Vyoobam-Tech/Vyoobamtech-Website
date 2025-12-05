@@ -37,6 +37,7 @@ const Header = () => {
   const [activeMega, setActiveMega] = useState(null);
   const [langOpen, setLangOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [mobileMega, setMobileMega] = useState(null);
 
   const menuItems = [
     { text: "Home", path: "/" },
@@ -175,8 +176,9 @@ const Header = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            minHeight: { xs: 70, md: 100 },
-            px: { xs: 2, md: 4 },
+           minHeight: { xs: 60, sm: 70, md: 90, lg: 110 },
+px: { xs: 1, sm: 2, md: 4, lg: 6 },
+
           }}
         >
           {/* Logo */}
@@ -194,10 +196,18 @@ const Header = () => {
             onClick={() => navigate("/")}
           >
             <img
-              src={logoImg}
-              alt="Logo"
-              style={{ height: 120, marginRight: 8, mixBlendMode: "multiply" }}
-            />
+  src={logoImg}
+  alt="Logo"
+  style={{
+    height: "100px",
+    marginRight: 8,
+    mixBlendMode: "multiply",
+
+    // responsive fix
+    maxHeight: "80px",
+  }}
+/>
+
             
           </Typography>
 
@@ -241,7 +251,11 @@ const Header = () => {
                           position: "fixed",
                           top: "100px",
                           left: 0,
-                          width: "100vw",
+                        width: "100%",
+maxWidth: "100vw",
+padding: "0",
+overflowX: "auto",
+
                           background: "#fff",
                           zIndex: 1300,
                           boxShadow: "0px 10px 25px rgba(0,0,0,0.15)",
@@ -263,7 +277,8 @@ const Header = () => {
                           {/* LEFT FULL PANEL */}
                           <Box
                             sx={{
-                              width: 350,
+                             width: { xs: "100%", sm: 250, md: 300, lg: 350 },
+
                               bgcolor: "#ffffffff",
                               color: "#E8ECF9",
                               display: "flex",
@@ -369,7 +384,8 @@ const Header = () => {
                                   <Typography
                                     sx={{
                                       fontWeight: 600,
-                                      fontSize: "18px",
+                                     fontSize: { xs: "14px", sm: "16px", md: "18px" },
+
                                       color: "#0e1038ff",
                                     }}
                                   >
@@ -392,7 +408,8 @@ const Header = () => {
                             {/* Hover Details */}
                             <Box
                               sx={{
-                                flex: 1.2,
+                               flex: { xs: 1, md: 1.2 },
+
                                 bgcolor: "#ffffffff",
                                 borderRadius: 3,
                                 p: 5,
@@ -587,8 +604,9 @@ const Header = () => {
 
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Box sx={{ width: 250 }}>
-          <List>
+        <Box sx={{ width: { xs: 220, sm: 260 } }}>
+
+          {/* <List>
             {menuItems.map((item) => (
               <ListItem key={item.text} disablePadding>
                 <ListItemButton
@@ -609,7 +627,88 @@ const Header = () => {
                 </ListItemButton>
               </ListItem>
             ))}
-          </List>
+          </List> */}
+          
+
+<List>
+  {menuItems.map((item) => (
+    <React.Fragment key={item.text}>
+      <ListItem disablePadding>
+        <ListItemButton
+          onClick={() => {
+            if (item.mega) {
+              // toggle submenu
+              setMobileMega(mobileMega === item.mega ? null : item.mega);
+            } else {
+              navigate(item.path);
+              setOpen(false);
+            }
+          }}
+        >
+          <ListItemText primary={item.text} />
+        </ListItemButton>
+      </ListItem>
+
+      {/* SUB MENU FOR MOBILE */}
+      {item.mega && mobileMega === item.mega && (
+        <Box sx={{ pl: 4, bgcolor: "#f5f7ff" }}>
+          {megaMenus[item.mega].map((sub) => (
+            <ListItemButton
+              key={sub.category}
+              sx={{ py: 0.5 }}
+              onClick={() => {
+                // navigate based on item category
+                if (item.mega === "products") {
+                  switch (sub.category) {
+                    case "Market Metrics":
+                      navigate("/Market");
+                      break;
+                    case "Sales Sage":
+                      navigate("/Sales");
+                      break;
+                    case "Vyoobam Nudge":
+                      navigate("/Vyoobam");
+                      break;
+                    case "E-GroceryMart":
+                      navigate("/Egrocery");
+                      break;
+                    default:
+                      break;
+                  }
+                } else {
+                  switch (sub.category) {
+                    case "Web Development":
+                      navigate("/service/web-development");
+                      break;
+                    case "Mobile Development":
+                      navigate("/services/Mobile-development");
+                      break;
+                    case "UI/UX Design":
+                      navigate("/services/Ui-development");
+                      break;
+                    case "Data Analytics":
+                      navigate("/services/Data-development");
+                      break;
+                    case "IT Consulting":
+                      navigate("/services/it-consulting");
+                      break;
+                    default:
+                      break;
+                  }
+                }
+
+                setOpen(false);
+              }}
+            >
+              <ListItemText primary={sub.category} />
+            </ListItemButton>
+          ))}
+        </Box>
+      )}
+    </React.Fragment>
+  ))}
+</List>
+
         </Box>
       </Drawer>
     </>

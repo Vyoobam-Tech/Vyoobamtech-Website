@@ -13,6 +13,9 @@ const Sales = () => {
     overviewImage,
     overviewText:
       "Sales Sage helps sales teams centralize leads, manage pipelines efficiently, and gain actionable insights to close deals faster. Designed for teams of all sizes, it boosts productivity while improving customer relationships.",
+      overviewText2:
+  "With Sales Sage, teams can automate repetitive tasks, track performance metrics in real-time, and collaborate effortlessly across departments. It empowers sales professionals to focus on what matters most—building relationships and closing deals efficiently.",
+
     featuresTitle: "Key Features",
     featuresDescription:
       "Everything your sales team needs to streamline processes, track leads, and improve conversion rates.",
@@ -37,10 +40,18 @@ const Sales = () => {
         title: "Performance Analytics",
         description: "Measure KPIs, conversion rates, and overall sales performance.",
       },
+      {
+  title: "Automated Follow-Ups",
+  description: "Schedule and send follow-up emails or reminders automatically to keep leads engaged.",
+}
+
     ],
     benefiteSubtitle: "Efficient, Predictable, Insightful \n Designed for Sales Success.",
     benefitedes:
       "Sales Sage empowers your team to close deals faster, strengthen customer relationships, and improve sales predictability with actionable insights.",
+      benefitedes2:
+  "By streamlining lead management and automating routine tasks, Sales Sage helps your team save time, reduce errors, and focus on high-value activities, driving growth and improving overall productivity.",
+
     benefits: [
       {
         title: "Close Deals Faster",

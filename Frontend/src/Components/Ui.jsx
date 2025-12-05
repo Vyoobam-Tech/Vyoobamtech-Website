@@ -47,16 +47,7 @@ export default function UiUxDesign() {
      <Header />
       <Box width="100%" minHeight="100vh">
         {/* 🔥 HERO SECTION */}
-        <Box
-          sx={{
-            position: "relative",
-            bgcolor: "white",
-            clipPath: "polygon(0 ,0, 100% 0, 100% 80%, 0 100%)",
-            zIndex: 2,
-            py: { xs: 6, md: 14 },
-            px: { xs: 2, md: 10 },
-          }}
-        >
+        
           {/* <Typography variant="subtitle1">
             <span
               onClick={() => navigate("/")}
@@ -75,7 +66,7 @@ export default function UiUxDesign() {
             <Typography
               variant="h2"
               fontWeight={700}
-              mt={3}
+              mt={18} ml={8}
               fontSize={90}
               sx={{
                 background: "black",
@@ -88,10 +79,10 @@ export default function UiUxDesign() {
             </Typography>
           </motion.div>
 
-          <Typography variant="h6" mt={1} fontSize={30}>
+          <Typography variant="h6" mt={1} fontSize={30} ml={8}>
             Experience that delight and convert...
           </Typography>
-        </Box>
+        
 
         {/* BACKGROUND IMAGE */}
         <Box
@@ -116,20 +107,25 @@ export default function UiUxDesign() {
       }}
     >
       {/* Left Side - Title */}
-      <Box sx={{ flex: 1 }}>
+      
         
-        <Typography
-          variant="h2"
-          fontWeight={800}
-          sx={{
-            fontSize: { xs: "2rem", md: "3rem" }, // mobile smaller, desktop bigger
-            lineHeight: 1.2,
-          }}
-        >
-          Transform Your <br /> Digital Journey
-        </Typography>
+        < Typography
+    variant="h2"
+    fontWeight={800} 
+    sx={{
+      fontSize: {
+        xs: "2rem",        // mobile
+        sm: "2.5rem",      // small tablets
+        md: "3rem",        // desktop
+        lg: "3.5rem",     // large screens
+      },
+      lineHeight: 1.2,
+    }}
+  >
+    Transform Your <br /> Digital Journey
+  </Typography>
         
-      </Box>
+     
 
       {/* Right Side - Description */}
       <Box sx={{ flex: 1 }}>
@@ -138,7 +134,7 @@ export default function UiUxDesign() {
           sx={{
             fontSize: { xs: "1rem", md: "1.2rem" },
             color: "text.secondary",
-            lineHeight: 1.6,
+            lineHeight: 1.6,ml:10
           }}
         >
          Great design is not about pixels—it’s about human-centered experiences.
@@ -197,41 +193,43 @@ export default function UiUxDesign() {
               display: "flex",
             }}
           >
-            <Card
-              sx={{
-                flex: 1,
-                borderRadius: "16px",
-                boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-8px)",
-                  boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
-                },
-              }}
-            >
-              <CardContent sx={{ p: 4 }}>
-                <Typography
-                  variant="h6"
-                  fontWeight={700}
+              <Card
                   sx={{
-                    fontSize: "1.1rem",
-                    mb: 1,
+                    flex: 1,
+                    borderRadius: "16px",
+                    boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
+                    flexDirection: "column", // make content vertical
+    height: "100%",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                      boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+                    },
                   }}
                 >
-                  {item.title}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "text.secondary",
-                    fontSize: "0.9rem",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {item.desc}
-                </Typography>
-              </CardContent>
-            </Card>
+                  <CardContent sx={{ p: 4 }}>
+                    <Typography
+                      variant="h6"
+                      fontWeight={700}
+                      sx={{
+                        fontSize: "1.1rem",
+                        mb: 1,
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "text.secondary",
+                        fontSize: "0.9rem",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {item.desc}
+                    </Typography>
+                  </CardContent>
+                </Card>
           </Box>
         ))}
       </Box>

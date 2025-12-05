@@ -13,7 +13,10 @@ const Egrocery = () => {
     overviewImage,
     overviewText:
       "E-Grocery Mart helps grocery retailers establish a digital presence, streamline order management, and provide customers with smooth shopping experiences. From search to delivery, everything is optimized for convenience and efficiency.",
-    featuresTitle: "Key Features",
+    overviewText2:
+  "With real-time inventory updates, personalized promotions, and seamless payment options, E-Grocery Mart ensures both retailers and customers enjoy a faster, smarter, and more reliable grocery shopping experience.",
+
+      featuresTitle: "Key Features",
     featuresDescription:
       "Everything you need to run a successful online grocery store, enhance customer satisfaction, and increase repeat purchases.",
     features: [
@@ -37,10 +40,17 @@ const Egrocery = () => {
         title: "Secure Transactions",
         description: "Advanced encryption and fraud detection for safety.",
       },
+      {
+  title: "Automated Inventory Alerts",
+  description: "Get notified when stock is low or about to expire, ensuring seamless restocking.",
+}
+
     ],
     benefiteSubtitle: "Reach More Customers \n Simplify Operations \n Boost Efficiency",
     benefitedes:
       "E-Grocery Mart allows retailers to expand online, increase repeat purchases, and automate order management while providing customers a seamless shopping experience.",
+      benefitedes2:
+  "By streamlining order management and providing personalized shopping experiences, E-Grocery Mart helps retailers improve efficiency, reduce errors, and boost customer satisfaction.",
     benefits: [
       {
         title: "Expand Customer Reach",

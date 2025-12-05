@@ -12,13 +12,13 @@ const ReusableComponent = ({
   tagline,
   description,
   overviewImage,
-  overviewText,
+  overviewText,overviewText2,
   features,
   benefits,
   featuresTitle,
   featuresDescription,
   benefiteSubtitle,
-  benefitedes,
+  benefitedes,benefitedes2,
   explorePath = "/Contact",
 }) => {
   const navigate = useNavigate();
@@ -133,12 +133,15 @@ const ReusableComponent = ({
             fontSize="58px"
             color="black"
             gutterBottom
-            sx={{ pb: 2 }}
+            sx={{ pb: 2,mt: -5}}
           >
             Overview
           </Typography>
           <Typography variant="h6" fontWeight="400" color="text.secondary" sx={{mt:3}}>
             {overviewText}
+          </Typography>
+           <Typography variant="h6" fontWeight="400" color="text.secondary" sx={{mt:3}}>
+            {overviewText2}
           </Typography>
           {/* <Button
             variant="contained"
@@ -330,7 +333,15 @@ const ReusableComponent = ({
                       sx={{ lineHeight: 1.7 }}
                     >
                      {benefitedes}
+                    </Typography><br /><br />
+                    <Typography
+                      variant="body"
+                      color="text.secondary"
+                      sx={{ lineHeight: 1.7 }}
+                    >
+                     {benefitedes2}
                     </Typography>
+                    
         </Box>
 
         {/* Right grid */}

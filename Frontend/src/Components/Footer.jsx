@@ -288,7 +288,7 @@ const Footer = () => {
           <Box
             sx={{
               width: "1px",
-              height: "150px",
+              height: "230px",
               backgroundColor: "rgba(252, 251, 251, 0.3)",
               mx: 2,
             }}
@@ -331,7 +331,7 @@ const Footer = () => {
           <Box
             sx={{
               width: "1px",
-              height: "150px",
+              height: "230px",
               backgroundColor: "rgba(255, 255, 255, 0.3)",
               mx: 2,
             }}
@@ -375,7 +375,7 @@ const Footer = () => {
           <Box
             sx={{
               width: "1px",
-              height: "150px",
+              height: "230px",
               backgroundColor: "rgba(255, 255, 255, 0.3)",
               mx: 2,
             }}

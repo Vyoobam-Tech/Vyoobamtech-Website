@@ -446,7 +446,7 @@ const slides = [
         pb: { xs: 2, md: 3 },
         pt: { xs: 2, md: 4 },
         justifyContent: "flex-end",
-         pt: { xs: 2, md: 4 }, 
+          
       }}
     >
       <AnimatePresence mode="wait">

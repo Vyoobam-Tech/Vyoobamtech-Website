@@ -73,25 +73,28 @@ const Timeline = () => {
 
   return (
     <>
-      <Typography
+      
+
+      {/* Scroll Container */}
+      <div
+        style={{ height: `${reversedMilestones.length * 100}vh`, position: "relative",marginTop: "150px", backgroundColor:"#fdfdfeff",
+ }}
+        ref={containerRef}
+      >
+        <Typography
         variant="h2"
         sx={{
           textAlign: "center",
           fontWeight: 600,
-          fontSize: "55px",
+          fontSize: "clamp(28px, 5vw, 55px)",
+
           letterSpacing: "1px",
           color: "#060606ff",
-          mt: 15,
+          mt:5,mb:1
         }}
       >
         Our Journey
       </Typography>
-
-      {/* Scroll Container */}
-      <div
-        style={{ height: `${reversedMilestones.length * 100}vh`, position: "relative" }}
-        ref={containerRef}
-      >
         {/* Pinned Content */}
         <div
           style={{
@@ -99,26 +102,28 @@ const Timeline = () => {
             top: 0,
             height: "100vh",
             display: "flex",
+           backgroundColor:"#edeef0ff",
             alignItems: "center",
-            padding: "0 20vw",
+           padding: "0 10vw",
             boxSizing: "border-box",
             background: "#fff",
-            overflowX: "hidden",
+            overflowX: "hidden",marginTop:"10px",marginBottom:"-19px"
           }}
         >
+         
           {/* Left Timeline Line */}
           <div
             style={{
-              width: "10%",
+              width: "17%",
               display: "flex",
               justifyContent: "center",
-              transform: "translateX(-30px)",
+              transform: "translateX(-50px)",
             }}
           >
             <div
               style={{
                 position: "relative",
-                height: "300px",
+                height: "400px",
                 width: "2px",
                 background: "#000",
               }}
@@ -220,30 +225,33 @@ const Timeline = () => {
             </div>
           </div>
 
-       
-          <div style={{ width: "40%" }}>
+      <div style={{ width: "100%", maxWidth: "500px" }}>
             <div
               style={{
-                fontSize: "14px",
+                fontSize: "28px",
                 fontWeight: "bold",
                 color: "#777",
-                marginBottom: "10px",
+                marginBottom: "10px",paddingLeft:"16px"
               }}
             >
               {reversedMilestones[activeIndex].date}
             </div>
-            <div style={{ fontSize: "18px", lineHeight: "1.5" }}>
+            <div style={{ fontSize: "24px",ml:4, lineHeight: "1.5" }}>
               <img
                 src={reversedMilestones[activeIndex].image}
                 alt={reversedMilestones[activeIndex].year}
                 style={{
-                  width: "200px",
+                  width: "100%",          // responsive
+    maxWidth: "350px",
                   height: "auto",
-                  marginBottom: "20px",
+                  marginBottom: "20px",ml:-8
                 }}
               />
               <br />
               {reversedMilestones[activeIndex].description}
+{/* <div style={{ marginLeft: "5px", }}>
+      {reversedMilestones[activeIndex].description}
+    </div> */}
             </div>
           </div>
         </div>

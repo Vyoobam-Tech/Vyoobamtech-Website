@@ -496,7 +496,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
+import tech from "../assets/tech.jpg";
 import journey from "../assets/journey.jpg";
 import trust from "../assets/trust.jpeg";
 
@@ -565,6 +565,126 @@ export default function AboutUs() {
                  minWidth: { xs: "100%", sm: 180 },
                  p: { xs: 2, sm: 2.5, md: 2 },
                  mt: { xs: 0, md: 15 },
+                mb: { xs: 0, md: 2 }
+               }}>
+                <img
+                  src={trust}
+                  alt="Trusted Partner"
+                  style={{
+                    width: "100%",
+                    borderRadius: 20,
+                    aspectRatio: "16/9",
+                    objectFit: "cover",
+                  }}
+                />
+
+                <Typography
+                  variant="h6"
+                  sx={{
+                    mt: 2,
+                    color: "black",
+                    fontSize: { xs: "1.1rem", sm: "1.25rem" },
+                  }}
+                >
+                  Trusted Partner
+                </Typography>
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    mt: 1,
+                    fontSize: { xs: 13, sm: 14 },
+                    color: "black",
+                  }}
+                >
+                20+ Successful Projects Delivered
+                </Typography>
+              </Card>
+            </Box>
+          </motion.div>
+
+          {/* Card 2 */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+            style={{ width: "100%" }}
+          >
+            <Box
+              sx={{
+                borderRadius: 6,
+                background: "linear-gradient(135deg, #3f5eec, #00e4c9)",
+                p: -1,
+              }}
+            >
+              <Card
+               sx={{
+                 bgcolor: "#d7dee3c6",
+                 boxShadow: 10,
+                borderRadius: 6,
+                 minWidth: { xs: "100%", sm: 180 },
+                 p: { xs: 2, sm: 2.5, md: 2 },
+                 mb: { xs: 0, md: 2 },mt:2
+              }}
+           >
+                <img
+                  src={journey}
+                  alt="Our Journey"
+                  style={{
+                    width: "100%",
+                    borderRadius: 20,
+                    aspectRatio: "16/9",
+                    objectFit: "cover",
+                  }}
+                />
+
+                <Typography
+                  variant="h6"
+                  sx={{
+                    mt: 2,
+                    color: "black",
+                    fontSize: { xs: "1.1rem", sm: "1.25rem" },
+                  }}
+                >
+                  Our Journey
+                </Typography>
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    mt: 1,
+                    fontSize: { xs: 13, sm: 14 },
+                    color: "black",
+                  }}
+                >
+                   10+ Years Of<br/> Experiences
+                </Typography>
+              </Card>
+            </Box>
+          </motion.div>
+           {/* <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+            style={{ width: "100%" }}
+          >
+            <Box
+              sx={{
+                borderRadius: 6,
+                background: "linear-gradient(135deg, #3f5eec, #00e4c9)",
+                p: -1,
+              }}
+            >
+              <Card
+             sx={{
+                 bgcolor: "#d7dee3c6",
+                                  boxShadow: 6,
+                borderRadius: 6,
+                 minWidth: { xs: "100%", sm: 180 },
+                 p: { xs: 2, sm: 2.5, md: 2 },
+                 mt: { xs: 0, md: 15 },
                 mb: { xs: 0, md: 2 },
                }}>
                 <img
@@ -601,10 +721,8 @@ export default function AboutUs() {
                 </Typography>
               </Card>
             </Box>
-          </motion.div>
-
-          {/* Card 2 */}
-          <motion.div
+          </motion.div> */}
+           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
@@ -625,12 +743,12 @@ export default function AboutUs() {
                 borderRadius: 6,
                  minWidth: { xs: "100%", sm: 180 },
                  p: { xs: 2, sm: 2.5, md: 2 },
-                 mb: { xs: 0, md: 2 },
+                 mb: { xs: 0, md: 2 },mt:-6
               }}
            >
                 <img
-                  src={journey}
-                  alt="Our Journey"
+                  src={tech}
+                  alt="Tech Expertise"
                   style={{
                     width: "100%",
                     borderRadius: 20,
@@ -647,7 +765,7 @@ export default function AboutUs() {
                     fontSize: { xs: "1.1rem", sm: "1.25rem" },
                   }}
                 >
-                  Our Journey
+                 Tech Expertise
                 </Typography>
 
                 <Typography
@@ -658,7 +776,7 @@ export default function AboutUs() {
                     color: "black",
                   }}
                 >
-                  2+ Years
+                   10+ Modern Technologies
                 </Typography>
               </Card>
             </Box>

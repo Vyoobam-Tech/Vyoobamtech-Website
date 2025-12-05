@@ -306,7 +306,7 @@ background: "#fff",
         </Box>
       </Box>
 
-      <Box id="timeline-section" sx={{ overflowX: "visible" }}>
+      <Box id="timeline-section" sx={{ overflowX: "visible", mt: -13 }}>
         <Timeline />
       </Box>
 
