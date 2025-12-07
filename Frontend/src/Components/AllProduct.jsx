@@ -28,6 +28,7 @@ import marketproduct from "../assets/marketproduct1.png";
 import eventproduct from "../assets/eventproduct.png";
 import salesproduct from "../assets/salesproduct1.png";
 import eproduct from "../assets/eproduct.png";
+import vyoobam from "../assets/VN.png"
 import { useNavigate } from "react-router-dom";
 
 const products = [
@@ -137,7 +138,7 @@ const products = [
     ],path:"/Egrocery"
   },
   {
-    image: NotificationsActiveIcon,
+    image: vyoobam,
     name: "Vyoobam Nudge",
     category: "Notifications & Reminders",
     features: [
