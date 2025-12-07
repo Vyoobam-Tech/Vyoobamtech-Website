@@ -103,8 +103,28 @@ const Choose = () => {
           </Typography>
 
           {/* Animated Image Wrapper */}
-          <img src={meeting} alt="meeting" className="single-effect" style={{ marginLeft: 28 }} />
-          <Box></Box>
+         
+         <Box
+  sx={{
+    mt: { xs: 5, md: 10 },
+    maxWidth: "500px",        
+    width: "100%",
+    mx: "auto",               
+  }}
+>
+  <img
+    src={meeting}
+    alt="meeting"
+    className="single-effect"
+    style={{
+      width: "100%",
+      height: "auto",
+      borderRadius: "16px",
+      display: "block",
+    }}
+  />
+</Box>
+
         </Box>
         {/* Right Section - Features */}
         <Box sx={{ display: "grid", gap: 3 }}>
