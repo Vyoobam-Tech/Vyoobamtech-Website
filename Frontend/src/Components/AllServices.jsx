@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import moblie from "../assets/mobileservice.jpg";
-import web from "../assets/webservice.jpg";
-import ui from "../assets/uiservice.jpg";
-import data from "../assets/dataservice.jpg";
+import moblie from "../assets/vm.png";
+import web from "../assets/vw.png";
+import ui from "../assets/vi.png";
+import data from "../assets/vd.png";
 import it from "../assets/finalit.jpg";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -84,8 +84,8 @@ const AllServices = () => {
                 src={service.image}
                 alt={service.title}
                 sx={{
-                  width: 180,
-                  height: 180,
+                  width: 250,
+                  height: 250,
                   borderRadius: "50%",
                   objectFit: "cover",
                   margin: "0 auto 20px",
@@ -102,14 +102,14 @@ const AllServices = () => {
                   mt: "auto",
                 }}
               >
-                <Typography variant="body" sx={{ fontWeight: 400 }}>
+                <Typography variant="body" sx={{ fontWeight: 400, fontSize: 20 }}>
                   {service.title}
                 </Typography>
                  <ArrowForwardIcon
                   className="arrow"
                   sx={{
                     color: "#000",
-                    fontSize: 22,
+                    fontSize: 24,
                     transition: "transform 0.3s ease",
                   }}
                 />

@@ -59,33 +59,33 @@ const products = [
       },
     ],path:"/Market"
   },
-  {
-    image: eventproduct,
-    name: "Event Ease",
-    category: "Event Management",
-    features: [
-      {
-        icon: <AssignmentIcon />,
-        title: "Event Registration –  Allows easy attendee signup",
-      },
-      {
-        icon: <ConfirmationNumberIcon />,
-        title: "Ticketing – Generates and manages tickets",
-      },
-      {
-        icon: <AssessmentIcon />,
-        title: "Analytics & Reports – Tracks event performance",
-      },
-      {
-        icon: <NotificationsActiveIcon />,
-        title: "Notifications – Sends alerts to attendees and organizers",
-      },
-      {
-        icon: <PublicIcon />,
-        title: "Multi-Event Management – Handle multiple events seamlessly",
-      },
-    ],path:"/Event"
-  },
+  // {
+  //   image: eventproduct,
+  //   name: "Event Ease",
+  //   category: "Event Management",
+  //   features: [
+  //     {
+  //       icon: <AssignmentIcon />,
+  //       title: "Event Registration –  Allows easy attendee signup",
+  //     },
+  //     {
+  //       icon: <ConfirmationNumberIcon />,
+  //       title: "Ticketing – Generates and manages tickets",
+  //     },
+  //     {
+  //       icon: <AssessmentIcon />,
+  //       title: "Analytics & Reports – Tracks event performance",
+  //     },
+  //     {
+  //       icon: <NotificationsActiveIcon />,
+  //       title: "Notifications – Sends alerts to attendees and organizers",
+  //     },
+  //     {
+  //       icon: <PublicIcon />,
+  //       title: "Multi-Event Management – Handle multiple events seamlessly",
+  //     },
+  //   ],path:"/Event"
+  // },
   {
     image: salesproduct,
     name: "Sales Sage",
@@ -302,10 +302,10 @@ export default function AllProduct() {
                     width: 130,
                     height: 120,
                     objectFit: "contain",
-                    mb: 1,
+                    mb: 1,alignItems:"center"
                   }}
                 />
-                <Typography variant="h5" fontWeight="400" mt={1}>
+                <Typography variant="h5" fontWeight="400" mt={1} >
                   {name}
                 </Typography>
                 <Typography variant="subtitle1" color="primary" sx={{ mt: 1 }}>

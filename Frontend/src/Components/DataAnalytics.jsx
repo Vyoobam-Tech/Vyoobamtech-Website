@@ -74,7 +74,7 @@ export default function DataAnalytics() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-            Data Analysis
+            Data Analytics
               <br />
             </Typography>
           </motion.div>

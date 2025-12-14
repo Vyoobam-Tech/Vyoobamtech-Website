@@ -103,14 +103,14 @@ export default function CTA() {
           gap: { xs: 4, md: 0 },
           p: { xs: "2rem 1.5rem", md: "3rem 2.5rem" },
           m: "0 auto",
-          maxWidth: "960px",
+          maxWidth: "1200px",
           width: "100%",
           boxShadow: "0 8px 32px rgba(80, 80, 120, 0.14)",
           textAlign: { xs: "center", md: "left" }, // center text in mobile
         }}
       >
         {/* Left: Text Content */}
-        <Box sx={{ maxWidth: "420px" }}>
+        <Box sx={{ maxWidth: "500px" }}>
           <h2
             style={{
               fontSize: "2rem",
@@ -165,7 +165,7 @@ export default function CTA() {
             style={{
               borderRadius: "18px",
               boxShadow: "0 6px 24px rgba(0,0,0,0.12)",
-              maxWidth: "340px",
+              maxWidth: "460px",
               width: "100%",
               height: "auto",
             }}

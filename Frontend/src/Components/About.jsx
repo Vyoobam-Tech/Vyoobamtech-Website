@@ -189,7 +189,7 @@ background: "#fff",
                       background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
                     },
                   }}
-                  onClick={() => navigate("/services")}
+                  onClick={() => navigate("/Allservices")}
                 >
                   Explore Us →
                 </Button>
@@ -198,7 +198,7 @@ background: "#fff",
           </Card>
         </Box>
       </Box>
-
+<Box id="vision" sx={{ overflowX: "visible", mt: -13 }}>
       <Box
         sx={{
           py: 10,
@@ -304,6 +304,7 @@ background: "#fff",
             </Typography>
           </Box>
         </Box>
+      </Box>
       </Box>
 
       <Box id="timeline-section" sx={{ overflowX: "visible", mt: -13 }}>

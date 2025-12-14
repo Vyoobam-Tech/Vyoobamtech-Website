@@ -1,5 +1,5 @@
 import { Box, Typography, Card, CardContent, Button } from "@mui/material";
-import careers from "../assets/webservice.jpg";
+import careers from "../assets/vw.png";
 import impactImg from "../assets/f1.jpg";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";

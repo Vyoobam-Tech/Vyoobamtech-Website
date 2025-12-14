@@ -7,6 +7,7 @@ import market2 from "../assets/market2.jpg";
 import event2 from "../assets/event2.jpg";
 import emart from "../assets/emart.jpg";
 import sales2 from "../assets/sales2.jpg";
+import vyoobam from "../assets/Vyoobam.png"
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -18,27 +19,34 @@ const products = [
     action: "READ MORE",
     path: "/Market",
   },
+  // {
+  //   id: 2,
+  //   name: "Event Ease",
+  //   image: event2,
+  //   action: "READ MORE",
+  //   path: "/Event",
+  // },
   {
     id: 2,
-    name: "Event Ease",
-    image: event2,
-    action: "READ MORE",
-    path: "/Event",
-  },
-  {
-    id: 3,
     name: "E-Grocery Mart",
     image: emart,
     action: "READ MORE",
     path: "/Egrocery",
   },
   {
-    id: 4,
+    id: 3,
     name: "Sales Sage",
     image: sales2,
     action: "READ MORE",
     path: "/Sales"
   },
+  {
+    id: 4,
+    name: "Vyoobam Nursery ",
+    image:vyoobam,
+    action: "READ MORE",
+    path: "/Vyoobam"
+  }
 ];
 
 const fadeIn = (delay = 0) => ({

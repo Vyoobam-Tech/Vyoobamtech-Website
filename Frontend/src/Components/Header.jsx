@@ -111,27 +111,27 @@ const Header = () => {
       {
         category: "Web Development",
         description: "Best-in-class web frameworks and custom platforms.",
-        icon: <WebIcon sx={{ color: "#001d65ff", fontSize: 50 }} />,
+        icon: <WebIcon sx={{ color: "#3f5eecff", fontSize: 50 }} />,
       },
       {
         category: "Mobile Development",
         description: "Native and hybrid apps for every device.",
-        icon: <PhoneIphoneIcon sx={{ color: "#001d65ff", fontSize: 50 }} />,
+        icon: <PhoneIphoneIcon sx={{ color: "#3f5eecff", fontSize: 50 }} />,
       },
       {
         category: "UI/UX Design",
         description: "Modern designs focused on user experience.",
-        icon: <DesignServicesIcon sx={{ color: "#001d65ff", fontSize: 50 }} />,
+        icon: <DesignServicesIcon sx={{ color: "#3f5eecff", fontSize: 50 }} />,
       },
       {
         category: "Data Analytics",
         description: "Data-driven insight for smarter business decisions.",
-        icon: <QueryStatsIcon sx={{ color: "#001d65ff", fontSize: 50 }} />,
+        icon: <QueryStatsIcon sx={{ color: "#3f5eecff", fontSize: 50 }} />,
       },
       {
         category: "IT Consulting",
         description: "Expert technology strategy for your enterprise.",
-        icon: <BusinessCenterIcon sx={{ color: "#001d65ff", fontSize: 50 }} />,
+        icon: <BusinessCenterIcon sx={{ color: "#3f5eecff", fontSize: 50 }} />,
       },
     ],
   };

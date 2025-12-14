@@ -1,5 +1,5 @@
 import { Box, Typography, Card, CardContent, Button } from "@mui/material";
-import careers from "../assets/mobileservice.jpg";
+import careers from "../assets/vm.png";
 import impactImg from "../assets/f2.png";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";

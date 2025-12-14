@@ -34,10 +34,10 @@ const Home = () => {
       icon: <MobileFriendlyIcon fontSize="large" />,path:"/services/Mobile-development" 
     },
     { title: "UI/UX Design", icon: <DesignServicesIcon fontSize="large" />,path:"/services/Ui-development" },
-    { title: "Data Analysis", icon: <BusinessCenterIcon fontSize="large" />,path:"/services/Data-development" },
-    { title: "IT Consulting", icon: <QueryStatsIcon fontSize="large" />,path:"/services/it-consulting" },
+    { title: "Data Analytics", icon: <QueryStatsIcon fontSize="large" />,path:"/services/Data-development" },
+    { title: "IT Consulting", icon: <BusinessCenterIcon fontSize="large" />,path:"/services/it-consulting" },
   ];
-
+<BusinessCenterIcon fontSize="large" />
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -99,7 +99,7 @@ const slides = [
     {
       img: image3,
       title: "Your Trusted Technology Partner for Growth",
-       desc: "From web to enterprise platforms, we engineer solutions that help businesses grow...",
+       desc: "We deliver reliable, scalable technology that supports your growth and digital success.",
       // desc: "At Vyoobam Tech, we deliver next-gen IT solutions that help businesses scale faster, operate smarter, and adapt better in the digital-first world. From web and mobile applications to analytics and enterprise platforms, we are the technology partner that drives your success...",
     },
   ];
