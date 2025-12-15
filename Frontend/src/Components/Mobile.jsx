@@ -1,5 +1,5 @@
 import { Box, Typography, Card, CardContent, Button } from "@mui/material";
-import careers from "../assets/vm.png";
+import careers from "../assets/mobileservice.jpg";
 import impactImg from "../assets/f2.png";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
@@ -326,19 +326,18 @@ export default function MobileDevelopment() {
           </Button>
         </Box>
 
-        {/* Right Side - Image */}
         <Box
-          flex={1}
-          component="img"
-          src={impactImg}
-          alt="Business Impact"
-          sx={{
-            width: "30%",
-            borderRadius: "16px",
-            boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-            objectFit: "cover",
-          }}
-        />
+               flex={1}
+               component="img"
+               src={impactImg}
+               alt="Business Impact"
+               sx={{
+                 width: "30%",
+                 height: "350px",
+                
+               }}
+             />
+           
       </Box>
       <Footer />
     </>
