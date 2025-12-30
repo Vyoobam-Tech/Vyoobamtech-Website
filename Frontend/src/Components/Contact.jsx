@@ -77,7 +77,7 @@ const generateCaptcha = () => {
 //       });
 //       if (resume) formDataToSend.append("resume", resume);
 
-//       const response = await fetch("http://localhost:5000/api/contact", {
+//       const response = await fetch("https://vyoobamtech-website-1-zcuh.onrender.com/contact", {
         
 //         method: "POST",
        
@@ -176,7 +176,7 @@ const handleSubmit = async (e) => {
     Object.keys(formData).forEach((key) => formDataToSend.append(key, formData[key]));
     if (resume) formDataToSend.append("resume", resume);
 
-    const response = await fetch("http://localhost:5000/api/contact", {
+    const response = await fetch("https://vyoobamtech-backend.onrender.com/api/contact", {
       method: "POST",
       body: formDataToSend,
     });
