@@ -70,8 +70,8 @@ function App() {
                     <Route path="/Vyoobam" element={<Vyoobam/>}/>
                
 
-                     <Route path="/admin-login" element={<AdminLogin />} />
-                  <Route path="/vyoobam-dev-career" element={<AdminCareers/>} />
+                     {/* <Route path="/admin-login" element={<AdminLogin />} />
+                  <Route path="/vyoobam-dev-career" element={<AdminCareers/>} /> */}
           </Routes>
         </Router>
       </ThemeProvider>
