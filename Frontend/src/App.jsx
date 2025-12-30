@@ -21,11 +21,11 @@ import Event from "./Pages/Event.jsx"
 import Sales from "./Pages/Sales.jsx"
 import Vyoobam from "./Pages/Vyoobam.jsx";
 import AllProduct from "./Components/AllProduct.jsx";
-import JobOpenings from "./Components/JobOpenings.jsx";
+// import JobOpenings from "./Components/JobOpenings.jsx";
 import Scroll from "./Components/Scroll.jsx";
 import AllServices from "./Components/AllServices.jsx";
-import AdminLogin from "./Pages/AdminLogin.jsx";
-import AdminCareers from "./Pages/AdminCareers.jsx";        
+// import AdminLogin from "./Pages/AdminLogin.jsx";
+// import AdminCareers from "./Pages/AdminCareers.jsx";        
 
 function App() {
   useEffect(() => {
@@ -62,7 +62,7 @@ function App() {
               <Route path="/services/Ui-development" element={<Ui/>} />
                <Route path="/services/Data-development" element={<DataAnalytics/>} />
               < Route path="/services/it-consulting" element={<Consulting/>} />
-            <Route path="/openings" element={<JobOpenings />} />
+            {/* <Route path="/openings" element={<JobOpenings />} /> */}
             <Route path="/Market" element={<Market/>}/>
              <Route path="/Event" element={<Event/>}/>
               <Route path="/Sales" element={<Sales/>}/>
@@ -70,8 +70,8 @@ function App() {
                     <Route path="/Vyoobam" element={<Vyoobam/>}/>
                
 
-                     <Route path="/admin-login" element={<AdminLogin />} />
-                  <Route path="/vyoobam-dev-career" element={<AdminCareers/>} />
+                     {/* <Route path="/admin-login" element={<AdminLogin />} />
+                  <Route path="/vyoobam-dev-career" element={<AdminCareers/>} /> */}
           </Routes>
         </Router>
       </ThemeProvider>

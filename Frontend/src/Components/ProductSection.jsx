@@ -7,7 +7,7 @@ import market2 from "../assets/market2.jpg";
 import event2 from "../assets/event2.jpg";
 import emart from "../assets/emart.jpg";
 import sales2 from "../assets/sales2.jpg";
-import vyoobam from "../assets/Vyoobam.png"
+import vyoobam from "../assets/vyoobam.png"
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
