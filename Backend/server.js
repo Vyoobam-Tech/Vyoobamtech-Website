@@ -12,7 +12,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(bodyParser.json());
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 mongoose
   .connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/vyoobam-careers", {
@@ -55,12 +59,12 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
 
     
     const hrTransporter = nodemailer.createTransport({
-      host: "smtp.hostinger.com",
+      host: process.env.SMTP_HOST || "smtp.hostinger.com",
       port: 465,
       secure: true,
       auth: {
-        user: "helpdesk@vyoobam.com",
-        pass: "Help@vyoobam123",
+        user: process.env.SMTP_USER || "admin@vyoobam.com",
+        pass: process.env.SMTP_PASS || "Admin@dmin1234",
       },
        family: 4,
        tls: {
@@ -69,12 +73,12 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
     });
 
     const userTransporter = nodemailer.createTransport({
-      host: "smtp.hostinger.com",
+      host: process.env.SMTP_HOST || "smtp.hostinger.com",
       port: 465,
       secure: true,
       auth: {
-        user: "helpdesk@vyoobam.com",
-        pass: "Help@vyoobam123",
+        user: process.env.SMTP_USER || "admin@vyoobam.com",
+        pass: process.env.SMTP_PASS || "Admin@dmin1234",
       },
        family: 4,
        tls: {
@@ -82,17 +86,19 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
        },
     });
 
-    let hrEmail =
-      purpose.toLowerCase().includes("internship") ||
-      purpose.toLowerCase().includes("job")
-        ?"manishaselvakumar03@gmail.com"
-        : "keerthivashiniganesan@gmail.com";
+  const safePurpose = (purpose || "").toLowerCase();
+
+const hrEmail =
+  safePurpose.includes("internship") || safePurpose.includes("job")
+    ? "hr@vyoobam.com"
+    : "info@vyoobam.com";
+
 
     console.log("Sending HR mail to:", hrEmail);
 
     // MAIL TO HR
     await hrTransporter.sendMail({
-      from: "helpdesk@vyoobam.com",
+      from: process.env.SMTP_USER ,
       to: hrEmail,
       replyTo: email,
       subject: `New Contact Form Submission - ${purpose}`,
@@ -118,7 +124,7 @@ Message: ${message}
 
     // MAIL TO USER (confirmation)
     await userTransporter.sendMail({
-      from: "helpdesk@vyoobam.com",
+      from: process.env.SMTP_USER ,
       to: email,
       subject: `Your ${purpose} submission is received`,
       text: `Hi ${firstName},
