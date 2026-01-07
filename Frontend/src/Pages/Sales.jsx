@@ -1,6 +1,6 @@
 import React from "react";
 import ReuseableComponent from "../Components/ReuseableComponent";
-import overviewImage from "../assets/sales2.jpg"; // replace with your image
+import overviewImage from "../assets/sales22.png"; // replace with your image
 import logo from "../assets/salesproduct1.png"; // replace with your logo
 
 const Sales = () => {

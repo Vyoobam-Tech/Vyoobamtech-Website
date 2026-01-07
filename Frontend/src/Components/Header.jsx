@@ -551,45 +551,6 @@ overflowX: "auto",
               )
             )}
 
-            {/* Language Selector */}
-            {/* <Box
-              onMouseEnter={() => setLangOpen(true)}
-              onMouseLeave={() => setLangOpen(false)}
-              sx={{ position: "relative" }}
-            >
-              <IconButton color="inherit">
-                <LanguageIcon />
-              </IconButton>
-              {langOpen && (
-                <Paper
-                  elevation={3}
-                  sx={{
-                    position: "absolute",
-                    top: "100%",
-                    right: 0,
-                    minWidth: "150px",
-                    p: 1,
-                  }}
-                >
-                  {languages.map((lang) => (
-                    <Typography
-                      key={lang}
-                      sx={{
-                        cursor: "pointer",
-                        p: 1,
-                        "&:hover": {
-                          background: "#050d4aff",
-                          color: "white",
-                        },
-                      }}
-                      onClick={() => setLangOpen(false)}
-                    >
-                      {lang}
-                    </Typography>
-                  ))}
-                </Paper>
-              )}
-            </Box> */}
           </Box>
 
           {/* Mobile Hamburger */}
@@ -606,28 +567,8 @@ overflowX: "auto",
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <Box sx={{ width: { xs: 220, sm: 260 } }}>
 
-          {/* <List>
-            {menuItems.map((item) => (
-              <ListItem key={item.text} disablePadding>
-                <ListItemButton
-                  onClick={() => {
-                    if (item.mega) {
-                      navigate(
-                        item.mega === "products"
-                          ? "/Allproduct"
-                          : "/allservices"
-                      );
-                    } else {
-                      navigate(item.path);
-                    }
-                    setOpen(false);
-                  }}
-                >
-                  <ListItemText primary={item.text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List> */}
+          
+         
           
 
 <List>

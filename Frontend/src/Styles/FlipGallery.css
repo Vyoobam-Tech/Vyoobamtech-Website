@@ -18,7 +18,7 @@
   --_i: 10%;
   filter: grayscale(0);
 } */
-.single-effect {
+/* .single-effect {
   --_g: 10%/45% 45% no-repeat conic-gradient(#000 0 0);
   mask:
     left   var(--_i,) top    var(--_g),
@@ -30,22 +30,22 @@
   transition: .3s linear;
   cursor: pointer;
 
-  width: 100%;           /* responsive width */
-  max-width: 100%;       /* allow full container width */
-  aspect-ratio: 16 / 9;  /* maintain responsive height */
+  width: 100%;          
+  max-width: 100%;       
+  aspect-ratio: 16 / 9;  
   
   border-radius: 12px;
   display: block;
   object-fit: cover;
 }
 
-/* Hover effect */
+
 .single-effect:hover {
   --_i: 10%;
   filter: grayscale(0);
 }
 
-/* Responsive breakpoints */
+
 @media (min-width: 480px) {
   .single-effect {
     max-width: 350px;
@@ -62,4 +62,36 @@
   .single-effect {
     max-width: 550px;
   }
+} */
+.single-effect {
+  --_i: 0%;
+  --_g: 10%/45% 45% no-repeat conic-gradient(#000 0 0);
+
+  mask:
+    left   var(--_i,) top    var(--_g),
+    bottom var(--_i,) left   var(--_g),
+    top    var(--_i,) right  var(--_g),
+    right  var(--_i,) bottom var(--_g);
+
+  filter: grayscale(1);
+  transition: 0.4s linear;
+
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (min-width: 480px) {
+  .single-effect { max-width: 350px; }
+}
+@media (min-width: 768px) {
+  .single-effect { max-width: 420px; }
+}
+@media (min-width: 1024px) {
+  .single-effect { max-width: 550px; }
 }

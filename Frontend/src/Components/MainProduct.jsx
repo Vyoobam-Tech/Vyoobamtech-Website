@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { motion } from "framer-motion";
-import overviewImage from "../assets/Market.jpg";
-import logo from "../assets/marketproduct1.png"; // replace with your image
+import overviewImage from "../assets/MARKET22.png";
+import logo from "../assets/marketproduct1.png"; 
 import Header from "./Header";
 import Footer from "./Footer";
 import CTA from "./CTA";
@@ -12,8 +12,7 @@ const MainProduct = () => {
   return (
     <>
       <Header />
-      {/* ================= HERO SECTION ================= */}
-      {/* ================= HERO SECTION ================= */}
+    
       <Box
         sx={{
           textAlign: "center",
@@ -93,7 +92,7 @@ const MainProduct = () => {
         </motion.div>
       </Box>
 
-      {/* ================= OVERVIEW SECTION ================= */}
+     
       <Box
         sx={{
           display: "flex",
@@ -105,7 +104,7 @@ const MainProduct = () => {
           backgroundColor: "#f9fafc",
         }}
       >
-        {/* Left Content */}
+     
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -150,7 +149,7 @@ const MainProduct = () => {
           </Button>
         </motion.div>
 
-        {/* Right Image */}
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

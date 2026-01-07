@@ -150,7 +150,7 @@ background: "#fff",
 
         {/* Right Image */}
         <Box
-          sx={{ minWidth: 0, display: "flex", justifyContent: "center", mr: 5 }}
+          sx={{ minWidth: 0, display: "flex", justifyContent: "center", mr: 5, mb: 10 }}
         >
           <Card
             elevation={2}

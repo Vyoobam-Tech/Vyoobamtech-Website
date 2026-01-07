@@ -1,6 +1,6 @@
 import React from "react";
 import ReuseableComponent from "../Components/ReuseableComponent"
-import overviewImage from "../assets/Market.jpg";
+import overviewImage from "../assets/MARKET22.png";
 import logo from "../assets/marketproduct1.png";
 
 const MainProduct = () => {

@@ -149,7 +149,7 @@ const TestimonialSlider = () => {
         ))}
 
         {/* Navigation buttons */}
-        <Box
+        {/* <Box
           className="swiper-button-prev-custom"
           sx={{
             position: "absolute",
@@ -192,7 +192,7 @@ const TestimonialSlider = () => {
           }}
         >
           <NavigateNextIcon />
-        </Box>
+        </Box> */}
       </Swiper>
     </Box>
   );
