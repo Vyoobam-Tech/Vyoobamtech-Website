@@ -1,15 +1,15 @@
-import { Box, Typography, Card, CardContent,Button } from "@mui/material";
+import { Box, Typography, Card, CardContent, Button } from "@mui/material";
 import careers from "../assets/uiservice.jpg";
-import impactImg from "../assets/f4.jpg"
-import Slider from "react-slick";
+import impactImg from "../assets/f4.jpg";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { AnimatedBox } from "./AnimatedBox";
 import Header from "./Header";
+
 const expertiseList = [
- {
+  {
     title: "User research & behavioral analysis",
     desc: "In-depth understanding of user needs and behaviors to drive design decisions.",
   },
@@ -26,16 +26,15 @@ const expertiseList = [
     desc: "Uniform visual identity and messaging across all touchpoints for stronger brand recognition.",
   },
 ];
+
 export default function UiUxDesign() {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [animateNow, setAnimateNow] = useState(false);
 
-  // 🔥 Refs for each animated section
   const refHero = useRef(null);
   const refTransform = useRef(null);
   const refImpact = useRef(null);
 
-  // 🔥 InView triggers
   const isHeroInView = useInView(refHero, { once: true });
   const isTransformInView = useInView(refTransform, { once: true });
   const isImpactInView = useInView(refImpact, { once: true });
@@ -44,162 +43,169 @@ export default function UiUxDesign() {
 
   return (
     <>
-     <Header />
-      <Box width="100%" minHeight="100vh">
-        {/* 🔥 HERO SECTION */}
-        
-          {/* <Typography variant="subtitle1">
-            <span
-              onClick={() => navigate("/")}
-              style={{ cursor: "pointer", fontWeight: "bold" }}
-            >
-              s
-           </span>
-          </Typography> */}
-
-          <motion.div
-            ref={refHero}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isHeroInView || animateNow ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 2, ease: "easeOut" }}
+      <Header />
+      <Box width="100%" minHeight="100vh" px={{ xs: 2, sm: 4, md: 0 }}>
+        {/* HERO TEXT */}
+        <motion.div
+          ref={refHero}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isHeroInView || animateNow ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          <Typography
+            variant="h2"
+            fontWeight={700}
+            sx={{
+              mt: { xs: 8, sm: 12, md: 18 },
+              ml: { xs: 0, sm: 4, md: 8 },
+              fontSize: {
+                xs: "2.2rem",
+                sm: "3rem",
+                md: "4.5rem",
+                lg: "5.5rem",
+              },
+              lineHeight: 1.1,
+              background: "black",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textAlign: { xs: "center", sm: "left" },
+            }}
           >
-            <Typography
-              variant="h2"
-              fontWeight={700}
-              mt={18} ml={8}
-              fontSize={90}
-              sx={{
-                background: "black",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              UI/UX Design
-              <br />
-            </Typography>
-          </motion.div>
-
-          <Typography variant="h6" mt={1} fontSize={30} ml={8}>
-            Experience that delight and convert...
+            UI/UX Design
           </Typography>
-        
+        </motion.div>
 
-        {/* BACKGROUND IMAGE */}
+        {/* SUB TEXT */}
+        <Typography
+          variant="h6"
+          sx={{
+            mt: 1,
+            ml: { xs: 0, sm: 4, md: 8 },
+            fontSize: { xs: "1rem", sm: "1.2rem", md: "1.8rem" },
+            textAlign: { xs: "center", sm: "left" },
+          }}
+        >
+          Experience that delight and convert...
+        </Typography>
+
+        {/* HERO BACKGROUND IMAGE */}
         <Box
           sx={{
             position: "relative",
-            height: { xs: "60vh", md: "90vh" },
+            mt: { xs: 4, md: 8 },
+            height: { xs: "45vh", sm: "60vh", md: "90vh" },
             backgroundImage: `url(${careers})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0% 100%)",
+            clipPath: {
+              xs: "polygon(0 40%, 100% 0, 100% 100%, 0% 100%)",
+              sm: "polygon(0 45%, 100% 0, 100% 100%, 0% 100%)",
+              md: "polygon(0 50%, 100% 0, 100% 100%, 0% 100%)",
+            },
           }}
         />
-      <Box
-      sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" }, // mobile → column, desktop → row
-        alignItems: "center",
-        justifyContent: "space-between",
-        px: { xs: 3, md: 8 },
-        py: { xs: 6, md: 10 },
-        gap: 4,
-      }}
-    >
-      {/* Left Side - Title */}
-      
-        
-        < Typography
-    variant="h2"
-    fontWeight={800} 
-    sx={{
-      fontSize: {
-        xs: "2rem",        // mobile
-        sm: "2.5rem",      // small tablets
-        md: "3rem",        // desktop
-        lg: "3.5rem",     // large screens
-      },
-      lineHeight: 1.2,
-    }}
-  >
-    Transform Your <br /> Digital Journey
-  </Typography>
-        
-     
 
-      {/* Right Side - Description */}
-      <Box sx={{ flex: 1 }}>
-        <Typography
-          variant="body1"
+        {/* TRANSFORM SECTION */}
+        <Box
+          ref={refTransform}
           sx={{
-            fontSize: { xs: "1rem", md: "1.2rem" },
-            color: "text.secondary",
-            lineHeight: 1.6,ml:10
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            justifyContent: "space-between",
+            px: { xs: 2, sm: 3, md: 8 },
+            py: { xs: 5, sm: 6, md: 10 },
+            gap: { xs: 4, md: 6 },
           }}
         >
-         Great design is not about pixels—it’s about human-centered experiences.
-          Our design process ensures users interact with your brand in the most seamless and meaningful way.
-
-        </Typography>
-      </Box>
-    </Box>
-     <Box
-      sx={{
-        bgcolor: "white",
-        py: { xs: 6, md: 10 },
-        px: { xs: 3, md: 8 },
-        textAlign: "center",
-      }}
-    >
-      {/* Section Title */}
-      <AnimatedBox delay={0.2}>
-      <Typography
-        variant="h3"
-        fontWeight={800}
-        sx={{
-          fontSize: { xs: "2rem", md: "2.5rem" },
-          mb: 6,
-          position: "relative",
-          display: "inline-block",
-          "&::after": {
-            content: '""',
-            display: "block",
-            width: "60px",
-            height: "4px",
-            background: "linear-gradient(to right, #00e4c9, #a033ff, #ff267e)",
-            margin: "12px auto 0",
-            borderRadius: "2px",
-          },
-        }}
-      >
-        Our Approach
-      </Typography>
-      </AnimatedBox>
-
-      {/* Cards Layout */}
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: 4,
-        }}
-      >
-        {expertiseList.map((item, index) => (
-          <Box
-            key={index}
+          {/* LEFT TITLE */}
+          <Typography
+            fontWeight={800}
             sx={{
-              flex: { xs: "1 1 100%", sm: "1 1 45%", md: "1 1 22%" },
-              display: "flex",
+              fontSize: { xs: "1.8rem", sm: "2.3rem", md: "3rem", lg: "3.5rem" },
+              lineHeight: 1.15,
+              textAlign: { xs: "center", md: "left" },
+              maxWidth: { xs: "100%", md: "45%" },
             }}
           >
-              <Card
+            Transform Your <br /> Digital Journey
+          </Typography>
+
+          {/* RIGHT DESCRIPTION */}
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            animate={isTransformInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 80 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{ flex: 1 }}
+          >
+            <Typography
+              sx={{
+                fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.2rem" },
+                color: "text.secondary",
+                lineHeight: 1.7,
+                ml: { xs: 0, md: 10 },
+                textAlign: { xs: "center", md: "left" },
+              }}
+            >
+              Great design is not about pixels—it’s about human-centered experiences.
+              Our design process ensures users interact with your brand in the most seamless and meaningful way.
+            </Typography>
+          </motion.div>
+        </Box>
+
+        {/* EXPERTISE CARDS */}
+        <Box
+          sx={{
+            bgcolor: "white",
+            py: { xs: 5, sm: 6, md: 10 },
+            px: { xs: 2, sm: 3, md: 8 },
+            textAlign: "center",
+          }}
+        >
+          <AnimatedBox delay={0.2}>
+            <Typography
+              fontWeight={800}
+              sx={{
+                fontSize: { xs: "1.7rem", sm: "2rem", md: "2.5rem" },
+                mb: { xs: 4, md: 6 },
+                position: "relative",
+                display: "inline-block",
+                "&::after": {
+                  content: '""',
+                  display: "block",
+                  width: "60px",
+                  height: "4px",
+                  background: "linear-gradient(to right, #00e4c9, #a033ff, #ff267e)",
+                  margin: "12px auto 0",
+                  borderRadius: "2px",
+                },
+              }}
+            >
+              Our Approach
+            </Typography>
+          </AnimatedBox>
+
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(4, 1fr)" },
+              gap: { xs: 3, sm: 4 },
+              alignItems: "stretch",
+            }}
+          >
+            {expertiseList.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isTransformInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                style={{ height: "100%" }}
+              >
+                <Card
                   sx={{
-                    flex: 1,
+                    height: "100%",
                     borderRadius: "16px",
                     boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
-                    flexDirection: "column", // make content vertical
-    height: "100%",
                     transition: "transform 0.3s ease, box-shadow 0.3s ease",
                     "&:hover": {
                       transform: "translateY(-8px)",
@@ -207,122 +213,126 @@ export default function UiUxDesign() {
                     },
                   }}
                 >
-                  <CardContent sx={{ p: 4 }}>
+                  <CardContent
+                    sx={{
+                      p: { xs: 3, md: 4 },
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "100%",
+                    }}
+                  >
                     <Typography
-                      variant="h6"
                       fontWeight={700}
-                      sx={{
-                        fontSize: "1.1rem",
-                        mb: 1,
-                      }}
+                      sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, mb: 1 }}
                     >
                       {item.title}
                     </Typography>
+
                     <Typography
-                      variant="body2"
                       sx={{
                         color: "text.secondary",
-                        fontSize: "0.9rem",
-                        lineHeight: 1.5,
+                        fontSize: { xs: "0.85rem", md: "0.9rem" },
+                        lineHeight: 1.6,
+                        flexGrow: 1,
                       }}
                     >
                       {item.desc}
                     </Typography>
                   </CardContent>
                 </Card>
+              </motion.div>
+            ))}
           </Box>
-        ))}
-      </Box>
-    </Box>
-    
-    </Box>
-    <Box
-      sx={{
-        bgcolor: "#f9f9f9",
-        py: { xs: 6, md: 10 },
-        px: { xs: 3, md: 8 },
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        alignItems: "center",
-        gap: 6,
-      }}
-    >
-      {/* Left Side - Content */}
-      <Box flex={1}>
-        <AnimatedBox delay={0.2}>
-        <Typography
-          variant="h3"
-          fontWeight={800}
+        </Box>
+
+        {/* BUSINESS IMPACT */}
+        <Box
+          ref={refImpact}
           sx={{
-            fontSize: { xs: "2rem", md: "2.5rem" },
-            mb: 3,
-            position: "relative",
-            display: "inline-block",
-            "&::after": {
-              content: '""',
-              display: "block",
-              width: "60px",
-              height: "4px",
-              background: "linear-gradient(to right, #00e4c9, #a033ff, #ff267e)", // Tech Mahindra Red
-              margin: "12px 0 0",
-              borderRadius: "2px",
-            },
+            bgcolor: "#f9f9f9",
+            py: { xs: 5, sm: 6, md: 10 },
+            px: { xs: 2, sm: 3, md: 8 },
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            gap: { xs: 4, md: 6 },
           }}
         >
-          Business Impact
-        </Typography>
-</AnimatedBox>
-        <Typography
-          variant="body1"
-          sx={{
-            color: "text.secondary",
-            fontSize: "1.05rem",
-            lineHeight: 1.7,
-            mb: 3,
-          }}
-        >
-         UI/UX design improves customer satisfaction by creating intuitive, engaging, and easy-to-use digital experiences. Thoughtful design increases product adoption, reduces user frustration, and drives higher business conversions by guiding users smoothly toward their goals.
-        </Typography>
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            animate={isImpactInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{ flex: 1 }}
+          >
+            <Typography
+              fontWeight={800}
+              sx={{
+                fontSize: { xs: "1.8rem", sm: "2.1rem", md: "2.5rem" },
+                mb: 3,
+                position: "relative",
+                display: "inline-block",
+                "&::after": {
+                  content: '""',
+                  display: "block",
+                  width: "60px",
+                  height: "4px",
+                  background: "linear-gradient(to right, #00e4c9, #a033ff, #ff267e)",
+                  margin: "12px 0 0",
+                  borderRadius: "2px",
+                },
+              }}
+            >
+              Business Impact
+            </Typography>
 
-        {/* Optional CTA */}
-         <Button
-      variant="contained"
-      sx={{
-        mt: 6,
-        px: 4,
-        py: 1.5,
-        borderRadius: "30px",
-        fontSize: "1rem",
-        fontWeight: 400,
-        background: "linear-gradient(90deg, #3f5eec, #00e4c9)", // your logo theme color
-        textTransform: "none",
-        "&:hover": {
-          background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
-        },
-      }}
-      onClick={() => navigate("/Contact")}
-    >
-      View   →
-    </Button>
-       
+            <Typography
+              sx={{
+                color: "text.secondary",
+                fontSize: { xs: "0.95rem", md: "1.05rem" },
+                lineHeight: 1.7,
+                mb: 3,
+                maxWidth: "600px",
+              }}
+            >
+              UI/UX design improves customer satisfaction by creating intuitive, engaging, and easy-to-use digital experiences. Thoughtful design increases product adoption, reduces user frustration, and drives higher business conversions.
+            </Typography>
+
+            <Button
+              variant="contained"
+              sx={{
+                mt: { xs: 3, md: 6 },
+                px: 4,
+                py: 1.5,
+                borderRadius: "30px",
+                fontSize: "1rem",
+                fontWeight: 400,
+                background: "linear-gradient(90deg, #3f5eec, #00e4c9)",
+                textTransform: "none",
+                "&:hover": { background: "linear-gradient(90deg, #00e4c9, #3f5eec)" },
+              }}
+              onClick={() => navigate("/Contact")}
+            >
+              View →
+            </Button>
+          </motion.div>
+
+          {/* RIGHT IMAGE */}
+          <motion.img
+            src={impactImg}
+            alt="Business Impact"
+            initial={{ scale: 1 }}
+            animate={isImpactInView ? { scale: [1, 1.05, 1] } : {}}
+            transition={{ duration: 3, ease: "easeInOut" }}
+            style={{
+              width: "100%",
+              maxWidth: "420px",
+              marginTop: "10px",
+            }}
+          />
+        </Box>
       </Box>
-
-      {/* Right Side - Image */}
-      <Box
-        flex={1}
-        component="img"
-        src={impactImg}
-        alt="Business Impact"
-        sx={{
-          width: "30%",
-          // borderRadius: "16px",
-          // boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-          // objectFit: "cover",
-        }}
-      />
-    </Box>
-    <Footer/>
+      <Footer />
     </>
-    
   );
 }

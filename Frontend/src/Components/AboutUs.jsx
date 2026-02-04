@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Box, Typography, Button, Collapse, IconButton, Container } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  Collapse,
+  IconButton,
+  Container,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -10,45 +17,46 @@ import tech from "../assets/tech.jpg";
 import journey from "../assets/journey.jpg";
 import trust from "../assets/trust.jpeg";
 
+// Lazy load package
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 const slides = [
   {
     id: 0,
     title: "Who We Are",
     desc: `Founded in 2022, Vyoobam Tech has evolved from a small web solutions provider into a full-scale digital transformation company. We empower businesses to grow digitally by delivering innovative Web and Mobile applications, Data Analytics solutions, UI/UX designs, and expert Consulting services.`,
     img: vyoobamrep,
-     route: "/about", 
+    route: "/about",
   },
   {
     id: 1,
     title: "Our Journey",
     desc: `Our journey began with a simple belief — technology should empower people. From humble beginnings, we have expanded across multiple sectors, overcoming challenges with passion, innovation, and trust, and creating digital experiences that make a meaningful impact for our clients.`,
     img: journey,
-     route: "/about#timeline-section", 
+    route: "/about#timeline-section",
   },
   {
     id: 2,
     title: "Our Technical Expertise",
     desc: `At Vyoobam Tech, we provide end-to-end digital solutions backed by deep technical expertise. Our team excels in Web and Mobile development using frameworks like React, Angular, and Spring Boot, building robust backend systems, managing secure databases, integrating APIs, leveraging cloud and DevOps practices, and designing intuitive UI/UX experiences.`,
     img: tech,
-     route: "/AllServices", 
+    route: "/AllServices",
   },
   {
     id: 3,
     title: "Our Trusted Vision",
     desc: `Our vision is to be a trusted partner in every business’s digital transformation. We aim to deliver innovative, reliable, and scalable technology solutions while fostering long-term relationships built on trust, transparency, and measurable impact, helping our clients grow and succeed in a digital-first world.`,
     img: trust,
-     route: "/about#vision", 
+    route: "/about#vision",
   },
 ];
 
 export default function AboutUsXebiaStyle() {
   const navigate = useNavigate();
-  // Default to the first item being open (0)
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleToggle = (index) => {
-    // If clicking the already open item, keep it open (or toggle null to close)
-    // Xebia style usually keeps one open always, so we just set index.
     setActiveIndex(index);
   };
 
@@ -56,8 +64,12 @@ export default function AboutUsXebiaStyle() {
     <Box sx={{ width: "100%", background: "#fff", py: { xs: 6, md: 10 } }}>
       <Container maxWidth="lg">
         <Typography
-          variant="h3"
-          sx={{ mb: 5, fontWeight: 600, color: "#13044a" }}
+          sx={{
+            mb: 5,
+            fontWeight: 600,
+            color: "#13044a",
+            fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
+          }}
         >
           Life at Vyoobam
         </Typography>
@@ -65,13 +77,13 @@ export default function AboutUsXebiaStyle() {
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column-reverse", md: "row" }, // Mobile: Image top (reversed), Desktop: Side by side
+            flexDirection: { xs: "column", md: "row" },
             gap: { xs: 4, md: 8 },
             alignItems: "flex-start",
           }}
         >
-          {/* LEFT SIDE - ACCORDION LIST */}
-          <Box sx={{ flex: 1, width: "100%" }}>
+          {/* LEFT – ACCORDION */}
+          <Box sx={{ flex: { md: 0.6 }, width: "100%" }}>
             {slides.map((item, index) => {
               const isOpen = activeIndex === index;
               return (
@@ -80,26 +92,27 @@ export default function AboutUsXebiaStyle() {
                   onClick={() => handleToggle(index)}
                   sx={{
                     borderTop: "1px solid #e0e0e0",
-                    borderBottom: index === slides.length - 1 ? "1px solid #e0e0e0" : "none",
+                    borderBottom:
+                      index === slides.length - 1
+                        ? "1px solid #e0e0e0"
+                        : "none",
                     cursor: "pointer",
-                    "&:hover": {
-                      backgroundColor: "rgba(0,0,0,0.02)",
-                    },
                   }}
                 >
-                  {/* Header Row */}
+                  {/* Header */}
                   <Box
                     sx={{
                       display: "flex",
                       justifyContent: "space-between",
                       alignItems: "center",
-                      py: 3,
-                      pr: 1,
+                      py: { xs: 2.5, md: 3 },
                     }}
                   >
                     <Typography
                       sx={{
-                        fontSize: isOpen ? "1.5rem" : "1.25rem",
+                        fontSize: isOpen
+                          ? "clamp(1.2rem, 2vw, 1.6rem)"
+                          : "clamp(1.05rem, 1.8vw, 1.3rem)",
                         fontWeight: isOpen ? 600 : 400,
                         color: "#13044a",
                         transition: "all 0.3s ease",
@@ -107,29 +120,27 @@ export default function AboutUsXebiaStyle() {
                     >
                       {item.title}
                     </Typography>
-                    
-                    {/* Plus Icon that rotates to X */}
+
                     <IconButton
                       disableRipple
                       sx={{
                         transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-                        transition: "transform 0.3s ease",
+                        transition: "0.3s",
                         color: "#13044a",
                       }}
                     >
-                      <AddIcon fontSize="large" />
+                      <AddIcon />
                     </IconButton>
                   </Box>
 
-                  {/* Collapsible Content */}
-                  <Collapse in={isOpen} timeout="auto" unmountOnExit>
-                    <Box sx={{ pb: 4, pr: { md: 4 } }}>
+                  <Collapse in={isOpen}>
+                    <Box sx={{ pb: 3, pr: { md: 4 } }}>
                       <Typography
                         sx={{
                           color: "#555",
-                          fontSize: "1.05rem",
+                          fontSize: "clamp(0.95rem, 1.2vw, 1.05rem)",
                           lineHeight: 1.7,
-                          mb: 3,
+                          mb: 2.5,
                         }}
                       >
                         {item.desc}
@@ -137,7 +148,7 @@ export default function AboutUsXebiaStyle() {
 
                       <Button
                         onClick={(e) => {
-                          e.stopPropagation(); // Prevent accordion toggle when clicking button
+                          e.stopPropagation();
                           navigate(item.route);
                         }}
                         endIcon={<ArrowForwardIcon />}
@@ -145,12 +156,7 @@ export default function AboutUsXebiaStyle() {
                           textTransform: "none",
                           color: "#3f5eec",
                           fontWeight: 600,
-                          fontSize: "1rem",
                           padding: 0,
-                          "&:hover": {
-                            background: "transparent",
-                            textDecoration: "underline",
-                          },
                         }}
                       >
                         Learn more
@@ -162,27 +168,30 @@ export default function AboutUsXebiaStyle() {
             })}
           </Box>
 
-          {/* RIGHT SIDE - STICKY IMAGE */}
+          {/* RIGHT – IMAGE */}
           <Box
             sx={{
-              flex: 1,
+              flex: { md: 0.4 },
               width: "100%",
               position: { md: "sticky" },
-              top: 100, // Makes image stick while scrolling on desktop
-              height: "fit-content",
+              top: 120,
+              borderRadius: "16px",
+              overflow: "hidden",
+              height: { xs: "240px", sm: "320px", md: "460px" },
             }}
           >
-            <Box
-              component="img"
+            <LazyLoadImage
+              key={activeIndex} // ensures fade re-render
               src={slides[activeIndex].img}
               alt={slides[activeIndex].title}
-              sx={{
-                width: "100%",
-                height: { xs: "300px", md: "500px" },
+              effect="blur"      // smooth placeholder
+              width="100%"
+              height="100%"
+              style={{
                 objectFit: "cover",
-                borderRadius: "16px",
+                width: "100%",
+                height: "100%",
                 transition: "opacity 0.5s ease-in-out",
-                boxShadow: "0px 10px 30px rgba(0,0,0,0.1)",
               }}
             />
           </Box>

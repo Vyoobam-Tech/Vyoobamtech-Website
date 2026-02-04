@@ -12,13 +12,15 @@ const ReusableComponent = ({
   tagline,
   description,
   overviewImage,
-  overviewText,overviewText2,
+  overviewText,
+  overviewText2,
   features,
   benefits,
   featuresTitle,
   featuresDescription,
   benefiteSubtitle,
-  benefitedes,benefitedes2,
+  benefitedes,
+  benefitedes2,
   explorePath = "/Contact",
 }) => {
   const navigate = useNavigate();
@@ -27,13 +29,181 @@ const ReusableComponent = ({
     <>
       <Header />
 
-      {/* ================= HERO SECTION ================= */}
+      {/* ================= HERO ================= */}
+      <Box sx={{ backgroundColor: "#fff", py: { xs: 6, md: 10 } }}>
+        <Box sx={{ maxWidth: 1200, mx: "auto", px: 2, textAlign: "center" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {logo && (
+              <Box sx={{ mb: 3, mt: 5 }}>
+                <img src={logo} alt="logo" style={{ width: 160 }} />
+              </Box>
+            )}
+
+            <Typography
+              sx={{
+                fontSize: { xs: 32, sm: 42, md: 52, lg: 58 },
+                fontWeight: 600,
+                lineHeight: 1.2,
+              }}
+            >
+              {title}
+            </Typography>
+
+            {tagline && (
+              <Typography
+                sx={{
+                  mt: 1,
+                  fontSize: { xs: 18, md: 22 },
+                  fontWeight: 600,
+                  background:
+                    "linear-gradient(90deg,#FF0080,#FF8C00,#0070F3,#7928CA)",
+                  WebkitBackgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                {tagline}
+              </Typography>
+            )}
+
+            <Typography
+              sx={{
+                mt: 2,
+                maxWidth: 720,
+                mx: "auto",
+                fontSize: { xs: 15, md: 18 },
+                color: "text.secondary",
+              }}
+            >
+              {description}
+            </Typography>
+
+            <Button
+              sx={{
+                mt: 4,
+                px: 4,
+                py: 1.5,
+                borderRadius: 30,
+                fontSize: "1rem",
+                background: "linear-gradient(90deg,#3f5eec,#00e4c9)",
+                textTransform: "none",
+              }}
+              onClick={() => navigate(explorePath)}
+            >
+              Explore Us →
+            </Button>
+          </motion.div>
+        </Box>
+      </Box>
+
+      {/* ================= OVERVIEW ================= */}
+      <Box sx={{ backgroundColor: "#f9fafc", py: { xs: 6, md: 10 } }}>
+        <Box
+          sx={{
+            maxWidth: 1200,
+            mx: "auto",
+            px: 2,
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: 4, md: 8 },
+            alignItems: "center",
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ flex: 1 }}
+          >
+            <Typography
+              sx={{
+                fontSize: { xs: 30, md: 48, lg: 58 },
+                fontWeight: 400,
+                mb: 2,
+              }}
+            >
+              Overview
+            </Typography>
+
+            <Typography sx={{ fontSize: { xs: 15, md: 17 }, mb: 2 }}>
+              {overviewText}
+            </Typography>
+            <Typography sx={{ fontSize: { xs: 15, md: 17 } }}>
+              {overviewText2}
+            </Typography>
+          </motion.div>
+
+          {overviewImage && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              style={{ flex: 1, display: "flex", justifyContent: "center" }}
+            >
+              <Box
+                sx={{
+                  width: { xs: 220, sm: 280, md: 360 },
+                  height: { xs: 220, sm: 280, md: 360 },
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  boxShadow: 3,
+                }}
+              >
+                <img
+                  src={overviewImage}
+                  alt="Overview"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </Box>
+            </motion.div>
+          )}
+        </Box>
+      </Box>
+
+      {/* ================= FEATURES ================= */}
+      {/* TOP SPACER */}
       <Box
         sx={{
-          textAlign: "center",
-          py: { xs: 8, md: 12 },
-          px: { xs: 2, md: 6 },
-          backgroundColor: "#fff",
+          height: { xs: "24px", md: "40px" },
+          backgroundColor: "#f9fafc",
+        }}
+      />
+
+      {/* ===== TOP WAVE ===== */}
+      <Box
+        sx={{
+          width: "100%",
+          overflow: "hidden",
+          lineHeight: 0,
+          position: "relative",
+          transform: "rotate(180deg)",
+        }}
+      >
+        <svg
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          style={{
+            width: "100%",
+            height: "clamp(60px, 12vw, 100px)", // 🔥 responsive
+            display: "block",
+          }}
+        >
+          <path
+            fill="#00182aff"
+            d="M0,224L48,218.7C96,213,192,203,288,197.3C384,192,480,192,576,186.7C672,181,768,171,864,149.3C960,128,1056,96,1152,101.3C1248,107,1344,149,1392,170.7L1440,192L1440,0L0,0Z"
+          />
+        </svg>
+      </Box>
+
+      {/* ===== KEY FEATURES SECTION ===== */}
+      <Box
+        sx={{
+          px: { xs: 2, sm: 3, md: 8 },
+          py: { xs: 6, md: 10 },
+          backgroundColor: "#00182aff",
         }}
       >
         <motion.div
@@ -41,359 +211,153 @@ const ReusableComponent = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* 🔹 Logo on top */}
-          {logo && (
-            <Box sx={{ mb: 3, mt: 5 }}>
-              <img
-                src={logo}
-                alt={`${title} Logo`}
-                style={{ width: "180px", height: "auto", margin: "0 auto" }}
-              />
-            </Box>
-          )}
-
           <Typography
-            variant="h4"
-            fontSize="58px"
-            fontWeight="600"
-            color="black"
+            textAlign="center"
+            fontWeight={400}
+            color="white"
+            sx={{
+              fontSize: { xs: "28px", sm: "36px", md: "48px" }, // 🔥 responsive
+            }}
             gutterBottom
           >
-            {title}
-          </Typography>
-
-          {tagline && (
-            <Typography
-              variant="h5"
-              fontWeight="600"
-              sx={{
-                background:
-                  "linear-gradient(90deg,#FF0080,#FF8C00,#0070F3,#7928CA)",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-              }}
-              gutterBottom
-            >
-              {tagline}
-            </Typography>
-          )}
-
-          <Typography
-            variant="h6"
-            fontWeight={500}
-            color="text.secondary"
-            sx={{ maxWidth: "700px", mx: "auto" }}
-          >
-            {description}
-          </Typography>
-
-          <Button
-            variant="contained"
-            sx={{
-              mt: 6,
-              px: 4,
-              py: 1.5,
-              borderRadius: "30px",
-              fontSize: "1rem",
-              background: "linear-gradient(90deg, #3f5eec, #00e4c9)",
-              textTransform: "none",
-              "&:hover": {
-                background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
-              },
-            }}
-            onClick={() => navigate(explorePath)}
-          >
-            Explore Us →
-          </Button>
-        </motion.div>
-      </Box>
-
-      {/* ================= OVERVIEW SECTION ================= */}
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          px: { xs: 2, md: 8 },
-          py: { xs: 8, md: 12 },
-          flexDirection: { xs: "column", md: "row" },
-          backgroundColor: "#f9fafc",
-        }}
-      >
-        {/* Left Content */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          style={{ flex: 1 }}
-        >
-          <Typography
-            variant="h2"
-            fontWeight="400"
-            fontSize="58px"
-            color="black"
-            gutterBottom
-            sx={{ pb: 2,mt: -5}}
-          >
-            Overview
-          </Typography>
-          <Typography variant="h6" fontWeight="400" color="text.secondary" sx={{mt:3}}>
-            {overviewText}
-          </Typography>
-           <Typography variant="h6" fontWeight="400" color="text.secondary" sx={{mt:3}}>
-            {overviewText2}
-          </Typography>
-          {/* <Button
-            variant="contained"
-            sx={{
-              mt: 6,
-              px: 4,
-              py: 1.5,
-              borderRadius: "30px",
-              fontSize: "1rem",
-              background: "linear-gradient(90deg, #3f5eec, #00e4c9)",
-              textTransform: "none",
-              "&:hover": {
-                background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
-              },
-            }}
-            onClick={() => navigate(explorePath)}
-          >
-            Explore Us →
-          </Button> */}
-        </motion.div>
-
-        {/* Right Image */}
-        {overviewImage && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            style={{
-              flex: 1,
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "30px",
-            }}
-          >
-            <Box
-              sx={{
-                width: { xs: 280, md: 400 },
-                height: { xs: 280, md: 400 },
-                borderRadius: "50%",
-                overflow: "hidden",
-                boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
-              }}
-            >
-              <img
-                src={overviewImage}
-                alt="Overview"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </Box>
-          </motion.div>
-        )}
-      </Box>
-
-      {/* ================= KEY FEATURES ================= */}<Box sx={{ height: "40px", backgroundColor: "#f9fafc" }} />
-            {/* ===== WAVE DIVIDER ABOVE KEY FEATURES ===== */}
-            {/* ===== WAVE DIVIDER ABOVE KEY FEATURES ===== */}
-      
-            <Box
-              sx={{
-                width: "100%",
-                overflow: "hidden",
-                lineHeight: 0,
-                position: "relative",
-                transform: "rotate(180deg)",
-              }}
-            >
-              <svg
-                viewBox="0 0 1440 320"
-                style={{ width: "100%", height: "100px" }}
-                preserveAspectRatio="none"
-              >
-                <path
-                  fill="#00182aff" // Same as your Key Feature background
-                  d="M0,224L48,218.7C96,213,192,203,288,197.3C384,192,480,192,576,186.7C672,181,768,171,864,149.3C960,128,1056,96,1152,101.3C1248,107,1344,149,1392,170.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-                ></path>
-              </svg>
-            </Box>
-
-      <Box sx={{ px: { xs: 2, md: 8 }, py: { xs: 8, md: 12 }, background: "#00182aff" }}>
-       <motion.div
-                 initial={{ opacity: 0, y: 40 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 transition={{ duration: 0.8 }}
-               >
-        <Typography
-          variant="h2"
-          fontWeight="400"
-          fontSize="48px"
-          color="white"
-          textAlign="center"
-          gutterBottom
-        >
             {featuresTitle}
-          
-        </Typography>
-        <Typography
-                    variant="h6"
-                    fontWeight="400"
-                    fontSize={20}
-                    color="white"
-                    textAlign="center"
-                    maxWidth="700px"
-                    mx="auto"
-                    mb={6}
-                  >
-                   {featuresDescription}
-                  </Typography>
+          </Typography>
 
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-            gap: 4,
-          }}
-        >
-          {features.map((f, i) => (
-            <Box
-              key={i}
-              sx={{
-                p: 3,
-                borderRadius: 2,
-                backgroundColor: "#051e42ff",
-                borderLeft: "1px solid #f9f9f9ff",
-              }}
-            >
-              <Typography
-                variant="h6"
-                color="white"
-                fontSize="23px"
-                gutterBottom
+          <Typography
+            textAlign="center"
+            color="white"
+            sx={{
+              fontSize: { xs: "15px", sm: "17px", md: "20px" },
+              maxWidth: "700px",
+              mx: "auto",
+              mb: { xs: 4, md: 6 },
+              lineHeight: 1.7,
+            }}
+          >
+            {featuresDescription}
+          </Typography>
+
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                md: "1fr 1fr",
+              },
+              gap: { xs: 3, md: 4 },
+            }}
+          >
+            {features.map((f, i) => (
+              <Box
+                key={i}
+                sx={{
+                  p: { xs: 2.5, md: 3 },
+                  borderRadius: 2,
+                  backgroundColor: "#051e42ff",
+                  borderLeft: "1px solid #f9f9f9ff",
+                }}
               >
-                {f.title}
-              </Typography>
-              <Typography variant="body1" color="white">
-                {f.description}
-              </Typography>
-            </Box>
-          ))}
-        </Box>
-     </motion.div>
+                <Typography
+                  color="white"
+                  sx={{
+                    fontSize: { xs: "18px", md: "23px" },
+                    mb: 1,
+                  }}
+                >
+                  {f.title}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    fontSize: { xs: "14px", md: "16px" },
+                    color: "white",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {f.description}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </motion.div>
       </Box>
-       <Box
-              sx={{
-                width: "100%",
-                overflow: "hidden",
-                lineHeight: 0,
-                position: "relative",
-              }}
-            >
-              <svg
-                viewBox="0 0 1440 320"
-                style={{ width: "100%", height: "100px" }}
-                preserveAspectRatio="none"
-              >
-                <path
-                  fill="#00182aff" // Same as your Key Feature background
-                  d="M0,224L48,218.7C96,213,192,203,288,197.3C384,192,480,192,576,186.7C672,181,768,171,864,149.3C960,128,1056,96,1152,101.3C1248,107,1344,149,1392,170.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-                ></path>
-              </svg>
-            </Box>
 
-      {/* ================= BUSINESS BENEFITS ================= */}
+      {/* ===== BOTTOM WAVE ===== */}
       <Box
         sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          px: { xs: 2, md: 8 },
-          py: { xs: 8, md: 12 },
-          background: "linear-gradient(90deg, #ffffff 60%, #f3f4fdff 100%)",
-          gap: { xs: 6, md: 10 },
+          width: "100%",
+          overflow: "hidden",
+          lineHeight: 0,
+          position: "relative",
         }}
       >
-        {/* Left heading */}
-        <Box sx={{ flex: 1, maxWidth: 400 }}>
-          <Typography
-            variant="h6"
-            fontWeight={600}
-            fontSize={25}
-            sx={{ color: "#024d87", mb: 1 }}
-          >
-            WHY {title.toUpperCase()}?
-          </Typography>
-          <Typography variant="h6" fontWeight="600" color="black" sx={{ mb: 2,whiteSpace: "pre-line" }}>
-            {benefiteSubtitle}
-          </Typography>
-          <Typography
-                      variant="body"
-                      color="text.secondary"
-                      sx={{ lineHeight: 1.7 }}
-                    >
-                     {benefitedes}
-                    </Typography><br /><br />
-                    <Typography
-                      variant="body"
-                      color="text.secondary"
-                      sx={{ lineHeight: 1.7 }}
-                    >
-                     {benefitedes2}
-                    </Typography>
-                    
-        </Box>
-
-        {/* Right grid */}
-        <Box
-          sx={{
-            flex: 2,
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
-            gap: 4,
+        <svg
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          style={{
+            width: "100%",
+            height: "clamp(60px, 12vw, 100px)", // 🔥 responsive
+            display: "block",
           }}
         >
-          {benefits.map((b, i) => (
-            <Box
-              key={i}
-              sx={{
-                background: "#fff",
-                p: 3,
-                borderRadius: 2,
-                boxShadow: 1,
-                borderLeft: "4px solid #024d87",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  boxShadow: 4,
-                  transform: "translateY(-4px)",
-                },
-              }}
-            >
-                 {/* Icon (optional) */}
-          {b.icon && (
-            <Box sx={{ mb: 2 }}>{b.icon}</Box>
-          )}
+          <path
+            fill="#00182aff"
+            d="M0,224L48,218.7C96,213,192,203,288,197.3C384,192,480,192,576,186.7C672,181,768,171,864,149.3C960,128,1056,96,1152,101.3C1248,107,1344,149,1392,170.7L1440,192L1440,0L0,0Z"
+          />
+        </svg>
+      </Box>
 
-              <Typography
-                variant="h6"
-                fontWeight="600"
-                fontSize="20px"
-                color="black"
-                sx={{ mb: 1 }}
+      {/* ================= BENEFITS ================= */}
+      <Box sx={{ py: { xs: 6, md: 10 } }}>
+        <Box
+          sx={{
+            maxWidth: 1200,
+            mx: "auto",
+            px: 2,
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: 6, md: 10 },
+          }}
+        >
+          <Box sx={{ flex: 1 }}>
+            <Typography sx={{ fontSize: 24, fontWeight: 600, mb: 1 }}>
+              WHY {title.toUpperCase()}?
+            </Typography>
+
+            <Typography sx={{ fontSize: 18, fontWeight: 600, mb: 2 }}>
+              {benefiteSubtitle}
+            </Typography>
+
+            <Typography sx={{ mb: 2 }}>{benefitedes}</Typography>
+            <Typography>{benefitedes2}</Typography>
+          </Box>
+
+          <Box
+            sx={{
+              flex: 2,
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+              gap: 4,
+            }}
+          >
+            {benefits.map((b, i) => (
+              <Box
+                key={i}
+                sx={{
+                  background: "#fff",
+                  p: 3,
+                  borderRadius: 2,
+                  boxShadow: 2,
+                  borderLeft: "4px solid #024d87",
+                }}
               >
-                {b.title}
-              </Typography>
-              <Typography variant="body1" sx={{ color: "#024d87" }}>
-                {b.subtitle}
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{ mt: 1.2, color: "text.secondary" }}
-              >
-                {b.description}
-              </Typography>
-            </Box>
-          ))}
+                {b.icon && <Box mb={2}>{b.icon}</Box>}
+                <Typography fontWeight={600}>{b.title}</Typography>
+                <Typography sx={{ color: "#024d87" }}>{b.subtitle}</Typography>
+                <Typography sx={{ mt: 1 }}>{b.description}</Typography>
+              </Box>
+            ))}
+          </Box>
         </Box>
       </Box>
 

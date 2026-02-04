@@ -1,205 +1,3 @@
-// import { Box, Typography, Paper, useTheme } from "@mui/material";
-// import React, { useState, useEffect } from "react";
-// import meeting from "../assets/metting.jpg";
-
-// import InsightsIcon from "@mui/icons-material/Insights";
-// import LockIcon from "@mui/icons-material/Lock";
-// import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-// import SettingsIcon from "@mui/icons-material/Settings";
-// import { motion, AnimatePresence } from "framer-motion";
-// import "../Styles/FlipGallery.css";
-
-// const features = [
-//   {
-//     title: "Real-Time Insights",
-//     description:
-//       "Make smarter decisions with live data and actionable insights, delivered in real-time.",
-//     icon: <InsightsIcon />,
-//   },
-//   {
-//     title: "Flexible Plans",
-//     description:
-//       "Choose plans that adapt to your business needs, delivering both scalability and cost-efficiency",
-//     icon: <SettingsIcon />,
-//   },
-//   {
-//     title: "Secure Transactions",
-//     description:
-//       "Prioritize safety with encryption and robust security features.",
-//     icon: <LockIcon />,
-//   },
-//   {
-//     title: "Dedicated Support",
-//     description:
-//       "Access expert assistance 24/7 to ensure you're never alone on your journey.",
-//     icon: <SupportAgentIcon />,
-//   },
-// ];
-
-// const Choose = () => {
-//   const theme = useTheme();
-//   const images = meeting;
-//   const [activeIndex, setActiveIndex] = useState(0);
-//   const [direction, setDirection] = useState(1); // 1 for next, -1 for previous
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setDirection(1);
-//       setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-//     }, 3500);
-//     return () => clearInterval(interval);
-//   }, []);
-//   const variants = {
-//     enter: (direction) => ({
-//       x: direction > 0 ? "100%" : "-100%",
-//       opacity: 0,
-//       scale: 1.1,
-//     }),
-//     center: {
-//       x: 0,
-//       opacity: 1,
-//       scale: 1,
-//       zIndex: 1,
-//     },
-//     exit: (direction) => ({
-//       x: direction > 0 ? "-100%" : "100%",
-//       opacity: 0,
-//       scale: 0.9,
-//       zIndex: 0,
-//     }),
-//   };
-
-//   return (
-//     <Box
-//       sx={{
-//         py: 10,
-//         px: { xs: 2, md: 6 },
-//         backgroundColor: "#01061fff",
-//         color: "#fff",
-//         // mt: 10,
-//       }}
-//     >
-//       <Box
-//         sx={{
-//           display: "grid",
-//           gridTemplateColumns: { xs: "1fr", md: "6fr 6fr" },
-//           gap: 6,
-//           alignItems: "center",
-//         }}
-//       >
-//         {/* Left: Animated Image Transition */}
-//         <Box >
-//           <Typography variant="h2" gutterBottom fontWeight={500} fontSize={40}>
-//             Why Choose Us?
-//           </Typography>
-//           <Typography
-//             variant="body1"
-//             fontSize={20}
-//             fontWeight={500}
-//             sx={{ mb: 4, color: "white" }}
-//           >
-//             Choosing the right technology partner is crucial for the success of
-//             your business. Here’s why Vyoobam Tech stands out.
-//           </Typography>
-
-//           {/* Animated Image Wrapper */}
-         
-//          <Box
-//   sx={{
-//     mt: { xs: 5, md: 10 },
-//     maxWidth: "500px",        
-//     width: "100%",
-//     mx: "auto",               
-//   }}
-// >
-//   <img
-//     src={meeting}
-//     alt="meeting"
-//     className="single-effect"
-//     style={{
-//       width: "100%",
-//       height: "auto",
-//       borderRadius: "16px",
-//       display: "block",
-//     }}
-//   />
-// </Box>
-
-//         </Box>
-//         {/* Right Section - Features */}
-//         <Box sx={{ display: "grid", gap: 3 }}>
-//           {features.map((feature, idx) => (
-//             <motion.div
-//               key={idx}
-//               initial={{ opacity: 0, y: 40 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               viewport={{ once: true, amount: 0.3 }}
-//               transition={{ duration: 0.6, delay: idx * 0.2, ease: "easeOut" }}
-//             >
-//               <Paper
-//                 elevation={3}
-//                 sx={{
-//                   p: 3,
-//                   backgroundColor: "#021628ff",
-//                   color: "#fff",
-//                   borderRadius: 2,
-//                   overflow: "hidden",
-//                   transition: "transform 0.4s ease, box-shadow 0.4s ease",
-//                   display: "flex",
-//                   alignItems: "center",
-//                   gap: 2,
-
-//                   "&:hover": {
-//                     transform: "scale(1.04)",
-//                     boxShadow: "0 14px 34px rgba(0,0,0,0.35)",
-//                   },
-
-//                   "&:hover .feature-icon": {
-//                     transform: "scale(1.5)",
-//                     color: "#00E5FF",
-//                   },
-//                 }}
-//               >
-//                 {/* Icon */}
-//                 <Box
-//                   className="feature-icon"
-//                   sx={{
-//                     fontSize: 36,
-//                     color: theme.palette.primary.main,
-//                     transition: "transform 0.3s ease, color 0.3s ease",
-//                     display: "flex",
-//                     alignItems: "center",
-//                     justifyContent: "center",
-//                     minWidth: 48,
-//                   }}
-//                 >
-//                   {feature.icon}
-//                 </Box>
-
-//                 {/* Text */}
-//                 <Box>
-//                   <Typography variant="h6" fontWeight={500} fontSize={20}>
-//                     {feature.title}
-//                   </Typography>
-//                   <Typography
-//                     variant="body"
-//                     fontWeight={300}
-//                     fontSize={18}
-//                     sx={{ color: "white" }}
-//                   >
-//                     {feature.description}
-//                   </Typography>
-//                 </Box>
-//               </Paper>
-//             </motion.div>
-//           ))}
-//         </Box>
-//       </Box>
-//     </Box>
-//   );
-// };
-
-// export default Choose;
 import { Box, Typography, Paper, useTheme } from "@mui/material";
 import React from "react";
 import meeting from "../assets/metting.jpg";
@@ -245,8 +43,8 @@ const Choose = () => {
   return (
     <Box
       sx={{
-        py: 10,
-        px: { xs: 2, md: 6 },
+        py: { xs: 6, md: 10 },
+        px: { xs: 2, sm: 4, md: 6 },
         backgroundColor: "#01061f",
         color: "#fff",
       }}
@@ -254,64 +52,80 @@ const Choose = () => {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "6fr 6fr" },
-          gap: 6,
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "6fr 6fr",
+          },
+          gap: { xs: 6, md: 8 },
           alignItems: "center",
         }}
       >
         {/* LEFT SECTION */}
-        <Box>
-          <Typography variant="h2" fontWeight={500} fontSize={40} gutterBottom>
+        <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+          <Typography
+            sx={{
+              fontWeight: 500,
+              fontSize: "clamp(26px, 4vw, 40px)",
+              mb: 2,
+            }}
+          >
             Why Choose Us?
           </Typography>
 
-          <Typography fontSize={20} fontWeight={500} sx={{ mb: 4 }}>
+          <Typography
+            sx={{
+              fontSize: "clamp(15px, 2vw, 20px)",
+              fontWeight: 400,
+              mb: 4,
+              color: "#d1d5db",
+            }}
+          >
             Choosing the right technology partner is crucial for the success of
             your business. Here’s why Vyoobam Tech stands out.
           </Typography>
 
-          {/* 🔥 VIEWPORT BASED SAME IMAGE EFFECT */}
-          <Box
-            sx={{
-              mt: { xs: 5, md: 10 },
-              maxWidth: "500px",
-              width: "100%",
-              mx: "auto",
-            }}
-          >
-            <motion.img
-              src={meeting}
-              alt="meeting"
-              className="single-effect"
+          {/* IMAGE */}
+         <Box
+  sx={{
+    mt: { xs: 4, md: 8 },
+    maxWidth: { xs: "100%", sm: 480, md: 600 }, // 🔼 size increased
+    mx: "auto",
+  }}
+>
+  <motion.img
+    src={meeting}
+    alt="meeting"
+    loading="lazy"   // ✅ lazy loading
+    className="single-effect"
+    initial={{
+      "--_i": "0%",
+      filter: "grayscale(1)",
+    }}
+    whileInView={{
+      "--_i": "10%",
+      filter: "grayscale(0)",
+    }}
+    viewport={{
+      once: false,
+      amount: 0.4,
+    }}
+    transition={{
+      duration: 0.4,
+      ease: "linear",
+    }}
+    style={{
+      width: "100%",
+      height: "360px",          // 🔼 height increase
+      objectFit: "cover",       // 💎 smooth crop
+      borderRadius: "16px",     // little more premium
+    }}
+  />
+</Box>
 
-              /* PIRINJI IRUKUM */
-              initial={{
-                "--_i": "0%",
-                filter: "grayscale(1)",
-              }}
-
-              /* VIEWPORT-KU VARUMBOTHU JOIN */
-              whileInView={{
-                "--_i": "10%",
-                filter: "grayscale(0)",
-              }}
-
-              /* SCROLL BACK = PIRINJIDUM */
-              viewport={{
-                once: false,
-                amount: 0.4,
-              }}
-
-              transition={{
-                duration: 0.4,
-                ease: "linear",
-              }}
-            />
-          </Box>
         </Box>
 
         {/* RIGHT SECTION */}
-        <Box sx={{ display: "grid", gap: 3 }}>
+        <Box sx={{ display: "grid", gap: { xs: 2.5, md: 3 } }}>
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -320,29 +134,29 @@ const Choose = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{
                 duration: 0.6,
-                delay: idx * 0.2,
+                delay: idx * 0.15,
                 ease: "easeOut",
               }}
             >
               <Paper
                 elevation={3}
                 sx={{
-                  p: 3,
+                  p: { xs: 2.5, md: 3 },
                   backgroundColor: "#021628",
                   color: "#fff",
                   borderRadius: 2,
                   display: "flex",
-                  alignItems: "center",
+                  alignItems: "flex-start",
                   gap: 2,
                   transition: "0.4s ease",
 
                   "&:hover": {
-                    transform: "scale(1.04)",
+                    transform: { md: "scale(1.04)" },
                     boxShadow: "0 14px 34px rgba(0,0,0,0.35)",
                   },
 
                   "&:hover .feature-icon": {
-                    transform: "scale(1.5)",
+                    transform: { md: "scale(1.4)" },
                     color: "#00E5FF",
                   },
                 }}
@@ -350,23 +164,38 @@ const Choose = () => {
                 <Box
                   className="feature-icon"
                   sx={{
-                    fontSize: 36,
+                    fontSize: { xs: 28, md: 36 },
                     color: theme.palette.primary.main,
                     transition: "0.3s ease",
-                    minWidth: 48,
+                    minWidth: 40,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    mt: "2px",
                   }}
                 >
                   {feature.icon}
                 </Box>
 
                 <Box>
-                  <Typography fontWeight={500} fontSize={20}>
+                  <Typography
+                    sx={{
+                      fontWeight: 500,
+                      fontSize: { xs: "16px", md: "20px" },
+                      mb: 0.5,
+                    }}
+                  >
                     {feature.title}
                   </Typography>
-                  <Typography fontSize={18} fontWeight={300}>
+
+                  <Typography
+                    sx={{
+                      fontSize: { xs: "14px", md: "18px" },
+                      fontWeight: 300,
+                      color: "#cbd5e1",
+                      lineHeight: 1.6,
+                    }}
+                  >
                     {feature.description}
                   </Typography>
                 </Box>

@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: ["https://vyoobam.com"],
+  origin: ["http://localhost:5173", "https://vyoobam.com", "https://www.vyoobam.com"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
@@ -67,9 +67,10 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.SMTP_USER || "admin@vyoobam.com",
-        pass: process.env.SMTP_PASS || "Admin@dmin1234",
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
       },
+       pool: true,  
        family: 4,
        tls: {
         rejectUnauthorized: false,
@@ -81,9 +82,10 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.SMTP_USER || "admin@vyoobam.com",
-        pass: process.env.SMTP_PASS || "Admin@dmin1234",
+        user: process.env.SMTP_USER, 
+        pass: process.env.SMTP_PASS 
       },
+       pool: true,  
        family: 4,
        tls: {
          rejectUnauthorized: false,
@@ -94,8 +96,8 @@ app.post("/api/contact", upload.single("resume"), async (req, res) => {
 
 const hrEmail =
   safePurpose.includes("internship") || safePurpose.includes("job")
-    ? "hr@vyoobam.com"
-    : "info@vyoobam.com";
+    ? "manishaselvakumar03@gmail.com"
+    : "manishaselvakumar07@gmail.com";
 
 
     console.log("Sending HR mail to:", hrEmail);
@@ -144,6 +146,7 @@ Vyoobam Team`,
     res.json({ success: true, message: "Emails sent successfully!" });
 
   } catch (error) {
+    console.error("FULL ERROR 👉", error);
     console.error("Error sending email:", error.message);
     res.status(500).json({
       success: false,

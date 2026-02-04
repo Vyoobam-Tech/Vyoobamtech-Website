@@ -1,13 +1,13 @@
 import { Box, Typography, Card, CardContent, Button } from "@mui/material";
 import careers from "../assets/finalit.jpg";
 import impactImg from "../assets/f5.jpg";
-import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { AnimatedBox } from "./AnimatedBox";
 import Header from "./Header";
+
 const expertiseList = [
   {
     title: "IT strategy & digital roadmaps",
@@ -26,16 +26,15 @@ const expertiseList = [
     desc: "Guidance on selecting the right tools, frameworks, and platforms for your organization.",
   },
 ];
+
 export default function Consulting() {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [animateNow, setAnimateNow] = useState(false);
 
-  // 🔥 Refs for each animated section
   const refHero = useRef(null);
   const refTransform = useRef(null);
   const refImpact = useRef(null);
 
-  // 🔥 InView triggers
   const isHeroInView = useInView(refHero, { once: true });
   const isTransformInView = useInView(refTransform, { once: true });
   const isImpactInView = useInView(refImpact, { once: true });
@@ -44,118 +43,127 @@ export default function Consulting() {
 
   return (
     <>
-    <Header />
+      <Header />
       <Box width="100%" minHeight="100vh">
-        {/* 🔥 HERO SECTION */}
-        
-          {/* <Typography variant="subtitle1">
-            <span
-              onClick={() => navigate("/")}
-              style={{ cursor: "pointer", fontWeight: "bold" }}
-            >
-              s
-           </span>
-          </Typography> */}
-
-          <motion.div
-            ref={refHero}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isHeroInView || animateNow ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 2, ease: "easeOut" }}
+        {/* HERO SECTION */}
+        <motion.div
+          ref={refHero}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isHeroInView || animateNow ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          <Typography
+            fontWeight={700}
+            sx={{
+              mt: { xs: 8, sm: 12, md: 18 },
+              ml: { xs: 0, sm: 4, md: 8 },
+              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "5rem", lg: "6rem" },
+              lineHeight: 1.1,
+              background: "black",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textAlign: { xs: "center", sm: "left" },
+            }}
           >
-            <Typography
-              variant="h2"
-              fontWeight={700}
-               mt={18} ml={8}
-              fontSize={90}
-              sx={{
-                background: "black",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
             IT Consulting
-              <br />
-            </Typography>
-          </motion.div>
-
-          <Typography variant="h6" mt={1} fontSize={30} ml={8}>
-            Driving Digital Transformation...
           </Typography>
-        
+        </motion.div>
 
-        {/* BACKGROUND IMAGE */}
+        <Typography
+          sx={{
+            mt: 1,
+            ml: { xs: 0, sm: 4, md: 8 },
+            fontSize: { xs: "1rem", sm: "1.5rem", md: "2rem" },
+            textAlign: { xs: "center", sm: "left" },
+          }}
+        >
+          Driving Digital Transformation...
+        </Typography>
+
+        {/* HERO IMAGE */}
         <Box
           sx={{
             position: "relative",
-            height: { xs: "60vh", md: "90vh" },
+            mt: { xs: 4, md: 8 },
+            height: { xs: "45vh", sm: "60vh", md: "90vh" },
             backgroundImage: `url(${careers})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0% 100%)",
+            clipPath: {
+              xs: "polygon(0 40%, 100% 0, 100% 100%, 0% 100%)",
+              sm: "polygon(0 45%, 100% 0, 100% 100%, 0% 100%)",
+              md: "polygon(0 50%, 100% 0, 100% 100%, 0% 100%)",
+            },
           }}
         />
+
+        {/* TRANSFORM SECTION */}
         <Box
+          ref={refTransform}
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", md: "row" }, // mobile → column, desktop → row
+            flexDirection: { xs: "column", md: "row" },
             alignItems: "center",
             justifyContent: "space-between",
-            px: { xs: 3, md: 8 },
-            py: { xs: 6, md: 10 },
-            gap: 4,
+            px: { xs: 2, sm: 3, md: 8 },
+            py: { xs: 5, sm: 6, md: 10 },
+            gap: { xs: 4, md: 6 },
           }}
         >
-          {/* Left Side - Title */}
-         < Typography
-    variant="h2"
-    fontWeight={800} 
-    sx={{
-      fontSize: {
-        xs: "2rem",        // mobile
-        sm: "2.5rem",      // small tablets
-        md: "3rem",        // desktop
-        lg: "3.5rem",     // large screens
-      },
-      lineHeight: 1.2,
-    }}
-  >
-    Transform Your <br /> Digital Journey
-  </Typography>
-          
+          <Typography
+            fontWeight={800}
+            sx={{
+              fontSize: {
+                xs: "1.8rem",
+                sm: "2.3rem",
+                md: "3rem",
+                lg: "3.5rem",
+              },
+              lineHeight: 1.15,
+              textAlign: { xs: "center", md: "left" },
+              maxWidth: { xs: "100%", md: "45%" },
+            }}
+          >
+            Transform Your <br /> Digital Journey
+          </Typography>
 
-          {/* Right Side - Description */}
-          <Box sx={{ flex: 1 }}>
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            animate={isTransformInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{ flex: 1 }}
+          >
             <Typography
-              variant="body1"
               sx={{
-                fontSize: { xs: "1rem", md: "1.2rem" },
+                fontSize: { xs: "0.95rem", md: "1.2rem" },
                 color: "text.secondary",
-                lineHeight: 1.6,ml:10
+                lineHeight: 1.7,
+                textAlign: { xs: "center", md: "left" },
+                ml: { xs: 0, md: 8 },
               }}
             >
               We partner with organizations to design and implement future-ready
               digital strategies. Our consultants bring deep expertise in
               technology, industry trends, and process optimization.
             </Typography>
-          </Box>
+          </motion.div>
         </Box>
+
+        {/* EXPERTISE CARDS */}
         <Box
           sx={{
             bgcolor: "white",
-            py: { xs: 6, md: 10 },
-            px: { xs: 3, md: 8 },
+            py: { xs: 5, sm: 6, md: 10 },
+            px: { xs: 2, sm: 3, md: 8 },
             textAlign: "center",
           }}
         >
-          {/* Section Title */}
           <AnimatedBox delay={0.2}>
             <Typography
-              variant="h3"
               fontWeight={800}
               sx={{
-                fontSize: { xs: "2rem", md: "2.5rem" },
-                mb: 6,
+                fontSize: { xs: "1.7rem", sm: "2rem", md: "2.5rem" },
+                mb: { xs: 4, md: 6 },
                 position: "relative",
                 display: "inline-block",
                 "&::after": {
@@ -174,30 +182,30 @@ export default function Consulting() {
             </Typography>
           </AnimatedBox>
 
-          {/* Cards Layout */}
           <Box
             sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: 4,
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "1fr 1fr",
+                md: "repeat(4, 1fr)",
+              },
+              gap: { xs: 3, sm: 4 },
+              alignItems: "stretch",
             }}
           >
             {expertiseList.map((item, index) => (
-              <Box
+              <motion.div
                 key={index}
-                sx={{
-                  flex: { xs: "1 1 100%", sm: "1 1 45%", md: "1 1 22%" },
-                  display: "flex",
-                }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isTransformInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
               >
-                  <Card
+                <Card
                   sx={{
-                    flex: 1,
+                    height: "100%",
                     borderRadius: "16px",
                     boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
-                    flexDirection: "column", // make content vertical
-    height: "100%",
                     transition: "transform 0.3s ease, box-shadow 0.3s ease",
                     "&:hover": {
                       transform: "translateY(-8px)",
@@ -205,53 +213,61 @@ export default function Consulting() {
                     },
                   }}
                 >
-                  <CardContent sx={{ p: 4 }}>
+                  <CardContent
+                    sx={{
+                      p: { xs: 3, md: 4 },
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "100%",
+                    }}
+                  >
                     <Typography
-                      variant="h6"
                       fontWeight={700}
-                      sx={{
-                        fontSize: "1.1rem",
-                        mb: 1,
-                      }}
+                      sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, mb: 1 }}
                     >
                       {item.title}
                     </Typography>
                     <Typography
-                      variant="body2"
                       sx={{
                         color: "text.secondary",
-                        fontSize: "0.9rem",
-                        lineHeight: 1.5,
+                        fontSize: { xs: "0.85rem", md: "0.9rem" },
+                        lineHeight: 1.6,
+                        flexGrow: 1,
                       }}
                     >
                       {item.desc}
                     </Typography>
                   </CardContent>
                 </Card>
-              </Box>
+              </motion.div>
             ))}
           </Box>
         </Box>
-      </Box>
-      <Box
-        sx={{
-          bgcolor: "#f9f9f9",
-          py: { xs: 6, md: 10 },
-          px: { xs: 3, md: 8 },
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          alignItems: "center",
-          gap: 6,
-        }}
-      >
-        {/* Left Side - Content */}
-        <Box flex={1}>
-          <AnimatedBox delay={0.2}>
+
+        {/* BUSINESS IMPACT */}
+        <Box
+          ref={refImpact}
+          sx={{
+            bgcolor: "#f9f9f9",
+            py: { xs: 5, sm: 6, md: 10 },
+            px: { xs: 2, sm: 3, md: 8 },
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            gap: { xs: 4, md: 6 },
+          }}
+        >
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            animate={isImpactInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{ flex: 1 }}
+          >
             <Typography
-              variant="h3"
               fontWeight={800}
               sx={{
-                fontSize: { xs: "2rem", md: "2.5rem" },
+                fontSize: { xs: "1.8rem", sm: "2.1rem", md: "2.5rem" },
                 mb: 3,
                 position: "relative",
                 display: "inline-block",
@@ -261,7 +277,7 @@ export default function Consulting() {
                   width: "60px",
                   height: "4px",
                   background:
-                    "linear-gradient(to right, #00e4c9, #a033ff, #ff267e)", // Tech Mahindra Red
+                    "linear-gradient(to right, #00e4c9, #a033ff, #ff267e)",
                   margin: "12px 0 0",
                   borderRadius: "2px",
                 },
@@ -269,52 +285,57 @@ export default function Consulting() {
             >
               Business Impact
             </Typography>
-          </AnimatedBox>
-          <Typography
-            variant="body1"
-            sx={{
-              color: "text.secondary",
-              fontSize: "1.05rem",
-              lineHeight: 1.7,
-              mb: 3,
-            }}
-          >
-           IT consulting helps organizations optimize operations, reduce costs, and strengthen their overall digital strategy. By aligning technology with business goals, it enables companies to modernize systems, streamline workflows, and improve efficiency. With expert guidance, businesses can adopt scalable solutions, enhance resilience, and stay competitive in an evolving digital economy.
-          </Typography>
 
-          {/* Optional CTA */}
-          <Button
-            variant="contained"
+            <Typography
+              sx={{
+                color: "text.secondary",
+                fontSize: { xs: "0.95rem", md: "1.05rem" },
+                lineHeight: 1.7,
+                mb: 3,
+              }}
+            >
+              IT consulting helps organizations optimize operations, reduce
+              costs, and strengthen their overall digital strategy. By aligning
+              technology with business goals, it enables companies to modernize
+              systems, streamline workflows, and improve efficiency. With expert
+              guidance, businesses can adopt scalable solutions, enhance
+              resilience, and stay competitive in an evolving digital economy.
+            </Typography>
+
+            <Button
+              variant="contained"
+              sx={{
+                mt: 3,
+                px: 4,
+                py: 1.5,
+                borderRadius: "30px",
+                fontSize: "1rem",
+                fontWeight: 400,
+                background: "linear-gradient(90deg, #3f5eec, #00e4c9)",
+                textTransform: "none",
+                "&:hover": {
+                  background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
+                },
+              }}
+              onClick={() => navigate("/Contact")}
+            >
+              View →
+            </Button>
+          </motion.div>
+
+          {/* RIGHT IMAGE */}
+          <Box
+            flex={1}
+            component="img"
+            src={impactImg}
+            alt="Business Impact"
             sx={{
-              mt: 6,
-              px: 4,
-              py: 1.5,
-              borderRadius: "30px",
-              fontSize: "1rem",
-              fontWeight: 400,
-              background: "linear-gradient(90deg, #3f5eec, #00e4c9)", // your logo theme color
-              textTransform: "none",
-              "&:hover": {
-                background: "linear-gradient(90deg, #00e4c9, #3f5eec)",
-              },
+              width: { xs: "60%", md: "40%" },
+              maxWidth: "400px",
+              mt: { xs: 3, md: 0 },
             }}
-            onClick={() => navigate("/Contact")}
-          >
-            View →
-          </Button>
+          />
         </Box>
-
-        {/* Right Side - Image */}
-        <Box
-          flex={1}
-          component="img"
-          src={impactImg}
-          alt="Business Impact"
-          sx={{
-            width: "10%",
-            
-          }}
-        />
       </Box>
       <Footer />
     </>

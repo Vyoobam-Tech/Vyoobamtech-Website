@@ -46,71 +46,75 @@ export default function WebDevelopment() {
   return (
     <>
       <Header />
-      <Box width="100%" minHeight="100vh">
-        {/* 🔥 HERO SECTION */}
-        {/* <Box
-          sx={{
-            position: "relative",
-            bgcolor: "white",
-            clipPath: "polygon(0 ,0, 100% 0, 100% 80%, 0 100%)",
-            zIndex: 2,
-            py: { xs: 6, md: 14 },
-            px: { xs: 2, md: 10 },backgroundColor:"#2b2b36ff",
-          }}
-        > */}
-          {/* <Typography variant="subtitle1">
-            <span
-              onClick={() => navigate("/")}
-              style={{ cursor: "pointer", fontWeight: "bold" }}
-            >
-              s
-           </span>
-          </Typography> */}
-
-          <motion.div
-            ref={refHero}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isHeroInView || animateNow ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 2, ease: "easeOut" }}
+      <Box width="100%" minHeight="100vh" px={{ xs: 2, sm: 4, md: 0 }}>
+        {/* HERO TEXT */}
+        <motion.div
+          ref={refHero}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isHeroInView || animateNow ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          <Typography
+            variant="h2"
+            fontWeight={700}
+            sx={{
+              mt: { xs: 8, sm: 12, md: 18 },
+              ml: { xs: 0, sm: 4, md: 8 },
+              fontSize: {
+                xs: "2.2rem", // mobile
+                sm: "3rem", // tablet
+                md: "4.5rem", // desktop
+                lg: "5.5rem", // large screens
+              },
+              lineHeight: 1.1,
+              background: "black",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textAlign: { xs: "center", sm: "left" },
+            }}
           >
-            <Typography
-              variant="h2"
-              fontWeight={700}
-              mt={18} ml={8}
-              fontSize={90}
-              sx={{
-                background: "black",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Web Development
-              <br />
-            </Typography>
-          </motion.div>
-
-          <Typography variant="h6" mt={1} fontSize={30} ml={8}>
-            Building the Digital Face of Your Business...........
+            Web Development
           </Typography>
-          
-       
-        {/* </Box> */}
+        </motion.div>
+
+        {/* SUB TEXT */}
+        <Typography
+          variant="h6"
+          sx={{
+            mt: 1,
+            ml: { xs: 0, sm: 4, md: 8 },
+            fontSize: {
+              xs: "1rem",
+              sm: "1.2rem",
+              md: "1.8rem",
+            },
+            textAlign: { xs: "center", sm: "left" },
+          }}
+        >
+          Building the Digital Face of Your Business...........
+        </Typography>
 
         {/* BACKGROUND IMAGE */}
         <Box
           sx={{
             position: "relative",
-            height: { xs: "60vh", md: "90vh" },
+            mt: { xs: 4, md: 8 },
+            height: {
+              xs: "45vh",
+              sm: "60vh",
+              md: "90vh",
+            },
             backgroundImage: `url(${careers})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0% 100%)",
-           
+            clipPath: {
+              xs: "polygon(0 40%, 100% 0, 100% 100%, 0% 100%)", // mobile scaled down
+              sm: "polygon(0 45%, 100% 0, 100% 100%, 0% 100%)", // tablet
+              md: "polygon(0 50%, 100% 0, 100% 100%, 0% 100%)", // desktop
+            },
           }}
         />
-        
 
-        {/* 🔥 TRANSFORM SECTION (Right side animation) */}
         <Box
           ref={refTransform}
           sx={{
@@ -118,44 +122,30 @@ export default function WebDevelopment() {
             flexDirection: { xs: "column", md: "row" },
             alignItems: "center",
             justifyContent: "space-between",
-            px: { xs: 3, md: 8 },
-            py: { xs: 6, md: 10 },
-            gap: 4,
-            
+            px: { xs: 2, sm: 3, md: 8 },
+            py: { xs: 5, sm: 6, md: 10 },
+            gap: { xs: 4, md: 6 },
           }}
         >
-          {/* <Box sx={{ flex: 1 }}>
-            <Typography
-              variant="h2"
-              fontWeight={800}
-              sx={{
-                fontSize: { xs: "2rem", md: "3rem" },
-                lineHeight: 1.2,
-              }}
-            >
-              Transform Your <br /> Digital Journey
-            </Typography>
-          </Box> */}
-          
- < Typography
-    variant="h2"
-    fontWeight={800} 
-    sx={{
-      fontSize: {
-        xs: "2rem",        // mobile
-        sm: "2.5rem",      // small tablets
-        md: "3rem",        // desktop
-        lg: "3.5rem",     // large screens
-      },
-      lineHeight: 1.2,
-    }}
-  >
-    Transform Your <br /> Digital Journey
-  </Typography>
+          {/* LEFT TITLE */}
+          <Typography
+            fontWeight={800}
+            sx={{
+              fontSize: {
+                xs: "1.8rem", // mobile
+                sm: "2.3rem", // tablets
+                md: "3rem", // desktop
+                lg: "3.5rem", // large
+              },
+              lineHeight: 1.15,
+              textAlign: { xs: "center", md: "left" },
+              maxWidth: { xs: "100%", md: "45%" },
+            }}
+          >
+            Transform Your <br /> Digital Journey
+          </Typography>
 
-
-
-          {/* 🔥 Right content animation */}
+          {/* RIGHT CONTENT */}
           <motion.div
             initial={{ opacity: 0, x: 80 }}
             animate={
@@ -165,11 +155,12 @@ export default function WebDevelopment() {
             style={{ flex: 1 }}
           >
             <Typography
-              variant="body1"
               sx={{
-                fontSize: { xs: "1rem", md: "1.2rem" },
+                fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.2rem" },
                 color: "text.secondary",
-                lineHeight: 1.6,ml:10
+                lineHeight: 1.7,
+                ml: { xs: 0, md: 10 }, // 🔥 mobile fix
+                textAlign: { xs: "center", md: "left" },
               }}
             >
               We combine innovation, design thinking, and advanced technology to
@@ -180,22 +171,20 @@ export default function WebDevelopment() {
           </motion.div>
         </Box>
 
-        {/* OUR EXPERTISE SECTION */}
         <Box
           sx={{
             bgcolor: "white",
-            py: { xs: 6, md: 10 },
-            px: { xs: 3, md: 8 },
+            py: { xs: 5, sm: 6, md: 10 },
+            px: { xs: 2, sm: 3, md: 8 },
             textAlign: "center",
           }}
         >
           <AnimatedBox delay={0.2}>
             <Typography
-              variant="h3"
               fontWeight={800}
               sx={{
-                fontSize: { xs: "2rem", md: "2.5rem" },
-                mb: 6,
+                fontSize: { xs: "1.7rem", sm: "2rem", md: "2.5rem" },
+                mb: { xs: 4, md: 6 },
                 position: "relative",
                 display: "inline-block",
                 "&::after": {
@@ -214,12 +203,17 @@ export default function WebDevelopment() {
             </Typography>
           </AnimatedBox>
 
+          {/* GRID */}
           <Box
             sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: 4,
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "1fr 1fr",
+                md: "repeat(4, 1fr)",
+              },
+              gap: { xs: 3, sm: 4 },
+              alignItems: "stretch",
             }}
           >
             {expertiseList.map((item, index) => (
@@ -232,46 +226,13 @@ export default function WebDevelopment() {
                     : { opacity: 0, y: 40 }
                 }
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                style={{ flex: "1 1 22%" }}
+                style={{ height: "100%" }}
               >
-                {/* <Card
-                  sx={{
-                    borderRadius: "16px",
-                    boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    "&:hover": {
-                      transform: "translateY(-8px)",
-                      boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
-                    },
-                  }}
-                >
-                  <CardContent sx={{ p: 4 }}>
-                    <Typography
-                      variant="h6"
-                      fontWeight={700}
-                      sx={{ mb: 1, fontSize: "1.1rem" }}
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: "text.secondary",
-                        fontSize: "0.9rem",
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {item.desc}
-                    </Typography>
-                  </CardContent>
-                </Card> */}
                 <Card
                   sx={{
-                    flex: 1,
+                    height: "100%",
                     borderRadius: "16px",
                     boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
-                    flexDirection: "column", // make content vertical
-    height: "100%",
                     transition: "transform 0.3s ease, box-shadow 0.3s ease",
                     "&:hover": {
                       transform: "translateY(-8px)",
@@ -279,23 +240,30 @@ export default function WebDevelopment() {
                     },
                   }}
                 >
-                  <CardContent sx={{ p: 4 }}>
+                  <CardContent
+                    sx={{
+                      p: { xs: 3, md: 4 },
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "100%",
+                    }}
+                  >
                     <Typography
-                      variant="h6"
                       fontWeight={700}
                       sx={{
-                        fontSize: "1.1rem",
+                        fontSize: { xs: "1rem", md: "1.1rem" },
                         mb: 1,
                       }}
                     >
                       {item.title}
                     </Typography>
+
                     <Typography
-                      variant="body2"
                       sx={{
                         color: "text.secondary",
-                        fontSize: "0.9rem",
-                        lineHeight: 1.5,
+                        fontSize: { xs: "0.85rem", md: "0.9rem" },
+                        lineHeight: 1.6,
+                        flexGrow: 1,
                       }}
                     >
                       {item.desc}
@@ -308,20 +276,19 @@ export default function WebDevelopment() {
         </Box>
       </Box>
 
-      {/* 🔥 BUSINESS IMPACT SECTION (Left text + zoom image) */}
       <Box
         ref={refImpact}
         sx={{
           bgcolor: "#f9f9f9",
-          py: { xs: 6, md: 10 },
-          px: { xs: 3, md: 8 },
+          py: { xs: 5, sm: 6, md: 10 },
+          px: { xs: 2, sm: 3, md: 8 },
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
-          gap: 6,
+          gap: { xs: 4, md: 6 },
         }}
       >
-        {/* Left content */}
+        {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           animate={
@@ -331,10 +298,9 @@ export default function WebDevelopment() {
           style={{ flex: 1 }}
         >
           <Typography
-            variant="h3"
             fontWeight={800}
             sx={{
-              fontSize: { xs: "2rem", md: "2.5rem" },
+              fontSize: { xs: "1.8rem", sm: "2.1rem", md: "2.5rem" },
               mb: 3,
               position: "relative",
               display: "inline-block",
@@ -354,34 +320,39 @@ export default function WebDevelopment() {
           </Typography>
 
           <Typography
-            variant="body1"
             sx={{
               color: "text.secondary",
-              fontSize: "1.05rem",
+              fontSize: { xs: "0.95rem", md: "1.05rem" },
               lineHeight: 1.7,
               mb: 3,
+              maxWidth: "600px",
             }}
           >
-            Web development helps businesses build a strong online presence, connect with customers globally, and deliver smooth, user-friendly experiences. A well-designed 
-            website boosts brand credibility and makes it easier for users to explore products and services.
+            Web development helps businesses build a strong online presence,
+            connect with customers globally, and deliver smooth, user-friendly
+            experiences. A well-designed website boosts brand credibility and
+            makes it easier for users to explore products and services.
           </Typography>
+
           <Typography
-            variant="body1"
             sx={{
               color: "text.secondary",
-              fontSize: "1.05rem",
+              fontSize: { xs: "0.95rem", md: "1.05rem" },
               lineHeight: 1.7,
               mb: 3,
+              maxWidth: "600px",
             }}
           >
-            Modern web solutions streamline operations with automation, secure integrations, and real-time insights. They also improve conversions, expand market reach, 
-            and support measurable business growth through smart design and optimized performance.
+            Modern web solutions streamline operations with automation, secure
+            integrations, and real-time insights. They also improve conversions,
+            expand market reach, and support measurable business growth through
+            smart design and optimized performance.
           </Typography>
 
           <Button
             variant="contained"
             sx={{
-              mt: 6,
+              mt: { xs: 3, md: 6 },
               px: 4,
               py: 1.5,
               borderRadius: "30px",
@@ -399,7 +370,7 @@ export default function WebDevelopment() {
           </Button>
         </motion.div>
 
-        {/* 🔥 Image zoom animation */}
+        {/* RIGHT IMAGE */}
         <motion.img
           src={impactImg}
           alt="Business Impact"
@@ -407,10 +378,9 @@ export default function WebDevelopment() {
           animate={isImpactInView ? { scale: [1, 1.05, 1] } : {}}
           transition={{ duration: 3, ease: "easeInOut" }}
           style={{
-            width: "35%",
-            // borderRadius: "16px",
-            // boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-            // objectFit: "cover",
+            width: "100%",
+            maxWidth: "420px",
+            marginTop: "10px",
           }}
         />
       </Box>

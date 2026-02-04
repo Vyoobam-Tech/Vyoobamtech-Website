@@ -11,14 +11,14 @@ import kt from "../assets/kt.jpg";
 import lakshu from "../assets/lakshu.png";
 import cheliyan from "../assets/cheliyan.png";
 import janu from "../assets/janu.png";
-import seva from "../assets/seva.jpg"
+import seva from "../assets/seva.jpg";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { AnimatedBox } from "./AnimatedBox";
 import woman from "../assets/client1.jpeg";
-import man from "../assets/client2.jpeg"
+import man from "../assets/client2.jpeg";
 
-const brandLogos = [hari, lakshu, cheliyan, hari2, kt,seva, janu];
+const brandLogos = [hari, lakshu, cheliyan, hari2, kt, seva, janu];
 
 const testimonials = [
   {
@@ -39,19 +39,21 @@ const TestimonialSlider = () => {
   return (
     <Box
       sx={{
-        py: 10,
+        py: { xs: 6, md: 10 },
         backgroundColor: "#fffffff8",
         textAlign: "center",
         overflow: "hidden",
-        // important to hide overflow scroll
       }}
     >
-      {/* ✅ Logo Scrolling Container */}
+      {/* 🔹 Logo Scrolling */}
       <Box
         sx={{
           whiteSpace: "nowrap",
           display: "inline-block",
-          animation: "scrollLeft 25s linear infinite", // animation
+          animation: {
+            xs: "scrollLeft 35s linear infinite",
+            md: "scrollLeft 25s linear infinite",
+          },
         }}
       >
         {brandLogos.concat(brandLogos).map((logo, idx) => (
@@ -61,15 +63,13 @@ const TestimonialSlider = () => {
             src={logo}
             alt={`brand-logo-${idx}`}
             sx={{
-              height: 80,
-              width: 200,
+              height: { xs: 45, sm: 60, md: 80 },
+              width: { xs: 120, sm: 150, md: 200 },
               objectFit: "contain",
-              mx: 4,
+              mx: { xs: 2, md: 4 },
               display: "inline-block",
-              filter: "grayscale(0%)",
               transition: "all 0.3s ease-in-out",
               "&:hover": {
-                filter: "grayscale(0%)",
                 transform: "scale(1.1)",
               },
             }}
@@ -77,7 +77,7 @@ const TestimonialSlider = () => {
         ))}
       </Box>
 
-      {/* ✅ Keyframes for scrolling */}
+      {/* Keyframes */}
       <style>
         {`
           @keyframes scrollLeft {
@@ -87,28 +87,34 @@ const TestimonialSlider = () => {
         `}
       </style>
 
-      {/* Testimonial Section */}
+      {/* Heading */}
       <AnimatedBox>
-        <Typography variant="h2" color="black" gutterBottom mt={5} mb={5}>
+        <Typography
+          sx={{
+            mt: { xs: 4, md: 5 },
+            mb: { xs: 4, md: 5 },
+            fontWeight: 600,
+            fontSize: "clamp(26px, 4vw, 40px)",
+            color: "#000",
+          }}
+        >
           Our Clients Say
         </Typography>
       </AnimatedBox>
+
+      {/* 🔹 Testimonial Slider */}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        navigation={{
-          nextEl: ".swiper-button-next-custom",
-          prevEl: ".swiper-button-prev-custom",
-        }}
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000 }}
-        loop={true}
+        loop
         speed={800}
-        spaceBetween={50}
+        spaceBetween={30}
         slidesPerView={1}
         style={{
-          maxWidth: "800px",
+          maxWidth: "900px",
           margin: "0 auto",
-          padding: "0 20px",
+          padding: "0 16px",
         }}
       >
         {testimonials.map((testimonial, index) => (
@@ -116,83 +122,49 @@ const TestimonialSlider = () => {
             <Box
               sx={{
                 backgroundColor: "#fff",
-                borderRadius: "12px",
-                boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
-                px: 4,
-                py: 6,
+                borderRadius: "16px",
+                boxShadow: {
+                  xs: "0 4px 12px rgba(0,0,0,0.08)",
+                  md: "0 6px 18px rgba(0,0,0,0.12)",
+                },
+                px: { xs: 3, md: 5 },
+                py: { xs: 4, md: 6 },
               }}
             >
-              
-                <Avatar
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  sx={{ width: 150, height: 150,  mx: "auto",
-    mb: 3, }}
-                />
-              
+              <Avatar
+                src={testimonial.image}
+                alt={testimonial.name}
+                sx={{
+                  width: { xs: 90, sm: 120, md: 150 },
+                  height: { xs: 90, sm: 120, md: 150 },
+                  mx: "auto",
+                  mb: 3,
+                }}
+              />
+
               <Typography
-                variant="body1"
                 sx={{
                   fontStyle: "italic",
                   color: "#374151",
+                  fontSize: { xs: "14px", md: "16px" },
                   mb: 2,
+                  lineHeight: 1.6,
                 }}
               >
                 "{testimonial.text}"
               </Typography>
 
-              <Typography variant="subtitle1" fontWeight="bold">
+              <Typography
+                sx={{
+                  fontWeight: 600,
+                  fontSize: { xs: "15px", md: "16px" },
+                }}
+              >
                 {testimonial.name}
               </Typography>
             </Box>
           </SwiperSlide>
         ))}
-
-        {/* Navigation buttons */}
-        {/* <Box
-          className="swiper-button-prev-custom"
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: 0,
-            transform: "translateY(-50%)",
-            zIndex: 10,
-            background: "#fff",
-            borderRadius: "50%",
-            width: 40,
-            height: 40,
-            boxShadow: 2,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#00b2ff",
-            cursor: "pointer",
-          }}
-        >
-          <NavigateBeforeIcon />
-        </Box>
-        <Box
-          className="swiper-button-next-custom"
-          sx={{
-            position: "absolute",
-            top: "50%",
-            right: 0,
-            transform: "translateY(-50%)",
-            zIndex: 10,
-            background: "#fff",
-            borderRadius: "50%",
-            width: 40,
-            height: 40,
-            boxShadow: 2,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#00b2ff",
-            cursor: "pointer",
-          }}
-        >
-          <NavigateNextIcon />
-        </Box> */}
       </Swiper>
     </Box>
   );
