@@ -7,7 +7,7 @@ const CoreValues = () => {
       sx={{
         px: { xs: 2, sm: 4, md: 10 },
         py: { xs: 6, md: 10 },
-        backgroundColor: "#0f022a",
+        backgroundColor: "#043260",
       }}
     >
       <Box

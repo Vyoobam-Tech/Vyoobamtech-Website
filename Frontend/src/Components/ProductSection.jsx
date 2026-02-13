@@ -6,7 +6,6 @@ import { Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-// ✅ Lazy loading
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
@@ -55,22 +54,22 @@ const fadeIn = (delay = 0) => ({
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1.2, delay, ease: "easeOut" },
+    transition: { duration: 1.1, delay, ease: "easeOut" },
   },
 });
 
-const ProductSection = () => {
+export default function ProductSection() {
   const navigate = useNavigate();
 
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 8 },
-        px: { xs: 2, sm: 4, md: 5 },
+        py: "clamp(60px, 8vw, 100px)",
+        px: "clamp(16px, 5vw, 80px)",
         background: "#01061fff",
       }}
     >
-      {/* Heading */}
+      {/* ===== HEADING ===== */}
       <motion.div
         variants={fadeIn(0.2)}
         initial="hidden"
@@ -79,10 +78,9 @@ const ProductSection = () => {
       >
         <Typography
           sx={{
-            mb: { xs: 5, md: 9 },
-            mt: { xs: 2, md: 5 },
+            mb: "clamp(40px, 6vw, 80px)",
             fontWeight: 600,
-            fontSize: "clamp(26px, 4vw, 40px)",
+            fontSize: "clamp(26px, 4vw, 44px)", // 🔥 responsive heading
             textAlign: "center",
             background: "white",
             WebkitBackgroundClip: "text",
@@ -93,22 +91,21 @@ const ProductSection = () => {
         </Typography>
       </motion.div>
 
-      {/* Slider */}
+      {/* ===== SLIDER ===== */}
       <motion.div
-        variants={fadeIn(0.6)}
+        variants={fadeIn(0.5)}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <Swiper
           modules={[Navigation]}
-          spaceBetween={20}
           navigation
           loop
           breakpoints={{
             0: { slidesPerView: 1, spaceBetween: 16 },
             600: { slidesPerView: 2, spaceBetween: 18 },
-            900: { slidesPerView: 3, spaceBetween: 20 },
+            900: { slidesPerView: 3, spaceBetween: 22 },
           }}
         >
           {products.map((product) => (
@@ -116,7 +113,7 @@ const ProductSection = () => {
               <Box
                 sx={{
                   position: "relative",
-                  height: { xs: 300, sm: 340, md: 400 },
+                  height: "clamp(300px, 38vw, 420px)",
                   borderRadius: 2,
                   overflow: "hidden",
                   cursor: "pointer",
@@ -136,7 +133,7 @@ const ProductSection = () => {
                   },
                 }}
               >
-                {/* ✅ Lazy Loaded Image */}
+                {/* IMAGE */}
                 <LazyLoadImage
                   src={product.image}
                   alt={product.name}
@@ -151,7 +148,7 @@ const ProductSection = () => {
                   }}
                 />
 
-                {/* Default Title */}
+                {/* DEFAULT TITLE */}
                 <Box
                   className="default-title"
                   sx={{
@@ -159,7 +156,7 @@ const ProductSection = () => {
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    p: 2,
+                    p: "clamp(14px, 2vw, 20px)",
                     background:
                       "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
                   }}
@@ -168,14 +165,14 @@ const ProductSection = () => {
                     sx={{
                       color: "#fff",
                       fontWeight: 600,
-                      fontSize: { xs: "18px", md: "20px" },
+                      fontSize: "clamp(28px, 2.2vw, 22px)", // 🔥 responsive
                     }}
                   >
                     {product.name}
                   </Typography>
                 </Box>
 
-                {/* Overlay */}
+                {/* OVERLAY */}
                 <Box
                   className="overlay"
                   sx={{
@@ -184,7 +181,7 @@ const ProductSection = () => {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "flex-end",
-                    p: 2,
+                    p: "clamp(14px, 2vw, 22px)",
                     color: "#fff",
                     background:
                       "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2))",
@@ -196,11 +193,23 @@ const ProductSection = () => {
                     transition: "all 0.5s ease",
                   }}
                 >
-                  <Typography sx={{ fontWeight: 600, mb: 1 }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      mb: 1,
+                      fontSize: "clamp(28px, 2.2vw, 22px)", // 🔥 title
+                    }}
+                  >
                     {product.name}
                   </Typography>
 
-                  <Typography sx={{ fontSize: "14px", mb: 2 }}>
+                  <Typography
+                    sx={{
+                      fontSize: "clamp(18px, 1.4vw, 15px)", // 🔥 description
+                      lineHeight: 1.6,
+                      mb: 2,
+                    }}
+                  >
                     {product.description}
                   </Typography>
 
@@ -211,8 +220,9 @@ const ProductSection = () => {
                       alignSelf: "flex-start",
                       color: "#fff",
                       borderColor: "#fff",
-                      fontSize: "0.7rem",
+                      fontSize: "clamp(14px, 1vw, 12px)", // 🔥 button text
                       fontWeight: 600,
+                      letterSpacing: "0.05em",
                       textTransform: "uppercase",
                       "&:hover": {
                         backgroundColor: "#fff",
@@ -231,6 +241,4 @@ const ProductSection = () => {
       </motion.div>
     </Box>
   );
-};
-
-export default ProductSection;
+}

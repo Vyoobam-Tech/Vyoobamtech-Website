@@ -90,6 +90,7 @@ const ReusableComponent = ({
                 fontSize: "1rem",
                 background: "linear-gradient(90deg,#3f5eec,#00e4c9)",
                 textTransform: "none",
+                color:"#fff"
               }}
               onClick={() => navigate(explorePath)}
             >

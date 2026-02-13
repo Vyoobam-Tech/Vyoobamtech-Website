@@ -1,0 +1,124 @@
+ */
+        
+        .innovation-header {
+          max-width: 1400px;
+          margin: 0 auto 80px;
+        }
+        
+        .card-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.3;
+          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          filter: grayscale(0.3);
+        }
+        
+        .innovation-card:hover .card-image {
+          opacity: 0.4;
+          transform: scale(1.05);
+          filter: grayscale(0);
+        }
+        .innovation-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(48px, 6vw, 84px);
+          font-weight: 900;
+          margin: 0 0 24px 0;
+          color: #1a1a1a;
+          letter-spacing: -0.02em;
+          line-height: 1.1;
+          text-align: center;
+        }
+        
+        .innovation-description {
+          font-size: clamp(16px, 2vw, 20px);
+          line-height: 1.7;
+          color: #4a4a4a;
+          max-width: 900px;
+          font-weight: 400;
+            margin: 0 auto 48px;
+          text-align: center;
+          padding: 0 20px;
+        }
+        
+        .cards-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 32px;
+          padding-top:3%;
+        }
+        
+        .innovation-card {
+          position: relative;
+          aspect-ratio: 3/4;
+          border-radius: 4px;
+          padding: 48px 36px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .innovation-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-icon {
+          width: 100%;
+          height: 100%;
+          opacity: 0.9;
+          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .innovation-card:hover .card-icon {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        
+        .icon-path {
+          stroke-dasharray: 1000;
+          stroke-dashoffset: 1000;
+          animation: drawPath 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        @keyframes drawPath {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+        
+        .innovation-card:nth-child(2) .icon-path {
+          animation-delay: 0.2s;
+        }
+        
+        .innovation-card:nth-child(3) .icon-path {
+          animation-delay: 0.4s;
+        }
+        
+        .card-title {
+          font-size: clamp(24px, 3vw, 32px);
+          font-weight: 700;
+          letter-spacing: -0.01em;
+          line-height: 1.2;
+          margin: 0;
+          position: relative;
+          z-index: 2;
+        }
+        
+        @media (max-width: 768px) {
+          .cards-container {
+            grid-template-columns: 1fr;
+          }
+        }
+      .innovation-card:nth-child(3) .card-image {
+        top: -7px;   /* Adjust value as needed */
+}

@@ -52,7 +52,7 @@ const TestimonialSlider = () => {
           display: "inline-block",
           animation: {
             xs: "scrollLeft 35s linear infinite",
-            md: "scrollLeft 25s linear infinite",
+            md: "scrollLeft 10s linear infinite",
           },
         }}
       >

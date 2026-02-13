@@ -17,6 +17,7 @@ import image3 from "../assets/hero2.png";
 import { AnimatePresence } from "framer-motion";
 import Hero from "../Components/Hero";
 import Appcontainer from "../Components/Appcontainer";
+import Innovation from "../Components/Innovation";
 const Home = () => {
   const navigate = useNavigate();
   const serviceSectionRef = useRef(null);
@@ -361,7 +362,7 @@ const Home = () => {
           </Box>
         </Appcontainer>
       </Box>
-
+<Innovation/>
       <AboutUs />
 
       <ProductSection />

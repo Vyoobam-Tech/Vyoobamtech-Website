@@ -13,13 +13,13 @@ import Scroll from "./Components/Scroll.jsx";
 /* 🔥 LAZY IMPORTS */
 const Home = lazy(() => import("./Components/Home"));
 const About = lazy(() => import("./Components/About"));
-const Service = lazy(() => import("./Components/Service"));
+const Service = lazy(() => import("./Pages/Web.jsx"));
 const Contact = lazy(() => import("./Components/Contact"));
 
-const Mobile = lazy(() => import("./Components/Mobile.jsx"));
-const Ui = lazy(() => import("./Components/Ui.jsx"));
-const DataAnalytics = lazy(() => import("./Components/DataAnalytics.jsx"));
-const Consulting = lazy(() => import("./Components/Consulting.jsx"));
+const Mobile = lazy(() => import("./Pages/Mobile.jsx"));
+const Ui = lazy(() => import("./Pages/Ui.jsx"));
+const DataAnalytics = lazy(() => import("./Pages/Data.jsx"));
+const Consulting = lazy(() => import("./Pages/IT.jsx"));
 
 const AllProduct = lazy(() => import("./Components/AllProduct.jsx"));
 const AllServices = lazy(() => import("./Components/AllServices.jsx"));

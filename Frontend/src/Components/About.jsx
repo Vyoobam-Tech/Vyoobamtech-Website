@@ -8,13 +8,14 @@ import Timeline from "../Components/Timeline";
 import AboutCore from "./AboutCore";
 import Footer from "./Footer";
 import CTA from "./CTA";
-
+import Leader from "../Components/Leader";
 import teamMeetingImage from "../assets/aboutintro.jpg";
 import building from "../assets/building.jpg";
 import wave from "../assets/wave1.jpg";
 
 import { IoTelescopeSharp } from "react-icons/io5";
 import { TbTargetArrow } from "react-icons/tb";
+import Newtime from "../Components/Newtime";
 
 /* ================= LAZY BACKGROUND COMPONENT ================= */
 const LazyBackground = ({ image, children, sx = {} }) => {
@@ -283,7 +284,8 @@ const About = () => {
         </Box>
       </LazyBackground>
 
-      <Timeline />
+      <Newtime />
+        <Leader/>
       <AboutCore />
       <CTA />
       <Footer />
